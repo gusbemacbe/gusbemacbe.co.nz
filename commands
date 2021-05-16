@@ -1,0 +1,6 @@
+django-admin startproject trydjango .
+python manage.py startapp nome_do_aplicativo
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py createsuperuser
