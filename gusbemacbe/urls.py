@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 # Home page
-from pages.views import home_view
+from home.views import home_view
 
 urlpatterns = [
     path('', home_view, name = 'home'),
