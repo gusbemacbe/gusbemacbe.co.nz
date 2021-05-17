@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
 
+  {% load static %}
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/colours.css' %}">
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
-  {% load static %}
   {% if request.path == '/' %}
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
   {% else %}
@@ -20,8 +20,10 @@
 <body>
 {% include "navbar.html" %}
 
-{% block content %}
-{% endblock %}
+<div class="container">
+  {% block content %}
+  {% endblock %}
+</div>
   
 </body>
 </html>

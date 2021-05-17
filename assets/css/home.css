@@ -1,0 +1,124 @@
+h1
+{
+  font-size: 26px;
+  font-weight: bold;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+h1, p
+{
+  text-align: center;
+}
+
+h1, h2
+{
+  color: var(--pink-light);
+}
+
+p
+{
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
+.card-gallery
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 50px;
+}
+
+.card-gallery .card
+{
+  
+  background-color: #493662;
+  border: 30px solid var(--cyan-grey-light);
+  border-bottom: 21px solid var(--cyan-grey-light);
+  border-left: 5px solid var(--cyan-grey-light);
+  border-right: 5px solid var(--cyan-grey-light);
+  box-shadow: 0px 0px 8px var(--cyan-light);
+  /* clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px) calc(100% - 10px), calc(80% - 15px) 100%, 80px calc(100% - 0px), 65px calc(100% - 15px), 0% calc(100% - 15px)); */
+  clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 0px) calc(100% - 0px), 400px calc(100% - 0px), 375px calc(100% - 15px), 0% calc(100% - 15px));
+  padding: 35px;
+  /* padding: 30px 15px 30px; */
+  position: relative;
+}
+
+.card-gallery .card:before {
+  display: block;
+  position: absolute;
+  bottom: -12px;
+  right: 25px;
+  padding: 2px 2px 0px 2px;
+  line-height: 0.6rem;
+  background-color: #493662;
+  border-left: 2px solid var(--cyan-grey-light);
+}
+
+.card-gallery .card .sample
+{
+  background-color: var(--cyan-grey-light);
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+}
+
+.card-gallery .card h2
+{
+  font-size: 18px;
+  padding-bottom: 35px;
+  padding-top: 35px;
+}
+
+.card-gallery .card p
+{
+  font-size: 14px;
+  line-height: 150%;
+  text-align: left;
+  padding-bottom: 35px;
+}
+
+.cyberpunk {
+  padding: 30px 15px 30px;
+  border: 30px solid #000;
+  border-right: 5px solid #000;
+  border-left: 5px solid #000;
+  border-bottom: 24px solid #000;
+  padding: 5px;
+  clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px) calc(100% - 10px), calc(80% - 15px) 100%, 80px calc(100% - 0px), 65px calc(100% - 15px), 0% calc(100% - 15px));
+  background-color: var(--yellow-color);
+  font-size: 1.2rem;
+  position: relative;
+}
+
+.cyberpunk.inverse {
+  border: none;
+  padding: 40px 15px 30px;
+  clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px) calc(100% - 10px), calc(80% - 15px) 100%, 80px calc(100% - 0px), 65px calc(100% - 15px), 0% calc(100% - 15px));
+  background-color: #000;
+  color: var(--yellow-color);
+  border-right: 3px solid var(--border-color);
+}
+
+.cyberpunk:before {
+  content: "P-14";
+  display: block;
+  position: absolute;
+  bottom: -12px;
+  right: 25px;
+  padding: 2px 2px 0px 2px;
+  font-size: 0.6rem;
+  line-height: 0.6rem;
+  color: #000;
+  background-color: var(--yellow-color);
+  border-left: 2px solid var(--border-color);
+}
+
+.cyberpunk.inverse:before {
+  content: "T-71";
+  right:90px;
+  bottom: 9px;
+}

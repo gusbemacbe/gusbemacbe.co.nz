@@ -1,23 +1,22 @@
 :root
 {
-  indigo-default:    #360E60;
-  indigo-dark:       #240A40;
-  indigo-medium:     #481380;
-  indigo-light:      #731ECC;
+  --indigo-default:    rgba(54, 14, 96, 1);
+  --indigo-dark:       rgba(36, 10, 64, 1);
+  --indigo-medium:     rgba(72, 19, 128, 1);
+  --indigo-light:      rgba(115, 30, 204, 1);
 
-  pink-default:      #A43E6E;
-  pink-dark:         #6E2A4A;
-  pink-medium:       #DB5393;
-  pink-light:        #E275A9;
+  --pink-default:      rgba(164, 62, 110, 1);
+  --pink-dark:         rgba(110, 42, 74, 1);
+  --pink-medium:       rgba(219, 83, 147, 1);
+  --pink-light:        rgba(226, 117, 169, 1);
 
-  cyan-default:      #4DC0F6;
-  cyan-dark:         #13303E;
-  cyan-medium:       #3A90B9;
-  cyan-light:        #71CDF8;
+  --cyan-default:      rgba(77, 192, 246, 1);
+  --cyan-dark:         rgba(19, 48, 62, 1);
+  --cyan-medium:       rgba(58, 144, 185, 1);
+  --cyan-light:        rgba(113, 205, 248, 1);
 
-  cyan-grey-default: #C6D8D9;
-  cyan-grey-dark:    #313636;
-  cyan-grey-medium:  #636C6D;
-  cyan-grey-light:   #DDE8E8;
-
+  --cyan-grey-default: rgba(198, 216, 217, 1);
+  --cyan-grey-dark:    rgba(49, 54, 54, 1);
+  --cyan-grey-medium:  rgba(99, 108, 109, 1);
+  --cyan-grey-light:   rgba(221, 232, 232, 1);
 }

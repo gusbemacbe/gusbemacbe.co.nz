@@ -4,7 +4,7 @@
   font-family: "Exo 2";
   font-style: normal;
   font-weight: 200;
-  src: url("../fonts/Exo 2/Exo 2 Light.otf") format("otf");
+  src: url("../fonts/Exo 2/Exo 2 Light.otf") format("opentype");
 }
 
 @font-face
@@ -13,7 +13,7 @@
   font-family: "Exo 2";
   font-style: italic;
   font-weight: 200;
-  src: url("../fonts/Exo 2/Exo 2 Light Italic.otf") format("otf");
+  src: url("../fonts/Exo 2/Exo 2 Light Italic.otf") format("opentype");
 }
 
 @font-face
@@ -22,7 +22,7 @@
   font-family: "Exo 2";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/Exo 2/Exo 2 Medium.otf") format("otf");
+  src: url("../fonts/Exo 2/Exo 2 Medium.otf") format("opentype");
 }
 
 @font-face
@@ -31,7 +31,7 @@
   font-family: "Exo 2";
   font-style: italic;
   font-weight: normal;
-  src: url("../fonts/Exo 2/Exo 2 Medium Italic.otf") format("otf");
+  src: url("../fonts/Exo 2/Exo 2 Medium Italic.otf") format("opentype");
 }
 
 @font-face
@@ -90,7 +90,7 @@
 
 :root
 {
-  --body: var(--subtitle);
+  --body: "Exo 2", sans-serif;
   --code: "Muar", monospace;
   --code-2: "Polyline", monospace;
   --title: "Syncopate", sans-serif;

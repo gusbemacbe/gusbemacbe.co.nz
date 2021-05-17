@@ -58,6 +58,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+MIDDLEWARE += ['tidy.middleware.TidyMiddleware']
+
 ROOT_URLCONF = 'gusbemacbe.urls'
 
 TEMPLATES = [
