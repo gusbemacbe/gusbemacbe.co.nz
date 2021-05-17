@@ -1,0 +1,23 @@
+:root
+{
+  indigo-default:    #360E60;
+  indigo-dark:       #240A40;
+  indigo-medium:     #481380;
+  indigo-light:      #731ECC;
+
+  pink-default:      #A43E6E;
+  pink-dark:         #6E2A4A;
+  pink-medium:       #DB5393;
+  pink-light:        #E275A9;
+
+  cyan-default:      #4DC0F6;
+  cyan-dark:         #13303E;
+  cyan-medium:       #3A90B9;
+  cyan-light:        #71CDF8;
+
+  cyan-grey-default: #C6D8D9;
+  cyan-grey-dark:    #313636;
+  cyan-grey-medium:  #636C6D;
+  cyan-grey-light:   #DDE8E8;
+
+}
