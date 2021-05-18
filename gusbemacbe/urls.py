@@ -19,10 +19,17 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from gusbemacbe import settings
+
 # Home page
 from home.views import home_view
 
 urlpatterns = [
     path('', home_view, name = 'home'),
     path('admin/', admin.site.urls),
-] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+

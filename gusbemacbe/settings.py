@@ -152,13 +152,13 @@ STATICFILES_DIRS = (
 )
 
 # PROJECT
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/assets/'    
+# STATIC_ROOT = 'staticfiles'
+# STATIC_URL = '/assets/'    
 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, '../assets'),
-]
+# # Extra places for collectstatic to find static files.
+# STATICFILES_DIRS = [
+#     os.path.join(PROJECT_ROOT, '../assets'),
+# ]
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
