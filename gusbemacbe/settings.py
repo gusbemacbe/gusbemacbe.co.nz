@@ -51,9 +51,14 @@ INSTALLED_APPS = [
     'sslserver',
 ]
 
+MIDDLEWARE_CLASSES = (
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+)
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,12 +152,12 @@ STATICFILES_DIRS = (
 )
 
 # PROJECT
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/assets/'    
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = [
-    os.path.join(PROJECT_ROOT, 'assets'),
+    os.path.join(PROJECT_ROOT, '../assets'),
 ]
 
 #  Add configuration for static files storage using whitenoise

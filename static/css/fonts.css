@@ -1,0 +1,98 @@
+@font-face
+{
+  font-display: swap;
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Exo 2/Exo 2 Light.otf") format("opentype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Exo 2";
+  font-style: italic;
+  font-weight: 200;
+  src: url("../fonts/Exo 2/Exo 2 Light Italic.otf") format("opentype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Exo 2/Exo 2 Medium.otf") format("opentype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Exo 2";
+  font-style: italic;
+  font-weight: normal;
+  src: url("../fonts/Exo 2/Exo 2 Medium Italic.otf") format("opentype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Exo 2";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/Exo 2/Exo 2 Bold.otf") format("opentype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Exo 2";
+  font-style: italic;
+  font-weight: bold;
+  src: url("../fonts/Exo 2/Exo 2 Bold Italic.otf") format("opentype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Muar Stencil";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Muar/Muar Stencil.ttf") format("truetype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Polyline";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Polyline/Polyline Regular.ttf") format("truetype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Syncopate";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Syncopate/Syncopate Regular.ttf") format("truetype");
+}
+
+@font-face
+{
+  font-display: swap;
+  font-family: "Syncopate";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/Syncopate/Syncopate Bold.ttf") format("truetype");
+}
+
+:root
+{
+  --body: "Exo 2", sans-serif;
+  --code: "Muar", monospace;
+  --code-2: "Polyline", monospace;
+  --title: "Syncopate", sans-serif;
+  --subtitle: "Exo 2", sans-serif;
+}
