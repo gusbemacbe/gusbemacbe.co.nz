@@ -143,7 +143,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # BASE
-STATIC_ROOT    = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT    = os.path.join(BASE_DIR, 'assets')
 STATIC_URL     = '/assets/'
 
 # Extra lookup directories for collectstatic to find static files
