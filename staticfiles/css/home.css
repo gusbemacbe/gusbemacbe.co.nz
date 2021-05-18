@@ -1,4 +1,36 @@
-h1
+body 
+{
+  background-image: url("../images/wallpapers/cyberpunk-1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+}
+
+body::after 
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.75);
+}
+
+body > * 
+{
+  position: relative;
+  z-index: 1;
+}
+
+.hero 
+{
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.hero h1
 {
   font-size: 26px;
   font-weight: bold;
@@ -7,20 +39,20 @@ h1
   text-align: center;
 }
 
-h1, p
+.hero h1, p
 {
   text-align: center;
+}
+
+.hero p
+{
+  font-size: 20px;
+  padding-bottom: 50px;
 }
 
 h1, h2
 {
   color: var(--pink-light);
-}
-
-p
-{
-  font-size: 20px;
-  padding-bottom: 50px;
 }
 
 .card-gallery
@@ -30,26 +62,6 @@ p
   grid-template-rows: repeat(2, auto);
   grid-gap: 50px;
   padding-bottom: 50px;
-}
-
-.card-gallery:after
-{
-  background: #000;
-  /* bottom: 0px; */
-  bottom: 0px;
-  bottom: -442px;
-  clip-path: polygon(0% 0%, 22% 0%, calc(22% + 30px) 30px, 52% 30px, calc(52% + 15px) 15px, 70% 15px, calc(70% + 15px) 30px, 90% 30px, calc(90% + 30px) 0px, 100% 0px, 100% 30px, 0px 30px);
-  content: " ";
-  display: block;
-  height: 30px;
-  left: 0px;
-  position: absolute;
-  width: 100%;
-}
-
-.card-gallery:after 
-{
-  background: var(--indigo-dark);
 }
 
 .card-gallery .card
@@ -66,18 +78,6 @@ p
   padding: 35px;
   position: relative;
 }
-
-/* .card-gallery .card:before 
-{
-  background-color: #493662;
-  border-left: 2px solid var(--cyan-grey-light);
-  bottom: -12px;
-  display: block;
-  line-height: 0.6rem;
-  padding: 2px 2px 0px 2px;
-  position: absolute;
-  right: 25px;
-} */
 
 .card-gallery .card .sample
 {
@@ -112,7 +112,7 @@ p
   margin-top: -1px;
 }
 
-.first-section-cyberpunk:after
+.first-section-cyberpunk::after
 {
   background: var(--cyan-grey-dark);
   bottom: 0px;
@@ -125,12 +125,12 @@ p
   width: 100%;
 }
 
-.first-section-cyberpunk.black:after 
+.first-section-cyberpunk.black::after 
 {
   background: var(--indigo-dark);
 }
 
-.first-section-cyberpunk:before
+.first-section-cyberpunk::before
 {
   background: var(--cyan-grey-dark);
   bottom: 100%;
