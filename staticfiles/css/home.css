@@ -1,0 +1,268 @@
+h1
+{
+  font-size: 26px;
+  font-weight: bold;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+h1, p
+{
+  text-align: center;
+}
+
+h1, h2
+{
+  color: var(--pink-light);
+}
+
+p
+{
+  font-size: 20px;
+  padding-bottom: 50px;
+}
+
+.card-gallery
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 50px;
+  padding-bottom: 50px;
+}
+
+.card-gallery:after
+{
+  background: #000;
+  /* bottom: 0px; */
+  bottom: 0px;
+  bottom: -442px;
+  clip-path: polygon(0% 0%, 22% 0%, calc(22% + 30px) 30px, 52% 30px, calc(52% + 15px) 15px, 70% 15px, calc(70% + 15px) 30px, 90% 30px, calc(90% + 30px) 0px, 100% 0px, 100% 30px, 0px 30px);
+  content: " ";
+  display: block;
+  height: 30px;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+.card-gallery:after 
+{
+  background: var(--indigo-dark);
+}
+
+.card-gallery .card
+{
+  
+  background-color: #493662;
+  border: 30px solid var(--cyan-grey-light);
+  border-bottom: 21px solid var(--cyan-grey-light);
+  border-left: 5px solid var(--cyan-grey-light);
+  border-right: 5px solid var(--cyan-grey-light);
+  box-shadow: 0px 0px 8px var(--cyan-light);
+  /* clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px) calc(100% - 10px), calc(80% - 15px) 100%, 80px calc(100% - 0px), 65px calc(100% - 15px), 0% calc(100% - 15px)); */
+  clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 0px) calc(100% - 0px), 400px calc(100% - 0px), 375px calc(100% - 15px), 0% calc(100% - 15px));
+  padding: 35px;
+  position: relative;
+}
+
+.card-gallery .card:before 
+{
+  background-color: #493662;
+  border-left: 2px solid var(--cyan-grey-light);
+  bottom: -12px;
+  display: block;
+  line-height: 0.6rem;
+  padding: 2px 2px 0px 2px;
+  position: absolute;
+  right: 25px;
+}
+
+.card-gallery .card .sample
+{
+  background-color: var(--cyan-grey-light);
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+}
+
+.card-gallery .card h2
+{
+  font-size: 18px;
+  padding-bottom: 35px;
+  padding-top: 35px;
+}
+
+.card-gallery .card p
+{
+  font-size: 14px;
+  line-height: 150%;
+  text-align: left;
+  padding-bottom: 35px;
+}
+
+.first-section-cyberpunk 
+{
+  background: var(--indigo-dark);
+  color: var(--cyan-grey-light);
+  padding: 60px 60px;
+  position: relative;
+  margin-bottom: -1px;
+  margin-top: -1px;
+}
+
+.first-section-cyberpunk:after
+{
+  background: var(--cyan-grey-dark);
+  bottom: 0px;
+  clip-path: polygon(0% 0%, 22% 0%, calc(22% + 30px) 30px, 52% 30px, calc(52% + 15px) 15px, 70% 15px, calc(70% + 15px) 30px, 90% 30px, calc(90% + 30px) 0px, 100% 0px, 100% 30px, 0px 30px);
+  content: " ";
+  display: block;
+  height: 30px;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+.first-section-cyberpunk.black:after 
+{
+  background: var(--indigo-dark);
+}
+
+/* .first-section-cyberpunk:before
+{
+  background-color: yellow;
+  clip-path: polygon(calc(22% + 28px) -1px, calc(22% + 45px) 15px, 34% 15px, calc(34% + 15px) -1px, 70% 0px);
+  content: " ";
+  display: block;
+  height: 30px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+*/
+
+.first-section-cyberpunk .container
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 50px;
+  justify-items: center;
+  padding-bottom: 50px;
+}
+
+.first-section-cyberpunk img
+{
+  background: linear-gradient(90deg, var(--pink-medium) 0%, var(--indigo-medium) 100%);
+  border: 4px solid var(--cyan-grey-light);
+  box-shadow: 0px 4px 17px rgba(113, 205, 248, 0.25), 0px 0.500862px 2.12866px rgba(113, 205, 248, 0.15);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 230px;
+  width: 320px;
+}
+
+.first-section-cyberpunk p
+{
+  color: var(--cyan-grey-light);
+  font-size: 20px;
+  line-height: 150%;
+  padding-top: 15px;
+  text-align: left;
+}
+
+.form-cyberpunk 
+{
+  background: var(--cyan-grey-dark);
+  color: var(--cyan-grey-light);
+  padding: 60px 60px;
+  position: relative;
+  margin-bottom: -1px;
+  margin-top: -1px;
+}
+
+.form-cyberpunk::after
+{
+  background: var(--indigo-dark);
+  bottom: 0px;
+  clip-path: polygon(0% 0%, 22% 0%, calc(22% + 30px) 30px, 52% 30px, calc(52% + 15px) 15px, 70% 15px, calc(70% + 15px) 30px, 90% 30px, calc(90% + 30px) 0px, 100% 0px, 100% 30px, 0px 30px);
+  content: " ";
+  display: block;
+  height: 30px;
+  left: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+.form-cyberpunk form .group
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, auto);
+  grid-gap: 50px;
+  padding-bottom: 50px;
+}
+
+.form-cyberpunk form input[type="mail"],
+.form-cyberpunk form input[type="text"]
+{
+  width: calc(100% - 30px);
+  border: 30px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 15px solid #000;
+  /* clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  ); */
+  clip-path: polygon(
+    0px 25px,
+    26px 0px,
+    calc(60% - 25px) 0px,
+    60% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    calc(80% - 15px) calc(100% - 0px),
+    10px calc(100% - 0px),
+    0% calc(100% - 10px)
+  );
+  margin-bottom: 10px;
+  padding: 12px;
+}
+
+.form-cyberpunk form textarea 
+{
+  width: calc(100% - 30px);
+  border: 30px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 15px solid #000;
+  clip-path: polygon(
+    0px 25px,
+    520px 25px,
+    560px 0px,
+    calc(100% - 25px) 0px,
+    100% 25px,
+    100% 25px,
+    100% calc(100% - 10px),
+    calc(100% - 15px) calc(100% - 10px),
+    calc(80% - 10px) calc(100% - 10px),
+    0px calc(100% - 10px)
+  );
+  margin-bottom: 10px;
+  padding: 12px;
+}
