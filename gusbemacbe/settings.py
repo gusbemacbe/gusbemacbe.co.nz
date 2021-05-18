@@ -11,26 +11,23 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 import os
-from pathlib import Path
-
-# Configure Django app for Heroku.
+import dj_database_url
 import django_heroku
-# Activate django-heroku.
-django_heroku.settings(locals())
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = "{{ secret_key }}"
 SECRET_KEY = 'django-insecure-mo9u!l7aco7us1&%k^(0-*lwyhc=%9zc1l#5zw+k_r*x6rkp*3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ['gusbemacbe.herokuapp.com']
 
 # Application definition
 
@@ -41,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # Disable Django's own staticfiles handling in favour of WhiteNoise, for greater consistency between gunicorn and `./manage.py runserver`. See:
+    # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     # own
@@ -52,8 +52,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,6 +64,7 @@ MIDDLEWARE = [
 
 MIDDLEWARE += ['tidy.middleware.TidyMiddleware']
 
+# ROOT_URLCONF = '{{ project_name }}.urls'
 ROOT_URLCONF = 'gusbemacbe.urls'
 
 TEMPLATES = [
@@ -82,6 +83,7 @@ TEMPLATES = [
     },
 ]
 
+# WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
 
 # Database
@@ -93,7 +95,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -124,21 +125,36 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 
+db_from_env = dj_database_url.config(conn_max_age = 500)
+DATABASES['default'].update(db_from_env)
+
+# Change 'default' database configuration with $DATABASE_URL.
+DATABASES['default'].update(dj_database_url.config(conn_max_age = 500, ssl_require = True))
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# BASE
 STATIC_ROOT    = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
-
-STATIC_URL = '/assets/'
+STATIC_URL     = '/assets/'
 
 # Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )
 
-# STATICFILES_DIRS = (
-#     os.path.join(PROJECT_ROOT, 'assets'),
-# )
+# PROJECT
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_URL = '/static/'    
+
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_ROOT, 'static'),
+]
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -146,3 +162,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Activate django-heroku.
+django_heroku.settings(locals())
