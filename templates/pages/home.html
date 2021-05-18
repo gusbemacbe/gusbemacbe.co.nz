@@ -1,7 +1,7 @@
 {% extends '../base.html' %}
 
 {% block content %}
-  <h1>Gustavo Costa</h1>
+  {% comment %} <h1>Gustavo Costa</h1>
   <p>Um freelancer multidisciplinar surdo, multilíngue e especializado em desenvolvimento full-stack, design gráfico, ciência de computação e de dados e em tradução.</p>
 
   <div class="card-gallery">
@@ -29,7 +29,7 @@
       <p>Pellentesque egestas tristique volutpat massa hac, sapien praesent duis dui varius quisque nisl dolor diam primis blandit massa, est rutrum laoreet suspendisse commodo, vel nibh!</p>
       <a class="cyberpunk2077">ver mais_</a>
     </div>
-  </div>
+  </div> {% endcomment %}
 {% endblock %}
 
 {% block section %}
@@ -37,7 +37,7 @@
     <img class="cyberpunk" width="600" height="300" src="https://dummyimage.com/600x300/e31de3/fff" alt="" />
   </section> {% endcomment %}
 
-  <section class="first-section-cyberpunk">
+  {% comment %} <section class="first-section-cyberpunk">
     <div class="container">
       <img alt="sample section image" src="">
       <div>
@@ -63,5 +63,5 @@
         </label>
       </form>
     </div>
-  </section>
+  </section> {% endcomment %}
 {% endblock %}

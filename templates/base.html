@@ -20,10 +20,10 @@
 <body>
 {% include "navbar.html" %}
 
-<div class="container">
+{% comment %} <div class="container"> {% endcomment %}
   {% block content %}
   {% endblock %}
-</div>
+{% comment %} </div> {% endcomment %}
 
   {% block section %}
   {% endblock %}
