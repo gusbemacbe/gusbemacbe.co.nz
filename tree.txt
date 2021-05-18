@@ -1,0 +1,31 @@
+gusbemacbe.co.nz
+├── assets
+│   ├── css
+│   ├── fonts
+│   ├── images
+│   ├── js
+│   ├── json
+│   └── yaml
+├── commands
+├── db.sqlite3
+├── gusbemacbe
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── home
+│   ├── admin.py
+│   ├── apps.py
+│   ├── tests.py
+│   └── views.py
+├── LICENSE
+├── manage.py
+├── Procfile
+├── requirements.txt
+├── runtime.txt
+├── staticfiles
+├── templates
+    ├── base.html
+    ├── navbar.html
+    └── pages
+        └── home.html
