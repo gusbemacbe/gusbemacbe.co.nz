@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn gusbemacbe.wsgi
+web: gunicorn gusbemacbe.wsgi --log-file -

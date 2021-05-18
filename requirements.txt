@@ -1,11 +1,14 @@
 Django
+dj-database-url
 django-extensions
 django-heroku
 django-sslserver
 django-tidy
-djangorestframework
+# djangorestframework
 gunicorn
-ipychart
+# ipychart
 pandas
+psycopg2
+pytz
 whitenoise
 xlrd
