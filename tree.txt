@@ -18,12 +18,10 @@ gusbemacbe.co.nz
 │   ├── apps.py
 │   ├── tests.py
 │   └── views.py
-├── LICENSE
 ├── manage.py
 ├── Procfile
 ├── requirements.txt
 ├── runtime.txt
-├── staticfiles
 ├── templates
     ├── base.html
     ├── navbar.html
