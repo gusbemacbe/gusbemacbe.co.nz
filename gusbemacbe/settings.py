@@ -60,9 +60,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'tidy.middleware.TidyMiddleware',
 ]
-
-MIDDLEWARE += ['tidy.middleware.TidyMiddleware']
 
 # ROOT_URLCONF = '{{ project_name }}.urls'
 ROOT_URLCONF = 'gusbemacbe.urls'
