@@ -148,7 +148,7 @@ STATIC_URL     = '/assets/'
 
 # Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '../assets'),
+    os.path.join(BASE_DIR, 'assets'),
 )
 
 # PROJECT
