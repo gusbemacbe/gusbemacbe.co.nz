@@ -1,6 +1,7 @@
 {% extends '../base.html' %}
 
 {% block content %}
+{% load static %}
   <div class="container">
     <header class="hero">
       <h1>Gustavo Costa</h1>
@@ -16,25 +17,25 @@
     <div class="container">
       <div class="card-gallery">
         <div class="card">
-          <img alt="sample" class="sample">
+          <img alt="full-stack development" src="{% static 'images/icons/full-stack-development.svg' %}">
           <h2>Desenvolvimento Full-Stack</h2>
           <p>Posso desenvolver seus <i>sites</i> simples, médios e avançados, contendo uma página de administração e de painel de controlo a fim de adicionar, atualizar ou remover os objetos em puro HTML em puro JavaScript, ou em Go Hugo, Python Django, PHP MVC orientado a objeto ou Ruby Jekyll.</p>
           <a class="cyberpunk2077">ver mais_</a>
         </div>
         <div class="card">
-          <img alt="sample" class="sample">
+          <img alt="data science" src="{% static 'images/icons/data-science.svg' %}">
           <h2>Ciência de dados</h2>
           <p>Posso desenvolver um painel de controlo de infográfico de dados no seu site, utilizando Python Django e distribuído pelo <a href="https://www.chartjs.org/">Charts.js</a> com as bibliotecas <code>altar</code>, <code>ipychart</code> e <code>pandas</code>.</p>
           <a class="cyberpunk2077">ver mais_</a>
         </div>
         <div class="card">
-          <img alt="sample" class="sample">
+          <img alt="translation" src="{% static 'images/icons/translation.svg' %}">
           <h2>Tradução</h2>
           <p>Sou multilíngue, ou seja, sei 14 idiomas. Posso traduzir e utilizar a internacionalização ou a localização de i18n em Go Hugo ou Python Django ou PHP Laravel ou Ruby Jekyll para as páginas de seu <i>site</i>.</p>
           <a class="cyberpunk2077">ver mais_</a>
         </div>
         <div class="card">
-          <img alt="sample" class="sample">
+          <img alt="graphic design" src="{% static 'images/icons/graphic-design.svg' %}">
           <h2>Design gráfico</h2>
           <p>Desenvolvo as fontes (tipos de letra), e os <i>banners</i> com dimensões corretas de Facebook, Instagram, WhatsApp e YouTube, os cartões de visita, os <i>folders</i>, os <i>flyers</i>, folhetos e os ícones. Tenho talento muito limitado em relação à identidade visual e ao logótipo, então devo encaminhar você ao Jackson Zacarias, <a href="https://linktr.ee/joaopicolodesign">João Felipe Pedro</a> ou <a href=""> Murilo de Oliveira</a>. </p>
           <a class="cyberpunk2077">ver mais_</a>
@@ -51,7 +52,7 @@
 
   <section class="first-section-cyberpunk">
     <div class="container">
-      <img alt="sample section image" src="">
+      <img alt="portfolio and projects" src="{% static 'images/icons/portfolio-and-project.svg' %}">
       <div>
         <h2 class="cyberpunk">Portefólio e Projetos</h2>
         <p>Venha conhecer uma bagagem de meu portefólio de banners, ícones, logótipos (embora eu seja limitado) e sites. Nesta bagagem, também mostrarei os projetos de código aberto para você poder utilizar gratuitamente, mas há uma licença. </p>
@@ -73,6 +74,8 @@
         <label for="message">
           <textarea name="message" id="message" cols="30" rows="20" placeholder="Mensagem"></textarea>
         </label>
+
+        <input class="cyberpunk2077" type="submit" value="enviar">
       </form>
     </div>
   </section>

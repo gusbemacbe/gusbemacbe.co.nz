@@ -92,6 +92,13 @@ h1, h2
   position: relative;
 }
 
+.card-gallery .card img
+{
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+
 .card-gallery .card .sample
 {
   background-color: var(--cyan-grey-light);
@@ -169,9 +176,9 @@ h1, h2
 
 .first-section-cyberpunk img
 {
-  background: linear-gradient(90deg, var(--pink-medium) 0%, var(--indigo-medium) 100%);
-  border: 4px solid var(--cyan-grey-light);
-  box-shadow: 0px 4px 17px rgba(113, 205, 248, 0.25), 0px 0.500862px 2.12866px rgba(113, 205, 248, 0.15);
+  /* box-shadow: 0px 4px 17px rgba(113, 205, 248, 0.25), 0px 0.500862px 2.12866px rgba(113, 205, 248, 0.15); */
+  -webkit-filter: drop-shadow(0px 4px 5px rgba(113, 205, 248, 0.5));
+          filter: drop-shadow(0px 4px 5px rgba(113, 205, 248, 0.5)); 
   box-sizing: border-box;
   display: inline-block;
   height: 230px;
@@ -210,6 +217,11 @@ h1, h2
   width: 100%;
 }
 
+.form-cyberpunk form
+{
+  direction: rtl;
+}
+
 .form-cyberpunk form .group
 {
   display: grid;
@@ -223,8 +235,7 @@ h1, h2
 .form-cyberpunk form input[type="text"],
 .form-cyberpunk form textarea
 {
-  font-family: var(--body);
-  font-size: 16px;
+  direction: ltr;
 }
 
 .form-cyberpunk form input[type="mail"],
