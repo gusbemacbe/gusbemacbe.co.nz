@@ -1,6 +1,6 @@
 body 
 {
-  background: url("../images/wallpapers/cyberpunk-2.jpg") fixed center no-repeat;
+  background: url("../images/wallpapers/cyberpunk-2.6153cc7454ab.jpg") fixed center no-repeat;
   background-size: cover, contain;
   position: relative;
 }
@@ -56,7 +56,7 @@ h1, h2
 
 .bordura
 {
-  background: url("../images/borders/border-1.svg") bottom center no-repeat;
+  background: url("../images/borders/border-1.34b5c1d59fbb.svg") bottom center no-repeat;
   background-size: contain;
   border: 0px;
   box-sizing: border-box;
