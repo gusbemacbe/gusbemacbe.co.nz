@@ -73,6 +73,27 @@ h1, h2, h3, h4, h5, h6
   font-family: var(--title);
 }
 
+a
+{
+  color: var(--cyan-default);
+  text-decoration: none;
+}
+
+a:hover
+{
+  color: var(--cyan-grey-light);
+  text-shadow: 0 0 2px #393a33, 0 0 8px #f39f0572, 0 0 2px #f39f0572;
+}
+
+code
+{
+  background-color: rgba(113, 205, 248, 0.15);
+  border-radius: 3px;
+  color: var(--pink-light);
+  font-family: var(--code-2);
+  padding: 3px;
+}
+
 .container
 {
   margin: 0 auto;

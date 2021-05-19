@@ -1,7 +1,6 @@
 body 
 {
-  background: url("../images/wallpapers/cyberpunk-2.jpg") fixed center no-repeat;
-  background-size: cover, contain;
+  background: url("../images/wallpapers/cyberpunk-1.843a5934e529.jpg") fixed center no-repeat cover, url("../images/borders/border-1.1baaec6e76ea.svg") local bottom center no-repeat contain;
   position: relative;
 }
 
@@ -54,25 +53,13 @@ h1, h2
   color: var(--pink-light);
 }
 
-.bordura
-{
-  background: url("../images/borders/border-1.svg") bottom center no-repeat;
-  background-size: contain;
-  border: 0px;
-  box-sizing: border-box;
-  margin: 0 0 -2px 0;
-  outline: 0;
-  padding: 0;
-  position: relative;
-}
-
 .card-gallery
 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
   grid-gap: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
 
 .card-gallery .card
@@ -143,7 +130,7 @@ h1, h2
   background: var(--indigo-dark);
 }
 
-/* .first-section-cyberpunk::before
+.first-section-cyberpunk::before
 {
   background: var(--cyan-grey-dark);
   bottom: 100%;
@@ -155,7 +142,8 @@ h1, h2
   position: absolute;
   top: 0px;
   width: 100%;
-} */
+}
+
 
 .first-section-cyberpunk .container
 {
@@ -220,22 +208,13 @@ h1, h2
 }
 
 .form-cyberpunk form input[type="mail"],
-.form-cyberpunk form input[type="text"],
-.form-cyberpunk form textarea
-{
-  font-family: var(--body);
-  font-size: 16px;
-}
-
-.form-cyberpunk form input[type="mail"],
 .form-cyberpunk form input[type="text"]
 {
   width: calc(100% - 30px);
-  background-color: var(--cyan-grey-dark);
-  border: 30px solid var(--cyan-grey-light);
-  border-left: 5px solid var(--cyan-grey-light);
-  border-right: 5px solid var(--cyan-grey-light);
-  border-bottom: 15px solid var(--cyan-grey-light);
+  border: 30px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 15px solid #000;
   /* clip-path: polygon(
     0px 25px,
     26px 0px,
@@ -262,7 +241,6 @@ h1, h2
     10px calc(100% - 0px),
     0% calc(100% - 10px)
   );
-  color: var(--cyan-grey-light);
   margin-bottom: 10px;
   padding: 12px;
 }
@@ -270,11 +248,10 @@ h1, h2
 .form-cyberpunk form textarea 
 {
   width: calc(100% - 30px);
-  background-color: var(--cyan-grey-dark);
-  border: 30px solid var(--cyan-grey-light);
-  border-left: 5px solid var(--cyan-grey-light);
-  border-right: 5px solid var(--cyan-grey-light);
-  border-bottom: 15px solid var(--cyan-grey-light);
+  border: 30px solid #000;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 15px solid #000;
   clip-path: polygon(
     0px 25px,
     520px 25px,
@@ -287,7 +264,6 @@ h1, h2
     calc(80% - 10px) calc(100% - 10px),
     0px calc(100% - 10px)
   );
-  color: var(--cyan-grey-light);
   margin-bottom: 10px;
   padding: 12px;
 }

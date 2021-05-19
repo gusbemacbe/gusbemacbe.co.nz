@@ -1,8 +1,6 @@
 body 
 {
-  background-image: url("../images/wallpapers/cyberpunk-1.jpg");
-  background-attachment: fixed;
-  background-size: cover;
+  background: url("../images/wallpapers/cyberpunk-1.jpg") fixed center no-repeat cover, url("../images/borders/border-1.svg") local bottom center no-repeat contain;
   position: relative;
 }
 
@@ -67,7 +65,9 @@ h1, h2
 .card-gallery .card
 {
   
-  background-color: #493662;
+  background-color: rgba(73, 54, 98, 0.5);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
   border: 30px solid var(--cyan-grey-light);
   border-bottom: 21px solid var(--cyan-grey-light);
   border-left: 5px solid var(--cyan-grey-light);
