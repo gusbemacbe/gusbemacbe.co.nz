@@ -33,9 +33,8 @@ body > *
 {
   font-size: 26px;
   font-weight: bold;
-  padding-bottom: 50px;
-  padding-top: 50px;
   text-align: center;
+  padding-bottom: 5em;
 }
 
 .hero h1, p
@@ -46,7 +45,6 @@ body > *
 .hero p
 {
   font-size: 20px;
-  padding-bottom: 50px;
 }
 
 h1, h2
@@ -54,7 +52,7 @@ h1, h2
   color: var(--pink-light);
 }
 
-.bordura
+.border
 {
   background: url("../images/borders/border-1.svg") bottom center no-repeat;
   background-size: contain;
@@ -71,8 +69,8 @@ h1, h2
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
-  grid-gap: 50px;
-  padding-bottom: 100px;
+  grid-gap: 5em;
+  padding-bottom: 10em;
 }
 
 .card-gallery .card
@@ -97,14 +95,6 @@ h1, h2
   display: inline-block;
   height: 100px;
   width: 100px;
-}
-
-.card-gallery .card .sample
-{
-  background-color: var(--cyan-grey-light);
-  display: inline-block;
-  height: 80px;
-  width: 80px;
 }
 
 .card-gallery .card h2
@@ -302,3 +292,224 @@ h1, h2
   margin-bottom: 10px;
   padding: 12px;
 }
+
+@media only screen and (max-width: 1440px)
+{
+
+}
+
+/* Widescreen 1280 */
+@media only screen and (max-width: 1280px)
+{
+
+}
+
+@media only screen and (max-width: 1024px)
+{
+  .card-gallery .card
+  {
+    align-content: space-between;
+    clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 0px) calc(100% - 0px), 300px calc(100% - 0px), 280px calc(100% - 15px), 0% calc(100% - 15px));
+    display: grid
+  }
+
+  .border
+  {
+    background: url("../images/borders/border-1-tablet.svg") bottom center no-repeat;
+    background-size: contain;
+  }
+}
+
+@media only screen and (max-width: 800px)
+{
+  .hero
+  {
+    padding-bottom: 3em;
+    padding-top: 3em;
+  }
+
+  .hero h1
+  {
+    padding-bottom: 30px;
+  }
+
+  .card-gallery
+  {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 3em;
+    padding-bottom: 8em;
+  }
+
+  .form-cyberpunk form input[type="mail"], 
+  .form-cyberpunk form input[type="text"]
+  {
+    clip-path: polygon(
+      0px 25px,
+      20px 10px,
+      calc(60% - 25px) 10px,
+      60% 25px,
+      100% 25px,
+      100% calc(100% - 10px),
+      calc(100% - 15px) calc(100% - 10px),
+      calc(80% - 10px) calc(100% - 10px),
+      calc(80% - 15px) calc(100% - 0px),
+      10px calc(100% - 0px),
+      0% calc(100% - 10px)
+    ) !important;
+  }
+
+  .form-cyberpunk form textarea 
+  {
+    clip-path: polygon(
+      0px 25px,
+      300px 25px,
+      340px 0px,
+      calc(100% - 25px) 0px,
+      100% 25px,
+      100% 25px,
+      100% calc(100% - 10px),
+      calc(100% - 15px) calc(100% - 10px),
+      calc(80% - 10px) calc(100% - 10px),
+      0px calc(100% - 10px)
+    );
+  }
+
+  form input[type="submit"]
+  {
+    border-bottom: 5px solid var(--cyan-light);
+    clip-path: polygon(-20px 0%, calc(100% + 20px) 0%, calc(100% + 20px) 80%, 20px 80%);
+    font-size: 14px;
+    height: 30px;
+    line-height: 28px;
+    line-height: 38px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 780px)
+{
+
+}
+
+@media only screen and (max-width: 640px)
+{
+  .first-section-cyberpunk
+  {
+    padding: 30px;
+  }
+
+  .form-cyberpunk form .group
+  {
+    grid-gap: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 540px)
+{
+  .border
+  {
+    background: url("../images/borders/border-1-mobile.svg") bottom center no-repeat;
+    background-size: contain;
+  }
+
+  .first-section-cyberpunk .container
+  {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 0px;
+    justify-items: center;
+    padding-bottom: 30px;
+  }
+
+  .form-cyberpunk form .group
+  {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 0px;
+  }
+
+  .form-cyberpunk form textarea 
+  {
+    clip-path: polygon(
+      0px 25px,
+      200px 25px,
+      240px 0px,
+      calc(100% - 25px) 0px,
+      100% 25px,
+      100% 25px,
+      100% calc(100% - 10px),
+      calc(100% - 15px) calc(100% - 10px),
+      calc(80% - 10px) calc(100% - 10px),
+      0px calc(100% - 10px)
+    );
+  }
+}
+
+@media only screen and (max-width: 428px)
+{
+  .card-gallery .card 
+  {
+    clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 0px) calc(100% - 0px), 220px calc(100% - 0px), 200px calc(100% - 15px), 0% calc(100% - 15px));
+  }
+}
+
+/* Xiaomi Redmi Note 7 – Portrato */
+@media only screen and (max-width: 395px)
+{
+  .form-cyberpunk form textarea 
+  {
+    clip-path: polygon(
+      0px 25px,
+      100px 25px,
+      140px 0px,
+      calc(100% - 25px) 0px,
+      100% 25px,
+      100% 25px,
+      100% calc(100% - 10px),
+      calc(100% - 15px) calc(100% - 10px),
+      calc(80% - 10px) calc(100% - 10px),
+      0px calc(100% - 10px)
+    );
+  }
+}
+
+@media only screen and (max-width: 384px)
+{
+
+}
+
+@media only screen and (max-width: 375px)
+{
+
+}
+
+@media only screen and (max-width: 320px)
+{
+  .card-gallery 
+  {
+    grid-template-columns: repeat(1, 280px);
+    grid-template-rows: repeat(4, auto);
+  }
+
+  .card-gallery .card, 
+  .first-section-cyberpunk,
+  .form-cyberpunk
+  {
+    padding: 10px;
+  }
+
+  .first-section-cyberpunk .container 
+  {
+    grid-template-columns: repeat(1, 280px);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+@media only screen and (max-width: 280px)
+{}
+
+@media only screen and (max-width: 240px)
+{}

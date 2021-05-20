@@ -597,3 +597,121 @@ hr
     right: 35px;
   }
 }
+
+/* Widescreen 1280 */
+@media only screen and (max-width: 1280px)
+{
+  nav .container, .container
+  {
+    width: 100%;
+    max-width: 1100px;
+  }
+}
+
+@media only screen and (max-width: 1024px)
+{
+  nav .container, .container
+  {
+    width: 100%;
+    max-width: 824px
+  }
+
+  nav ul
+  {
+    display: none
+  }
+
+  nav img
+  {
+    width: 300px
+  }
+}
+
+@media only screen and (max-width: 800px)
+{
+  nav .container, .container
+  {
+    width: 100%;
+    max-width: 626px
+  }
+
+  h2.cyberpunk
+  {
+    font-size: 1.5rem;
+    padding-bottom: 25px;
+  }
+
+  a.cyberpunk2077,
+  button.cyberpunk2077,
+  input.cyberpunk2077
+  {
+    font-size: 14px;
+    height: 30px;
+    line-height: 28px;
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 640px)
+{
+  nav .container, .container
+  {
+    width: 100%;
+    max-width: 540px
+  }
+}
+
+@media only screen and (max-width: 540px)
+{
+  nav .container, .container
+  {
+    width: 100%;
+    max-width: 440px
+  }
+}
+
+@media only screen and (max-width: 428px)
+{
+  nav .container
+  {
+    width: 100%;
+    max-width: 414px
+  }
+
+  .container
+  {
+    width: 100%;
+    max-width: 344px
+  }
+}
+
+/* Xiaomi Redmi Note 7 – Portrato */
+@media only screen and (max-width: 395px)
+{
+  nav .container
+  {
+    width: 100%;
+    max-width: 344px
+  }
+}
+
+@media only screen and (max-width: 384px)
+{}
+
+@media only screen and (max-width: 375px)
+{}
+
+@media only screen and (max-width: 320px)
+{
+  nav .container, .container
+  {
+    width: 100%;
+    max-width: 290px
+  }
+}
+
+@media only screen and (max-width: 280px)
+{}
+
+@media only screen and (max-width: 240px)
+{}
