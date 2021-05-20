@@ -112,7 +112,8 @@ h1, h2
   padding-bottom: 35px;
 }
 
-.first-section-cyberpunk 
+.first-section-cyberpunk,
+.second-section-cyberpunk
 {
   background: var(--indigo-dark);
   color: var(--cyan-grey-light);
@@ -154,7 +155,8 @@ h1, h2
   width: 100%;
 } */
 
-.first-section-cyberpunk .container
+.first-section-cyberpunk .container,
+.second-section-cyberpunk .container
 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -164,7 +166,8 @@ h1, h2
   padding-bottom: 50px;
 }
 
-.first-section-cyberpunk img
+.first-section-cyberpunk img,
+.second-section-cyberpunk img
 {
   /* box-shadow: 0px 4px 17px rgba(113, 205, 248, 0.25), 0px 0.500862px 2.12866px rgba(113, 205, 248, 0.15); */
   -webkit-filter: drop-shadow(0px 4px 5px rgba(113, 205, 248, 0.5));
@@ -175,13 +178,20 @@ h1, h2
   width: 320px;
 }
 
-.first-section-cyberpunk p
+.first-section-cyberpunk p,
+.second-section-cyberpunk p
 {
   color: var(--cyan-grey-light);
   font-size: 20px;
   line-height: 150%;
   padding-top: 15px;
   text-align: left;
+}
+
+.first-section-cyberpunk a,
+.second-section-cyberpunk a
+{
+  margin-top: 35px;
 }
 
 .form-cyberpunk 
@@ -293,6 +303,13 @@ h1, h2
   padding: 12px;
 }
 
+.second-section-cyberpunk
+{
+  background: url("../images/borders/border-2.svg") bottom center no-repeat;
+  background-size: contain;
+  background-color: var(--indigo-dark);
+}
+
 @media only screen and (max-width: 1440px)
 {
 
@@ -317,6 +334,13 @@ h1, h2
   {
     background: url("../images/borders/border-1-tablet.svg") bottom center no-repeat;
     background-size: contain;
+  }
+
+  .second-section-cyberpunk
+  {
+    background: url("../images/borders/border-2-tablet.svg") bottom center no-repeat;
+    background-size: contain;
+    background-color: var(--indigo-dark);
   }
 }
 
@@ -394,7 +418,8 @@ h1, h2
 
 @media only screen and (max-width: 640px)
 {
-  .first-section-cyberpunk
+  .first-section-cyberpunk,
+  .second-section-cyberpunk
   {
     padding: 30px;
   }
@@ -414,7 +439,8 @@ h1, h2
     background-size: contain;
   }
 
-  .first-section-cyberpunk .container
+  .first-section-cyberpunk .container,
+  .second-section-cyberpunk .container
   {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -445,6 +471,13 @@ h1, h2
       calc(80% - 10px) calc(100% - 10px),
       0px calc(100% - 10px)
     );
+  }
+
+  .second-section-cyberpunk
+  {
+    background: url("../images/borders/border-2-mobile.svg") bottom center no-repeat;
+    background-size: contain;
+    background-color: var(--indigo-dark);
   }
 }
 
@@ -496,12 +529,14 @@ h1, h2
 
   .card-gallery .card, 
   .first-section-cyberpunk,
+  .second-section-cyberpunk,
   .form-cyberpunk
   {
     padding: 10px;
   }
 
-  .first-section-cyberpunk .container 
+  .first-section-cyberpunk .container,
+  .second-section-cyberpunk .container
   {
     grid-template-columns: repeat(1, 280px);
     grid-template-rows: repeat(2, auto);

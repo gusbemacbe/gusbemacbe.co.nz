@@ -598,6 +598,11 @@ hr
   }
 }
 
+footer
+{
+  background-color: var(--cyan-dark);
+}
+
 /* Widescreen 1280 */
 @media only screen and (max-width: 1280px)
 {
