@@ -413,7 +413,13 @@ h1, h2
 
 @media only screen and (max-width: 780px)
 {
-
+  .card-gallery .card h2
+  {
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+  }
 }
 
 @media only screen and (max-width: 640px)
@@ -444,10 +450,16 @@ h1, h2
   {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
     grid-gap: 0px;
     justify-items: center;
     padding-bottom: 30px;
+  }
+
+  .first-section-cyberpunk img, 
+  .second-section-cyberpunk img
+  {
+    padding-bottom: 35px;
   }
 
   .form-cyberpunk form .group
