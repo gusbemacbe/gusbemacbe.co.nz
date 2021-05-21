@@ -1,6 +1,6 @@
 body 
 {
-  background: url("../images/wallpapers/cyberpunk-2.jpg") fixed center no-repeat;
+  background: url("../images/wallpapers/cyberpunk-2.jpg") fixed top no-repeat;
   background-size: cover, contain;
   position: relative;
 }
