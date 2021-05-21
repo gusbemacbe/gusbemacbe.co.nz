@@ -1,6 +1,6 @@
 body 
 {
-  background: url("../images/wallpapers/cyberpunk-2.jpg") fixed top no-repeat;
+  background: url("../images/wallpapers/cyberpunk-2.6153cc7454ab.jpg") fixed top no-repeat;
   background-size: cover, contain;
   position: relative;
 }
@@ -54,7 +54,7 @@ h1, h2
 
 .border
 {
-  background: url("../images/borders/border-1.svg") bottom center no-repeat;
+  background: url("../images/borders/border-1.34b5c1d59fbb.svg") bottom center no-repeat;
   background-size: contain;
   border: 0px;
   box-sizing: border-box;
@@ -305,7 +305,7 @@ h1, h2
 
 .second-section-cyberpunk
 {
-  background: url("../images/borders/border-2.svg") bottom center no-repeat;
+  background: url("../images/borders/border-2.849f484bc47e.svg") bottom center no-repeat;
   background-size: contain;
   background-color: var(--indigo-dark);
 }
@@ -332,13 +332,13 @@ h1, h2
 
   .border
   {
-    background: url("../images/borders/border-1-tablet.svg") bottom center no-repeat;
+    background: url("../images/borders/border-1-tablet.c087225eb90b.svg") bottom center no-repeat;
     background-size: contain;
   }
 
   .second-section-cyberpunk
   {
-    background: url("../images/borders/border-2-tablet.svg") bottom center no-repeat;
+    background: url("../images/borders/border-2-tablet.0f43cbd656d4.svg") bottom center no-repeat;
     background-size: contain;
     background-color: var(--indigo-dark);
   }
@@ -441,7 +441,7 @@ h1, h2
 {
   .border
   {
-    background: url("../images/borders/border-1-mobile.svg") bottom center no-repeat;
+    background: url("../images/borders/border-1-mobile.a35d2f12cccd.svg") bottom center no-repeat;
     background-size: contain;
   }
 
@@ -487,7 +487,7 @@ h1, h2
 
   .second-section-cyberpunk
   {
-    background: url("../images/borders/border-2-mobile.svg") bottom center no-repeat;
+    background: url("../images/borders/border-2-mobile.3e0901b53d64.svg") bottom center no-repeat;
     background-size: contain;
     background-color: var(--indigo-dark);
   }
@@ -531,13 +531,8 @@ h1, h2
 
 }
 
-@media (min-width: 321px) and (max-width: 374px)
+@media only screen and (max-width: 360px)
 {
-  .container
-  {
-    max-width: 300px
-  }
-
   .card-gallery 
   {
     grid-template-columns: repeat(1, 300px);
@@ -548,16 +543,6 @@ h1, h2
   .card-gallery .card
   {
     padding: 15px;
-  }
-
-  .first-section-cyberpunk, .second-section-cyberpunk
-  {
-    padding: 15px;
-  }
-
-  .first-section-cyberpunk .container, .second-section-cyberpunk .container
-  {
-    grid-template-columns: repeat(1, 300px);
   }
 }
 

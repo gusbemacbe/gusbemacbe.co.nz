@@ -531,6 +531,36 @@ h1, h2
 
 }
 
+@media (min-width: 321px) and (max-width: 374px)
+{
+  .container
+  {
+    max-width: 300px
+  }
+
+  .card-gallery 
+  {
+    grid-template-columns: repeat(1, 300px);
+    grid-template-rows: repeat(4, auto);
+    justify-content: center;
+  }
+
+  .card-gallery .card
+  {
+    padding: 15px;
+  }
+
+  .first-section-cyberpunk, .second-section-cyberpunk
+  {
+    padding: 15px;
+  }
+
+  .first-section-cyberpunk .container, .second-section-cyberpunk .container
+  {
+    grid-template-columns: repeat(1, 300px);
+  }
+}
+
 @media only screen and (max-width: 320px)
 {
   .card-gallery 

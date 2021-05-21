@@ -84,3 +84,6 @@ venv/
 
 # Rope project settings
 .ropeproject
+
+# Others
+bootstrap
