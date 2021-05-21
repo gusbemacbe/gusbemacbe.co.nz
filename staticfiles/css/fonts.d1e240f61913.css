@@ -4,7 +4,7 @@
   font-family: "Exo 2";
   font-style: normal;
   font-weight: 200;
-  src: url("../fonts/Exo 2/Exo 2 Light.otf") format("opentype");
+  src: url("../fonts/Exo 2/Exo 2 Light.cb4b9635a225.otf") format("opentype");
 }
 
 @font-face
@@ -13,7 +13,7 @@
   font-family: "Exo 2";
   font-style: italic;
   font-weight: 200;
-  src: url("../fonts/Exo 2/Exo 2 Light Italic.otf") format("opentype");
+  src: url("../fonts/Exo 2/Exo 2 Light Italic.2f7565be1c90.otf") format("opentype");
 }
 
 @font-face
@@ -22,7 +22,7 @@
   font-family: "Exo 2";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/Exo 2/Exo 2 Medium.otf") format("opentype");
+  src: url("../fonts/Exo 2/Exo 2 Medium.326952ede2ab.otf") format("opentype");
 }
 
 @font-face
@@ -31,7 +31,7 @@
   font-family: "Exo 2";
   font-style: italic;
   font-weight: normal;
-  src: url("../fonts/Exo 2/Exo 2 Medium Italic.otf") format("opentype");
+  src: url("../fonts/Exo 2/Exo 2 Medium Italic.e20d515eddb3.otf") format("opentype");
 }
 
 @font-face
@@ -40,7 +40,7 @@
   font-family: "Exo 2";
   font-style: normal;
   font-weight: bold;
-  src: url("../fonts/Exo 2/Exo 2 Bold.otf") format("opentype");
+  src: url("../fonts/Exo 2/Exo 2 Bold.e9443475508a.otf") format("opentype");
 }
 
 @font-face
@@ -49,7 +49,7 @@
   font-family: "Exo 2";
   font-style: italic;
   font-weight: bold;
-  src: url("../fonts/Exo 2/Exo 2 Bold Italic.otf") format("opentype");
+  src: url("../fonts/Exo 2/Exo 2 Bold Italic.6eac0fbaa262.otf") format("opentype");
 }
 
 @font-face
@@ -58,7 +58,7 @@
   font-family: "Muar Stencil";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/Muar/Muar Stencil.ttf") format("truetype");
+  src: url("../fonts/Muar/Muar Stencil.dd99117e5ffc.ttf") format("truetype");
 }
 
 @font-face
@@ -67,7 +67,7 @@
   font-family: "Polyline";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/Polyline/Polyline Regular.ttf") format("truetype");
+  src: url("../fonts/Polyline/Polyline Regular.8702f6012b31.ttf") format("truetype");
 }
 
 @font-face
@@ -76,7 +76,7 @@
   font-family: "Syncopate";
   font-style: normal;
   font-weight: normal;
-  src: url("../fonts/Syncopate/Syncopate Regular.ttf") format("truetype");
+  src: url("../fonts/Syncopate/Syncopate Regular.8c27d755de81.ttf") format("truetype");
 }
 
 @font-face
@@ -85,7 +85,7 @@
   font-family: "Syncopate";
   font-style: normal;
   font-weight: bold;
-  src: url("../fonts/Syncopate/Syncopate Bold.ttf") format("truetype");
+  src: url("../fonts/Syncopate/Syncopate Bold.3d81921f1fdc.ttf") format("truetype");
 }
 
 @font-face 
@@ -94,13 +94,13 @@
   font-family: "Twemoji";
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/Twemoji/twemoji.eot');
+  src: url("../fonts/Twemoji/twemoji.c3812a5e1b62.eot");
   src: local('Twemoji Mozilla'), local('TwemojiMozilla'),
-      url('../fonts/Twemoji/twemoji.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/Twemoji/twemoji.woff2') format('woff2'),
-      url('../fonts/Twemoji/twemoji.woff') format('woff'),
-      url('../fonts/Twemoji/twemoji.ttf') format('truetype'),
-      url('../fonts/Twemoji/twemoji.svg#TwemojiMozilla') format('svg');
+      url("../fonts/Twemoji/twemoji.c3812a5e1b62.eot?#iefix") format('embedded-opentype'),
+      url("../fonts/Twemoji/twemoji.f8f1a8b54cb3.woff2") format('woff2'),
+      url("../fonts/Twemoji/twemoji.00eb47a6a4a0.woff") format('woff'),
+      url("../fonts/Twemoji/twemoji.84f66d1842d3.ttf") format('truetype'),
+      url("../fonts/Twemoji/twemoji.4515f1d5d844.svg#TwemojiMozilla") format('svg');
 }
 
 :root

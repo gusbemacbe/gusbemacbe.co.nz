@@ -88,11 +88,27 @@
   src: url("../fonts/Syncopate/Syncopate Bold.ttf") format("truetype");
 }
 
+@font-face 
+{
+  font-display: swap;
+  font-family: "Twemoji";
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Twemoji/twemoji.eot');
+  src: local('Twemoji Mozilla'), local('TwemojiMozilla'),
+      url('../fonts/Twemoji/twemoji.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/Twemoji/twemoji.woff2') format('woff2'),
+      url('../fonts/Twemoji/twemoji.woff') format('woff'),
+      url('../fonts/Twemoji/twemoji.ttf') format('truetype'),
+      url('../fonts/Twemoji/twemoji.svg#TwemojiMozilla') format('svg');
+}
+
 :root
 {
   --body: "Exo 2", sans-serif;
   --code: "Muar Stencil", monospace;
   --code-2: "Polyline", monospace;
+  --emoji: "Twemoji";
   --title: "Syncopate", sans-serif;
   --subtitle: "Exo 2", sans-serif;
 }
