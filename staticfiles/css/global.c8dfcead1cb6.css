@@ -1112,7 +1112,7 @@ span[role=img][aria-label]:hover::after
 
   .menu:after
   {
-    background-image: url("../images/icons/menu.svg");
+    background-image: url("../images/icons/menu.d5e47e8f137d.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1258,7 +1258,7 @@ span[role=img][aria-label]:hover::after
 
   .menu:hover:after
   {
-    background-image: url("../images/icons/close.svg");
+    background-image: url("../images/icons/close.568167f0a4e1.svg");
   }
 
   .sub-menu
