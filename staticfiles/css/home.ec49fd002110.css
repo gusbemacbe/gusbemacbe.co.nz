@@ -194,6 +194,20 @@ h1, h2
   margin-top: 35px;
 }
 
+.first-section-cyberpunk .buttons-group
+{
+  display: flex;
+  justify-content: center;
+}
+
+.first-section-cyberpunk .buttons-group a
+{
+  float: left;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 20px;
+}
+
 .form-cyberpunk 
 {
   background: var(--cyan-grey-dark);
@@ -336,6 +350,11 @@ h1, h2
     background-size: contain;
   }
 
+  .first-section-cyberpunk .buttons-group
+  {
+    display: grid;
+  }
+
   .second-section-cyberpunk
   {
     background: url("../images/borders/border-2-tablet.0f43cbd656d4.svg") bottom center no-repeat;
@@ -471,16 +490,28 @@ h1, h2
 
   .form-cyberpunk form textarea 
   {
-    clip-path: polygon(
+    /* clip-path: polygon(
       0px 25px,
       200px 25px,
       240px 0px,
-      calc(100% - 25px) 0px,
-      100% 25px,
-      100% 25px,
+      calc(100% - 35px) 0px,
+      100% 35px,
+      100% 35px,
       100% calc(100% - 10px),
       calc(100% - 15px) calc(100% - 10px),
       calc(80% - 10px) calc(100% - 10px),
+      0px calc(100% - 10px)
+    ); */
+    clip-path: polygon(
+      0px 25px, 
+      154px 25px, 
+      172px 0px, 
+      240px 0px, 
+      100% 35px, 
+      100% 35px, 
+      100% calc(100% - 10px), 
+      calc(100% - 15px) calc(100% - 10px), 
+      calc(80% - 10px) calc(100% - 10px), 
       0px calc(100% - 10px)
     );
   }
@@ -531,8 +562,13 @@ h1, h2
 
 }
 
-@media only screen and (max-width: 360px)
+@media (min-width: 321px) and (max-width: 374px)
 {
+  .container
+  {
+    max-width: 300px
+  }
+
   .card-gallery 
   {
     grid-template-columns: repeat(1, 300px);
@@ -543,6 +579,16 @@ h1, h2
   .card-gallery .card
   {
     padding: 15px;
+  }
+
+  .first-section-cyberpunk, .second-section-cyberpunk
+  {
+    padding: 15px;
+  }
+
+  .first-section-cyberpunk .container, .second-section-cyberpunk .container
+  {
+    grid-template-columns: repeat(1, 300px);
   }
 }
 
