@@ -92,19 +92,19 @@ code
   --bs-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
-  margin-top: calc(var(--bs-gutter-y) * -1);
-  margin-right: calc(var(--bs-gutter-x) / -2);
   margin-left: calc(var(--bs-gutter-x) / -2);
+  margin-right: calc(var(--bs-gutter-x) / -2);
+  margin-top: calc(var(--bs-gutter-y) * -1);
 }
 
 .row> *
 {
   flex-shrink: 0;
-  width: 100%;
-  max-width: 100%;
-  padding-right: calc(var(--bs-gutter-x) / 2);
-  padding-left: calc(var(--bs-gutter-x) / 2);
   margin-top: var(--bs-gutter-y);
+  max-width: 100%;
+  padding-left: calc(var(--bs-gutter-x) / 2);
+  padding-right: calc(var(--bs-gutter-x) / 2);
+  width: 100%;
 }
 
 .container,
@@ -113,8 +113,7 @@ code
 .container-md,
 .container-lg,
 .container-xl,
-.container-xxl,
-.menu
+.container-xxl
 {
   margin-left: auto;
   margin-right: auto;
@@ -123,177 +122,156 @@ code
   width: 100%;
 }
 
-.full, .menu, .menu-mobile
+.navbar
 {
+  align-content: center;
   background: var(--indigo-default);
-  height: 5rem;
+  border-bottom: 4px solid var(--cyan-grey-light);
+  box-shadow: 0 4px 17px rgba(113, 205, 248, 0.25), 0 0.50px 2.13px rgba(113, 205, 248, 0.15);
+  display: grid;
+  height: 80px;
+  left: 0;
+  position: fixed;
+  position: relative;
+  right: 0;
   z-index: 5;
 }
 
-.menu-mobile
+.navbar> .container
 {
-  display: none;
-}
-
-.menu > img,
-.menu-mobile > img
-{
-  display: none;
-}
-
-.menu ol,
-.menu-mobile ol
-{
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.menu > ol > img,
-.menu-mobile > ol > img
-{
-  height: 50px;
-  top: 16px;
-  position: relative;
-}
-
-.menu > ol,
-.menu-mobile > ol
-{
-  max-width: 1000px;
-  /* padding: 0 2rem; */
+  align-items: center;
   display: flex;
+  justify-content: space-between;
 }
 
-.menu > ol > .menu-item,
-.menu-mobile > ol > .menu-item
+.logotype
 {
-  flex: 1;
-  padding: 1.2rem 0;
+  height: 40px;
 }
 
-.menu > ol > .menu-item:after,
-.menu-mobile > ol > .menu-item:after
+.hamburger
 {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  bottom: 5px;
-  left: calc(50% - 2px);
-  background: var(--cyan-light-medium);
-  will-change: transform;
-  transform: scale(0);
-  transition: transform 0.2s ease;
+  background: transparent;
+  border: 0 solid transparent;
+  color: var(--cyan-grey-light);
+  font-size: 16px;
+  outline: 0;
 }
 
-.menu > ol > .menu-item:hover:after,
-.menu-mobile > ol > .menu-item:hover:after
-{
-  transform: scale(1);
-}
-
-.menu .border-list
-{
-  display: none;
-}
-
-.menu-item
-{
-  position: relative;
-  line-height: 2.5rem;
-  text-align: center;
-}
-
-.menu-item a
+.hamburger:hover
 {
   color: var(--cyan-grey-light);
-  display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  text-shadow: 0 0 2px #393A33, 0 0 8px #F39F0572, 0 0 2px #F39F0572;
 }
 
-.menu-item:hover > .sub-menu
+.off-canvas
 {
-  display: block;
+  align-items: center;
+  background: var(--cyan-grey-light);
+  clip-path: polygon(0% 50%, 0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 20%, 10% 25%, 10% 45%);
+  color: var(--cyan-grey-light);
+  -webkit-filter: drop-shadow(-10px 0px 10px #71cdf8);
+     -moz-filter: drop-shadow(-10px 0px 10px #71cdf8);
+          filter: drop-shadow(-10px 0px 10px #71cdf8);
+  height: calc(100vh - 80px);
+  left: 0;
+  max-width: 320px;
+  overflow-y: auto;
+  padding: 1em;
+  position: fixed;
+  top: 80px;
+  transform: translateX(100vw);
+  transition: all 235ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  width: 100vw;
+  z-index: 3;
 }
 
+.off-canvas::before
+{
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--indigo-dark) 1px,
+    var(--indigo-dark) 3px,
+    var(--indigo-dark) 5px,
+    var(--indigo-dark) 4px,
+    transparent 0.5%
+  ),
+  repeating-linear-gradient(
+    to left,
+    var(--cyan-grey-dark) 100%,
+    var(--cyan-grey-dark) 100%
+  );
+  clip-path: polygon(0% 50%, 0% 100%, 100% 100%, 100% 0%, 0% 0%, 0% 20%, 10% 25%, 10% 45%);
+  content: " ";
+  display: block;
+  height: calc(100vh - 80px);
+  left: 4px;
+  max-width: 320px;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+}
+
+.off-canvas[aria-expanded="true"]
+{
+  transform: translateX(calc(100vw - 320px));
+  transition: all 205ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.menu,
 .sub-menu
 {
-  position: absolute;
+  list-style: none;
+}
+
+.menu-link
+{
+  background: transparent;
+  border: none;
+  color: var(--cyan-grey-light);
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  padding: 1.125em 2.25em;
+  text-transform: uppercase;
+  text-align: right;
   width: 100%;
-  top: 100%;
-  left: 0;
+  z-index: 5;
+}
+
+.menu-link[aria-controls]::after
+{
+  content: "▼";
+  display: inline-block;
+}
+
+.menu-link[aria-controls][aria-expanded="true"]::after
+{
+  transform: rotate(180deg);
+}
+
+[aria-expanded="false"]+ .sub-menu
+{
   display: none;
-  z-index: 1;
 }
 
-.sub-menu .menu-item
+[aria-expanded="true"]+ .sub-menu
 {
-  animation: enter 0.2s ease forwards;
-  background: var(--cyan-grey-dark);
-  opacity: 0;
-  padding: 0.75rem 0;
-  transform-origin: bottom;
-  width: 220px;
+  display: block;
 }
 
-.sub-menu .menu-item:nth-child(1)
+.menu-item:hover
 {
-  animation-delay: 0s;
-  animation-duration: 0.2s;
-}
-
-.sub-menu .menu-item:nth-child(2)
-{
-  animation-duration: 0.3s;
-  animation-delay: 0.1s;
-}
-
-.sub-menu .menu-item:nth-child(3)
-{
-  animation-duration: 0.4s;
-  animation-delay: 0.2s;
-}
-
-.sub-menu .menu-item:hover
-{
-  background: var(--cyan-grey-medium);
-}
-
-.sub-menu .menu-item a
-{
-  padding: 0 0.75rem;
-}
-
-@keyframes enter
-{
-  from
-  {
-    opacity: 0;
-    transform: scaleY(0.98) translateY(10px);
-  }
-
-  to
-  {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@keyframes fade
-{
-  from
-  {
-    opacity: 0;
-  }
-
-  to
-  {
-    opacity: 1;
-  }
+  background-color: var(--indigo-default);
+  background-image: url("../images/borders/cut-border.e5ca9e361a0c.svg");
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
+  -moz-box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
+  box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
+  clip-path: polygon(100% 0%, 100% 100%, 8.5% 100%, 0.00% 69%, 0% 0%);
 }
 
 form input[type="mail"],
@@ -310,11 +288,11 @@ button.cyberpunk2077,
 input.cyberpunk2077
 {
   background: var(--indigo-default);
-  border-radius: 0;
   border: none;
   border-bottom: 3px solid var(--cyan-light);
-  border-top: 3px solid var(--pink-default);
+  border-radius: 0;
   border-right: 3px solid var(--cyan-light);
+  border-top: 3px solid var(--pink-default);
   clip-path: polygon(
   -20px 0%,
   calc(100% + 20px) 0%,
@@ -342,8 +320,8 @@ input.cyberpunk2077
 
 input[type="submit"].cyberpunk2077
 {
-  display: block;
   direction: ltr;
+  display: block;
   margin: 0;
   padding-bottom: 50px;
 }
@@ -355,9 +333,9 @@ a.cyberpunk2077:focus,
 button.cyberpunk2077:focus,
 input.cyberpunk2077:focus
 {
-  animation-name: hover;
   animation-duration: var(--glitched-duration);
   animation-iteration-count: infinite;
+  animation-name: hover;
   animation-timing-function: linear;
 }
 
@@ -368,9 +346,9 @@ a.cyberpunk2077:focus::after,
 button.cyberpunk2077:focus::after,
 input.cyberpunk2077:focus::after
 {
-  animation-name: hoverafter;
   animation-duration: var(--glitched-duration);
   animation-iteration-count: infinite;
+  animation-name: hoverafter;
   animation-timing-function: linear;
 }
 
@@ -378,17 +356,17 @@ a.cyberpunk2077::before,
 button.cyberpunk2077::before,
 input.cyberpunk2077::before
 {
-  --outside: 4px;
-  content: "";
-  position: absolute;
-  display: none;
   background-color: var(--indigo-default);
-  width: calc(100% + (var(--outside) * 2));
-  height: 12px;
-  top: 0;
-  left: calc(0px - 1px - var(--outside));
   border-left: 2px solid var(--indigo-default);
   border-right: 2px solid var(--indigo-default);
+  content: "";
+  display: none;
+  height: 12px;
+  left: calc(0px - 1px - var(--outside));
+  --outside: 4px;
+  position: absolute;
+  top: 0;
+  width: calc(100% + (var(--outside) * 2));
 }
 
 a.cyberpunk2077:hover::before,
@@ -398,11 +376,11 @@ a.cyberpunk2077:focus::before,
 button.cyberpunk2077:focus::before,
 input.cyberpunk2077:focus::before
 {
-  display: block;
-  animation-name: hoverbefore;
   animation-duration: var(--glitched-duration);
   animation-iteration-count: infinite;
+  animation-name: hoverbefore;
   animation-timing-function: linear;
+  display: block;
 }
 
 @keyframes hover
@@ -455,8 +433,8 @@ input.cyberpunk2077:focus::before
   11%
   {
     display: block;
-    top: 10px;
     left: calc(0px - 0px - var(--outside));
+    top: 10px;
   }
 
   29%
@@ -479,24 +457,24 @@ input.cyberpunk2077:focus::before
   51%
   {
     display: block;
-    top: 55px;
     filter: blur(1px);
     height: 22px;
+    top: 55px;
   }
 
   90%
   {
     display: block;
-    top: 55px;
     height: 22px;
+    top: 55px;
   }
 
   91%
   {
-    filter: blur(0px);
     display: none;
-    top: 0;
+    filter: blur(0px);
     height: 12px;
+    top: 0;
   }
 
   100%
@@ -636,35 +614,35 @@ h4.cyberpunk::before
 
 h1.cyberpunk.glitched
 {
-  animation-name: h1glitched;
   animation-duration: calc(var(--glitched-duration) * 1.4);
   animation-iteration-count: infinite;
+  animation-name: h1glitched;
   animation-timing-function: linear;
 }
 
 h2.cyberpunk.glitched
 {
-  animation-name: h1glitched;
+  animation-direction: reverse;
   animation-duration: calc(var(--glitched-duration) * 1.7);
   animation-iteration-count: infinite;
-  animation-direction: reverse;
+  animation-name: h1glitched;
   animation-timing-function: linear;
 }
 
 h3.cyberpunk.glitched
 {
-  animation-name: h1glitched;
+  animation-direction: reverse;
   animation-duration: calc(var(--glitched-duration) * 1.1);
   animation-iteration-count: infinite;
-  animation-direction: reverse;
+  animation-name: h1glitched;
   animation-timing-function: ease-out;
 }
 
 h4.cyberpunk.glitched
 {
-  animation-name: h1glitched;
   animation-duration: calc(var(--glitched-duration) * 2.1);
   animation-iteration-count: infinite;
+  animation-name: h1glitched;
   animation-timing-function: ease-in-out;
 }
 
@@ -672,20 +650,20 @@ h4.cyberpunk.glitched
 {
   0%
   {
-    transform: skew(-20deg);
     left: -4px;
+    transform: skew(-20deg);
   }
 
   10%
   {
-    transform: skew(-20deg);
     left: -4px;
+    transform: skew(-20deg);
   }
 
   11%
   {
-    transform: skew(0deg);
     left: 2px;
+    transform: skew(0deg);
   }
 
   50%
@@ -716,9 +694,9 @@ h4.cyberpunk.glitched
 
 h1.cyberpunk.glitched::before
 {
-  animation-name: h1beforeglitched;
   animation-duration: calc(var(--glitched-duration) * 2);
   animation-iteration-count: infinite;
+  animation-name: h1beforeglitched;
   animation-timing-function: linear;
 }
 
@@ -726,53 +704,53 @@ h1.cyberpunk.glitched::before
 {
   0%
   {
-    transform: skew(-20deg);
-    left: -4px;
     clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    left: -4px;
+    transform: skew(-20deg);
   }
 
   10%
   {
-    transform: skew(-20deg);
-    left: -4px;
     clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    left: -4px;
+    transform: skew(-20deg);
   }
 
   11%
   {
-    transform: skew(0deg);
-    left: 2px;
     clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    left: 2px;
+    transform: skew(0deg);
   }
 
   50%
   {
-    transform: skew(0deg);
     clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    transform: skew(0deg);
   }
 
   51%
   {
-    transform: skew(0deg);
     clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 40% 5px, calc(40% - 30px) 0px, calc(40% + 30px) 0px, calc(45% - 15px) 5px, 100% 5px, 100% 6px, calc(45% - 14px) 6px, calc(40% + 29px) 1px, calc(40% - 29px) 1px, calc(40% + 1px) 6px, 85px 6px, 80px 10px, 0px 10px);
+    transform: skew(0deg);
   }
 
   59%
   {
-    transform: skew(0deg);
     clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 40% 5px, calc(40% - 30px) 0px, calc(40% + 30px) 0px, calc(45% - 15px) 5px, 100% 5px, 100% 6px, calc(45% - 14px) 6px, calc(40% + 29px) 1px, calc(40% - 29px) 1px, calc(40% + 1px) 6px, 85px 6px, 80px 10px, 0px 10px);
+    transform: skew(0deg);
   }
 
   60%
   {
-    transform: skew(0deg);
     clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    transform: skew(0deg);
   }
 
   100%
   {
-    transform: skew(0deg);
     clip-path: polygon(0px 0px, 85px 0px, 90px 5px, 100% 5px, 100% 6px, 85px 6px, 80px 10px, 0px 10px);
+    transform: skew(0deg);
   }
 }
 
@@ -783,9 +761,9 @@ h2.cyberpunk::before
 
 h2.cyberpunk.glitched::before
 {
-  animation-name: h2beforeglitched;
   animation-duration: calc(var(--glitched-duration) * 2);
   animation-iteration-count: infinite;
+  animation-name: h2beforeglitched;
   animation-timing-function: linear;
 }
 
@@ -848,11 +826,11 @@ h3.cyberpunk::after,
 h4.cyberpunk::after,
 p.cyberpunk::after
 {
-  content: "_";
-  animation-name: hxafter;
   animation-duration: var(--glitched-duration);
   animation-iteration-count: infinite;
+  animation-name: hxafter;
   animation-timing-function: linear;
+  content: "_";
 }
 
 h3.cyberpunk::after,
@@ -963,8 +941,8 @@ footer ul li a
 .credits
 {
   background: var(--indigo-default);
-  box-shadow: 0 -4px 28px rgba(113, 205, 248, 0.15);
   border-top: 3px solid var(--cyan-grey-light);
+  box-shadow: 0 -4px 28px rgba(113, 205, 248, 0.15);
   padding: 2em;
 }
 
@@ -983,22 +961,22 @@ span[role=img][aria-label]
 span[role=img][aria-label]:focus::after,
 span[role=img][aria-label]:hover::after
 {
-  position: absolute;
-  display: block;
-  z-index: 1;
+  animation: TOOLTIP 0.1s ease-out 1;
+  background-color: rgba(0,0,0,0.85);
+  border: 0.05em solid rgba(255,255,255,1);
+  border-radius: 0.2em;
   bottom: 1.5em;
+  box-shadow: 0.15em 0.15em 0.5em rgba(0,0,0,1);
+  color: rgba(255,255,255,1);
+  content: attr(aria-label);
+  display: block;
+  font-family: var(--body);
+  font-size: 80%;
   left: 0;
   max-width: 5em;
   padding: 0.5em 0.75em;
-  border: 0.05em solid rgba(255,255,255,1);
-  border-radius: 0.2em;
-  box-shadow: 0.15em 0.15em 0.5em rgba(0,0,0,1);
-  content: attr(aria-label);
-  background-color: rgba(0,0,0,0.85);
-  color: rgba(255,255,255,1);
-  font-family: var(--body);
-  font-size: 80%;
-  animation: TOOLTIP 0.1s ease-out 1;
+  position: absolute;
+  z-index: 1;
 }
 
 @media print
@@ -1012,8 +990,7 @@ span[role=img][aria-label]:hover::after
 @media (min-width: 576px)
 {
   .container,
-  .container-sm,
-  .menu
+  .container-sm
   {
     max-width: 540px;
   }
@@ -1023,8 +1000,7 @@ span[role=img][aria-label]:hover::after
 {
   .container,
   .container-sm,
-  .container-md,
-  .menu
+  .container-md
   {
     max-width: 720px;
   }
@@ -1035,8 +1011,7 @@ span[role=img][aria-label]:hover::after
   .container,
   .container-sm,
   .container-md,
-  .container-lg,
-  .menu
+  .container-lg
   {
     max-width: 960px;
   }
@@ -1049,7 +1024,6 @@ span[role=img][aria-label]:hover::after
   .container-md,
   .container-lg,
   .container-xl,
-  .menu
   {
     max-width: 1140px;
   }
@@ -1063,7 +1037,6 @@ span[role=img][aria-label]:hover::after
   .container-lg,
   .container-xl,
   .container-xxl
-  .menu
   {
     max-width: 1320px;
   }
@@ -1075,9 +1048,9 @@ span[role=img][aria-label]:hover::after
   footer ul
   {
     display: grid;
+    gap: 0;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
-    gap: 0;
     text-align: center;
   }
 
@@ -1093,183 +1066,6 @@ span[role=img][aria-label]:hover::after
 
 @media only screen and (max-width: 990px)
 {
-  .full
-  {
-    display: none;
-  }
-
-  .menu-mobile
-  {
-    display: block;
-    filter: drop-shadow(6px 0px 4px rgba(113, 205, 248, 0.25));
-    padding: 0rem 1rem;
-    position: relative;
-  }
-
-  .menu-mobile:after
-  {
-    background-image: url("../images/icons/menu.d5e47e8f137d.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    content: " ";
-    height: 40px;
-    width: 70px;
-    position: absolute;
-    right: 1rem;
-    top: calc(50% - 16px);
-  }
-
-  .menu-mobile > img
-  {
-    display: block;
-    height: 50px;
-    top: 16px;
-    position: relative;
-  }
-
-  .menu-mobile > ol
-  {
-    animation: fade 0.2s ease-out;
-    background: var(--cyan-grey-light);
-    box-shadow: 4px 0px 4px rgba(113, 205, 248, 0.8);
-    clip-path: polygon(
-      100% 00%, 
-      100% 5%, 
-      90% 10%, 
-      90% 15%, 
-      100% 20%, 
-      100% 40%, 
-      100% 51%, 
-      100% 68%, 
-      80% 77%, 
-      80% 90%, 
-      100% 100%, 
-      0 100%, 
-      0 0, 
-      100% 0);
-    display: none;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: start;
-    left: -17px;
-    margin-left: 0px;
-    position: relative;
-    top: -50px;
-    width: 220px;
-  }
-
-  .menu-mobile > ol:before 
-  {
-    content: '';
-    width: 218px;
-    height: 100vh;
-    clip-path: polygon(
-      100% 00%, 
-      100% 5%, 
-      90% 10%, 
-      90% 15%, 
-      100% 20%, 
-      100% 40%, 
-      100% 51%, 
-      100% 68%, 
-      80% 77%, 
-      80% 90%, 
-      100% 100%, 
-      0 100%, 
-      0 0, 
-      100% 0);
-    background: var(--indigo-dark);
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-  }
-    
-  .menu-mobile > ol > img
-  {
-    display: none
-  }
-
-  .menu-mobile > ol > .menu-item
-  {
-    animation: enter 0.3s ease-out forwards;
-    flex: 0;
-    opacity: 0;
-    padding-top: 1.2rem;
-    padding-right: 1.2rem;
-    padding-bottom: 0px;
-    padding-left: 2rem;
-    text-align: left;
-  }
-
-  .menu-mobile > ol > .menu-item:nth-child(1)
-  {
-    animation-delay: 0s;
-  }
-
-  .menu-mobile > ol > .menu-item:nth-child(2)
-  {
-    animation-delay: 0.1s;
-  }
-
-  .menu-mobile > ol > .menu-item:nth-child(3)
-  {
-    animation-delay: 0.2s;
-  }
-
-  .menu-mobile > ol > .menu-item:nth-child(4)
-  {
-    animation-delay: 0.3s;
-  }
-
-  .menu-mobile > ol > .menu-item:nth-child(5)
-  {
-    animation-delay: 0.4s;
-  }
-
-  .menu-mobile > ol > .menu-item+ .menu-item
-  {
-    margin-top: 0.75rem;
-  }
-
-  .menu-mobile > ol > .menu-item:after
-  {
-    display: none;
-    left: auto;
-    right: 1rem;
-    bottom: calc(50% - 2px);
-  }
-
-  .menu-mobile > ol > .menu-item:hover
-  {
-    z-index: 1;
-  }
-
-  .menu-mobile:hover> ol
-  {
-    display: flex;
-  }
-
-  .menu-mobile:hover:after
-  {
-    background-image: url("../images/icons/close.568167f0a4e1.svg");
-  }
-
-  .sub-menu
-  {
-    width: 100vw;
-    /* left: -2rem; */
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .sub-menu .menu-item
-  {
-    background: var(--cyan-grey-dark);
-    margin-left: 0;
-    width: 220px;
-  }
 }
 
 @media only screen and (max-width: 800px)
@@ -1298,7 +1094,6 @@ span[role=img][aria-label]:hover::after
 
 @media screen and (max-width: 640px)
 {
-
 }
 
 @media only screen and (max-width: 540px)

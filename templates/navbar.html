@@ -1,59 +1,76 @@
 {% load static %}
-<div class="full">
-  <nav class="menu">
-      <img alt="logotype" class="logotype" srcset="{% static 'images/logotype_reduced.svg' %%} 800w" src="{% static 'images/logotype_pt.svg' %%}">
-      <ol>
-        <img alt="logotype" class="logotype" src="{% static 'images/logotype_pt.svg' %%}">
-        <li class="menu-item"><a href="/">Início</a></li>
-        <li class="menu-item"><a href="#0">Blog</a></li>
-        <li class="menu-item"><a href="#0">COVID-19</a></li>
-        <li class="menu-item">
-          <a href="#0">Currículo</a>
-          <ol class="sub-menu">
-            <li class="menu-item"><a href="#0">Currículo tradicional</a></li>
-            <li class="menu-item"><a href="#0">Lattes</a></li>
-          </ol>
-        </li>
-        <li class="menu-item">
-          <a href="#0">Trabalhos</a>
-          <ol class="sub-menu">
-            <li class="menu-item"><a href="#0">Portefólio</a></li>
-            <li class="menu-item"><a href="#0">Projetos</a></li>
-            <li class="menu-item"><a href="#0">Publicações Acadêmicas</a></li>
-          </ol>
-        </li>
-        <li class="menu-item"><a href="#0">Biografia</a></li>
-        <li class="menu-item"><a href="#0">Sobre</a></li>
-        <li class="menu-item"><a href="#0">Contato</a></li>
-      </ol>
-  </nav>
-</div>
+<header class="navbar">
+    <div class="container">
+        <img alt="logotype" class="logotype" srcset="{% static 'images/logotype_reduced.svg' %} 800w, {% static 'images/logotype_pt.svg' %} 1440w" src="{% static 'images/logotype_pt.svg' %}"/>
 
-{% comment %} Nos pequenos ecrãs {% endcomment %}
-<nav class="menu-mobile">
-    <img alt="logotype" class="logotype" srcset="{% static 'images/logotype_reduced.svg' %%} 800w" src="{% static 'images/logotype_pt.svg' %%}">
-    <ol>
-      <img alt="logotype" class="logotype" src="{% static 'images/logotype_pt.svg' %%}">
-      <li class="menu-item"><a href="/">Início</a></li>
-      <li class="menu-item"><a href="#0">Blog</a></li>
-      <li class="menu-item"><a href="#0">COVID-19</a></li>
-      <li class="menu-item">
-        <a href="#0">Currículo</a>
-        <ol class="sub-menu">
-          <li class="menu-item"><a href="#0">Currículo tradicional</a></li>
-          <li class="menu-item"><a href="#0">Lattes</a></li>
-        </ol>
-      </li>
-      <li class="menu-item">
-        <a href="#0">Trabalhos</a>
-        <ol class="sub-menu">
-          <li class="menu-item"><a href="#0">Portefólio</a></li>
-          <li class="menu-item"><a href="#0">Projetos</a></li>
-          <li class="menu-item"><a href="#0">Publicações Acadêmicas</a></li>
-        </ol>
-      </li>
-      <li class="menu-item"><a href="#0">Biografia</a></li>
-      <li class="menu-item"><a href="#0">Sobre</a></li>
-      <li class="menu-item"><a href="#0">Contato</a></li>
-    </ol>
+        <button aria-controls="off-canvas-menu" class="hamburger">Menu</button>
+    </div>
+</header>
+
+<nav id="off-canvas-menu" class="off-canvas" aria-expanded="false">
+    <ul class="menu">
+        <li class="menu-item">
+            <a class="menu-link" href="/">Início</a>
+        </li>
+        <li class="menu-item">
+            <a class="menu-link" href="#0">Blog</a>
+        </li>
+        <li class="menu-item">
+            <a class="menu-link" href="#0">COVID-19</a>
+        </li>
+
+        <li class="menu-item">
+            <button
+                aria-controls="curriculum-sub-menu"
+                aria-expanded="false"
+                class="menu-link"
+                href="#0"
+            >
+                Currículo
+            </button>
+            <ul id="curriculum-sub-menu" class="sub-menu">
+                <li class="menu-item">
+                    <a class="menu-link" href="#0"
+                        >Currículo tradicional</a
+                    >
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="#0">Lattes</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item">
+            <button
+                aria-controls="works-sub-menu"
+                aria-expanded="false"
+                class="menu-link"
+            >
+                Trabalhos
+            </button>
+
+            <ul id="works-sub-menu" class="sub-menu">
+                <li class="menu-item">
+                    <a class="menu-link" href="#0">Portefólio</a>
+                </li>
+                <li class="menu-item list-5-item-2">
+                    <a class="menu-link" href="#0">Projetos</a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="#0"
+                        >Publicações Acadêmicas</a
+                    >
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a class="menu-link" href="#0">Biografia</a>
+        </li>
+        <li class="menu-item">
+            <a class="menu-link" href="#0">Sobre</a>
+        </li>
+        <li class="menu-item">
+            <a class="menu-link" href="#0">Contato</a>
+        </li>
+    </ul>
 </nav>
