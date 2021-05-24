@@ -146,7 +146,12 @@ code
 
 .logotype
 {
+  background-image: url("../images/logotype_pt.svg");
+  background-position:  left top;
+  background-repeat: no-repeat;
+  background-size: contain;
   height: 40px;
+  width: 192.31px;
 }
 
 .hamburger
@@ -245,6 +250,9 @@ code
 {
   content: "▼";
   display: inline-block;
+  padding-left: 5px;
+  position: relative;
+  vertical-align: middle;
 }
 
 .menu-link[aria-controls][aria-expanded="true"]::after
@@ -269,9 +277,19 @@ code
   background-position: bottom left;
   background-repeat: no-repeat;
   -webkit-box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
-  -moz-box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
-  box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
+     -moz-box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
+          box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
   clip-path: polygon(100% 0%, 100% 100%, 8.5% 100%, 0.00% 69%, 0% 0%);
+}
+
+.menu-item.borderless:hover
+{
+  background-color: var(--indigo-default);
+  background-image: none;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+  clip-path: none
 }
 
 form input[type="mail"],
@@ -1070,6 +1088,12 @@ span[role=img][aria-label]:hover::after
 
 @media only screen and (max-width: 800px)
 {
+  .logotype
+  {
+    background-image: url("../images/logotype_reduced.svg");
+    width: 40px;
+  }
+
   h2.cyberpunk
   {
     font-size: 1.5rem;

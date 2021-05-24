@@ -146,7 +146,7 @@ code
 
 .logotype
 {
-  background-image: url("../images/logotype_pt.svg");
+  background-image: url("../images/logotype_pt.a9977c3a0eee.svg");
   background-position:  left top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -273,7 +273,7 @@ code
 .menu-item:hover
 {
   background-color: var(--indigo-default);
-  background-image: url("../images/borders/cut-border.svg");
+  background-image: url("../images/borders/cut-border.e5ca9e361a0c.svg");
   background-position: bottom left;
   background-repeat: no-repeat;
   -webkit-box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
@@ -1090,7 +1090,7 @@ span[role=img][aria-label]:hover::after
 {
   .logotype
   {
-    background-image: url("../images/logotype_reduced.svg");
+    background-image: url("../images/logotype_reduced.e204411b29e1.svg");
     width: 40px;
   }
 
