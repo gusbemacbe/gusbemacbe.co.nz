@@ -1,8 +1,6 @@
 section
 {
-  background: url("../images/borders/border-2.svg") bottom center no-repeat;
-  background-size: contain;
-  padding: 5rem;
+  padding: 5em 5em 10em 5em;
 }
 
 h1, h1 + p
@@ -19,9 +17,25 @@ h2, h3
   margin-top: 1rem;
 }
 
+
+h2 ~ p span
+{
+  background: var(--pink-dark);
+  border-radius: 2px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
 h3
 {
   color: var(--cyan-medium);
+}
+
+p
+{
+  font-size: 1.25rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
 }
 
 hr
@@ -33,24 +47,14 @@ hr
   margin-top: 5rem;
 }
 
-p
-{
-  font-size: 1.25rem;
-  line-height: 2rem;
-  margin-bottom: 2rem;
-}
-
-h2 ~ p span
-{
-  background: var(--pink-dark);
-  border-radius: 2px;
-  padding: 5px;
-  margin-left: 5px;
-}
-
 hr ~ h2
 {
   margin-top: 5rem;
+}
+
+hr:last-child
+{
+  display: none;
 }
 
 .grid 
@@ -69,24 +73,97 @@ hr ~ h2
   width: 100%;
 }
 
+/* Widescreen 1280 */
+@media only screen and (max-width: 1280px)
+{
+
+}
+
 @media only screen and (max-width: 1024px)
 {
   section
   {
-    background: url("../images/borders/border-2-tablet.svg") bottom center no-repeat;
-    background-size: contain;
     background-color: var(--indigo-dark);
   }
+}
+
+@media only screen and (max-width: 990px)
+{
+  h2 ~ p span
+  {
+    line-height: 2.5em;
+  }
+}
+
+@media only screen and (max-width: 800px)
+{
+  section
+  {
+    padding: 3em 3em 6em 3em;
+  }
+
+  .grid
+  {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+@media only screen and (max-width: 780px)
+{
+
+}
+
+@media screen and (max-width: 640px)
+{
+  
 }
 
 @media only screen and (max-width: 540px)
 {
   section
   {
-    background: url("../images/borders/border-2-mobile.svg") bottom center no-repeat;
-    background-size: contain;
-    background-color: var(--indigo-dark);
+    padding: 1em 1em 6em 1em;
   }
+}
+
+@media only screen and (max-width: 428px)
+{
+  
+}
+
+/* Xiaomi Redmi Note 7 – Portrato */
+@media only screen and (max-width: 395px)
+{
+  
+}
+
+@media only screen and (max-width: 384px)
+{
+  
+}
+
+@media only screen and (max-width: 375px)
+{
+  
+}
+
+@media only screen and (max-width: 320px)
+{
+  h1.cyberpunk
+  {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 280px)
+{
+  
+}
+
+@media only screen and (max-width: 240px)
+{
+  
 }
 
 

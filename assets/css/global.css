@@ -2,6 +2,9 @@
 {
   --glitched-duration: 0.9s;
   --glitched-long-duration: 3s;
+
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
 }
 
 *
@@ -117,8 +120,8 @@ code
 {
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: 0.75rem;
+  padding-right:0.75rem;
   width: 100%;
 }
 
@@ -137,7 +140,7 @@ code
   z-index: 5;
 }
 
-.navbar> .container
+.navbar > .container
 {
   align-items: center;
   display: flex;
@@ -926,6 +929,16 @@ hr
   }
 }
 
+.border-before-footer
+{
+  background-image: url("../images/borders/border-2.svg");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 0px solid transparent;
+  outline: 0px;
+}
+
 footer
 {
   background-color: var(--cyan-dark);
@@ -1088,6 +1101,13 @@ span[role=img][aria-label]:hover::after
 
 @media only screen and (max-width: 1024px)
 {
+  .border-before-footer
+  {
+    background-image: url("../images/borders/border-2-tablet.svg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
 
 @media only screen and (max-width: 990px)
@@ -1126,10 +1146,19 @@ span[role=img][aria-label]:hover::after
 
 @media screen and (max-width: 640px)
 {
+
 }
 
 @media only screen and (max-width: 540px)
 {
+  .border-before-footer
+  {
+    background-image: url("../images/borders/border-2-mobile.svg");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
   footer img
   {
     width: 212px;
@@ -1138,29 +1167,36 @@ span[role=img][aria-label]:hover::after
 
 @media only screen and (max-width: 428px)
 {
+  
 }
 
 /* Xiaomi Redmi Note 7 – Portrato */
 @media only screen and (max-width: 395px)
 {
+  
 }
 
 @media only screen and (max-width: 384px)
 {
+  
 }
 
 @media only screen and (max-width: 375px)
 {
+  
 }
 
 @media only screen and (max-width: 320px)
 {
+  
 }
 
 @media only screen and (max-width: 280px)
 {
+  
 }
 
 @media only screen and (max-width: 240px)
 {
+  
 }
