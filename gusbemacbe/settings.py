@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # own
     'home',
+    'projects',
 
     # third-party apps
     'django_extensions',

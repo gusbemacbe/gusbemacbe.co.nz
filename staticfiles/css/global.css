@@ -964,6 +964,14 @@ footer ul li a
   padding: 2em;
 }
 
+.credits p
+{
+  font-size: 1em;
+  line-height: 150%;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
 .credits p span
 {
   font-family: var(--emoji) !important;

@@ -1,0 +1,55 @@
+{% extends '../base.html' %}
+
+{% block content %}
+{% load static %}
+
+<section>
+  <div class="container">
+    <h1 class="cyberpunk">{% firstof title context.title %}</h1>
+    <p>Eu desenvolvi alguns próprios projetos de código aberto em várias linguagens para você pode pegar para seus <i>sites</i> prontos ou para seu desenvolvimento. Além disto, colaborei com alguns projetos, inclusive que sou membro das organizações Dracula, cujo dono é Zeno Rocha, o brasileiro da Califórnia, e Highlight.js. Participei de um projeto da sociedade doado para uma comunidade carente. Venha conhecer meus projetos, divididos em projetos gerais, de fontes, de ícones e de <i>sites</i>. A maioria deles estão hospedados no GitHub e no GitLba.</p>
+    <h2 class="cyberpunk">Projetos gerais</h2>
+    {% for index, general_project in general_projects %}
+      <h3>{{general_project.Name}}</h3>
+      <p>{{general_project.Description | safe}}.</p>
+      <p>{{general_project.Collaboration | safe}}.</p>
+      <p>
+        <b>Etiquetas: </b>
+        {% for tag in general_project.Tags %}
+        <span>{{tag}}</span>
+        {% endfor %}
+      </p>
+      <a href="{{general_project.Link}}" class="cyberpunk2077">Visitar</a>
+      <hr class="cyberpunk">
+    {% endfor %}
+
+    <h2 class="cyberpunk">Projetos de ícones</h2>
+    {% for index, icon_project in icons_projects %}
+    <div class="grid">
+      <img alt="{{ icon_project.Name}}" class="preview" src="/static/images/{{icon_project.Image}}">
+      <div class="text">
+        <h3>{{icon_project.Name}}</h3>
+        <p>{{icon_project.Description | safe}}.</p>
+        <a href="{{icon_project.Link}}" class="cyberpunk2077">Visitar</a>
+      </div>
+    </div>
+    <hr class="cyberpunk">
+    {% endfor %}
+    
+    <h2 class="cyberpunk">Projetos de <i>website</i></h2>
+    {% for index, website_project in website_projects %}
+      <h3>{{website_project.Name}}</h3>
+      <p>{{website_project.Description | safe}}.</p>
+      <p>{{website_project.Trabalho | safe}}.</p>
+      <p>
+        <b>Etiquetas: </b>
+        {% for tag in website_project.Tags %}
+        <span>{{tag}}</span>
+        {% endfor %}
+      </p>
+      <a href="{{website_project.Link}}" class="cyberpunk2077">Visitar</a>
+      <hr class="cyberpunk">
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

@@ -8,6 +8,8 @@
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
   {% if request.path == '/' %}
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  {% elif request.path == '/projects/' %}
+  <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/projects.css' %}">
   {% else %}
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
   {% endif %}
@@ -15,17 +17,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gustavo Costa – {{ title }}</title>
+  <title>Gustavo Costa – {% firstof title context.title %}</title>
 </head>
-<body>
-{% include "navbar.html" %}
+  <body>
+    {% include "navbar.html" %}
 
-  {% block content %}
-  {% endblock %}
+    {% block content %}
+    {% endblock %}
 
-  {% block section %}
-  {% endblock %}
-  
-  <script type="text/javascript" src="{% static 'js/global.js' %}"></script>
-</body>
+    {% block section %}
+    {% endblock %}
+
+    {% include "footer.html" %}
+    <script type="text/javascript" src="{% static 'js/global.js' %}"></script>
+  </body>
 </html>

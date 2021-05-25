@@ -27,9 +27,11 @@ from home.views import home_view
 urlpatterns = [
     path('', home_view, name = 'home'),
     path('admin/', admin.site.urls),
+    
+    # Pages
+    path('projects/', include('projects.urls')),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL,
-                          document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

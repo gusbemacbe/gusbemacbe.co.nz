@@ -1,0 +1,92 @@
+section
+{
+  background: url("../images/borders/border-2.849f484bc47e.svg") bottom center no-repeat;
+  background-size: contain;
+  padding: 5rem;
+}
+
+h1, h1 + p
+{
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+}
+
+h2, h3
+{
+  letter-spacing: -0.0625rem;
+  line-height: 2.25rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+h3
+{
+  color: var(--cyan-medium);
+}
+
+hr
+{
+  background-color: var(--pink-medium);
+  border: 0px;
+  outline: 0px;
+  margin-bottom: 2rem;
+  margin-top: 5rem;
+}
+
+p
+{
+  font-size: 1.25rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+
+h2 ~ p span
+{
+  background: var(--pink-dark);
+  border-radius: 2px;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+hr ~ h2
+{
+  margin-top: 5rem;
+}
+
+.grid 
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, auto);
+  align-items: center;
+  justify-items: center;
+}
+
+.grid .preview
+{
+  height; auto;
+  max-width: 320px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1024px)
+{
+  section
+  {
+    background: url("../images/borders/border-2-tablet.0f43cbd656d4.svg") bottom center no-repeat;
+    background-size: contain;
+    background-color: var(--indigo-dark);
+  }
+}
+
+@media only screen and (max-width: 540px)
+{
+  section
+  {
+    background: url("../images/borders/border-2-mobile.3e0901b53d64.svg") bottom center no-repeat;
+    background-size: contain;
+    background-color: var(--indigo-dark);
+  }
+}
+
+
