@@ -14,6 +14,7 @@ class ProjectsView(Mixin, View):
     template = "pages/projects.html"
     context = {
       'title': "Projetos",
+      'fonts_projects': self.fonts_projects_list(),
       'general_projects': self.general_projects_list(),
       'icons_projects': self.icons_projects_list(),
       'website_projects': self.website_projects_list()
@@ -131,6 +132,20 @@ class ProjectsView(Mixin, View):
           "Description": "Um tema de ícones de Suru++ em cor desaturada de azul céu que desenvolvi totalmente para Linux. Estou ativo neste projeto",
           "Image": "suru-plus-telinkrin.png",
           "Link": "https://github.com/gusbemacbe/suru-plus-telinkrin"
+        },
+      3:
+        {
+          "Name": "Adwaita++",
+          "Description": "Um tema de ícones no estilo de Adwaita e de GNOME com um pacote extra. Colaborei intensivamente com o proprietário do tema de ícones, que cuida da parte gráfica, enquanto cuido da grande parte de bugs, do aprimoramento de ícones e de hierarquia de ícones. Estou ativo neste projeto",
+          "Image": "adwaita-plus.png",
+          "Link": "https://github.com/Bonandry/adwaita-plus"
+        },
+      4:
+        {
+          "Name": "Yaru++",
+          "Description": "Um tema elegante e informal de ícones no estilo de Suru e Yaru com um pacote extra. Colaborei intensivamente com o proprietário do tema de ícones, que cuida da parte gráfica, enquanto cuido da grande parte de bugs, do aprimoramento de ícones e de hierarquia de ícones. Estou ativo neste projeto",
+          "Image": "yaru-plus.png",
+          "Link": "https://github.com/Bonandry/yaru-plus"
         },
     }
     return sorted(icons_projects.items(), key = lambda item: item[1]['Name'])

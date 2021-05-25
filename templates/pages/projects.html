@@ -5,9 +5,12 @@
 
 <section class="border-before-footer">
   <div class="container">
+
     <h1 class="cyberpunk">{% firstof title context.title %}</h1>
     <p>Eu desenvolvi alguns próprios projetos de código aberto em várias linguagens para você pode pegar para seus <i>sites</i> prontos ou para seu desenvolvimento. Além disto, colaborei com alguns projetos, inclusive que sou membro das organizações Dracula, cujo dono é Zeno Rocha, o brasileiro da Califórnia, e Highlight.js. Participei de um projeto da sociedade doado para uma comunidade carente. Venha conhecer meus projetos, divididos em projetos gerais, de fontes, de ícones e de <i>sites</i>. A maioria deles estão hospedados no GitHub e no GitLba.</p>
+    
     <h2 class="cyberpunk">Projetos gerais</h2>
+    
     {% for index, general_project in general_projects %}
       <h3>{{general_project.Name}}</h3>
       <p>{{general_project.Description | safe}}.</p>
@@ -22,7 +25,17 @@
       <hr class="cyberpunk">
     {% endfor %}
 
+    <h2 class="cyberpunk">Projetos de fontes</h2>
+    
+    {% for index, font_project in fonts_projects %}
+      <h3>{{font_project.Name}}</h3>
+      <p>{{font_project.Description | safe}}.</p>
+      <a href="{{font_project.Link}}" class="cyberpunk2077">Visitar</a>
+      <hr class="cyberpunk">
+    {% endfor %}
+
     <h2 class="cyberpunk">Projetos de ícones</h2>
+    
     {% for index, icon_project in icons_projects %}
     <div class="grid">
       <img alt="{{ icon_project.Name}}" class="preview" src="/static/images/{{icon_project.Image}}">
@@ -36,6 +49,7 @@
     {% endfor %}
     
     <h2 class="cyberpunk">Projetos de <i>website</i></h2>
+    
     {% for index, website_project in website_projects %}
       <h3>{{website_project.Name}}</h3>
       <p>{{website_project.Description | safe}}.</p>

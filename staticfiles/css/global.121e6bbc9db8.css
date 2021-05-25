@@ -149,7 +149,7 @@ code
 
 .logotype
 {
-  background-image: url("../images/logotype_pt.svg");
+  background-image: url("../images/logotype_pt.a9977c3a0eee.svg");
   background-position:  left top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -276,7 +276,7 @@ code
 .menu-item:hover
 {
   background-color: var(--indigo-default);
-  background-image: url("../images/borders/cut-border.svg");
+  background-image: url("../images/borders/cut-border.e5ca9e361a0c.svg");
   background-position: bottom left;
   background-repeat: no-repeat;
   -webkit-box-shadow: inset 0px 0px 0px 2px var(--cyan-grey-light);
@@ -931,7 +931,7 @@ hr
 
 .border-before-footer
 {
-  background-image: url("../images/borders/border-2.svg");
+  background-image: url("../images/borders/border-2.849f484bc47e.svg");
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1103,7 +1103,7 @@ span[role=img][aria-label]:hover::after
 {
   .border-before-footer
   {
-    background-image: url("../images/borders/border-2-tablet.svg");
+    background-image: url("../images/borders/border-2-tablet.0f43cbd656d4.svg");
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1118,7 +1118,7 @@ span[role=img][aria-label]:hover::after
 {
   .logotype
   {
-    background-image: url("../images/logotype_reduced.svg");
+    background-image: url("../images/logotype_reduced.e204411b29e1.svg");
     width: 40px;
   }
 
@@ -1153,7 +1153,7 @@ span[role=img][aria-label]:hover::after
 {
   .border-before-footer
   {
-    background-image: url("../images/borders/border-2-mobile.svg");
+    background-image: url("../images/borders/border-2-mobile.3e0901b53d64.svg");
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: contain;
