@@ -40,7 +40,7 @@ class ProjectsView(Mixin, View):
         },
       2:
         {
-          "Name": "Ooomox",
+          "Name": "Oomox",
           "Description": "Um aplicativo que gera as diferentes variações de cor para Linux, como GTK2, GTK3, GTK4 e terminal, e tambem modifica as cores dos ícones e das pastas dos temas de ícones para seu sistema operacional",
           "Collaboration": "Colaborei com o projeto, adicionando as novas extensões de Adwaita++, Suru++ e Yaru++, e traduzindo o aplicativo em espanhol, francês, italiano, neerlandês e português",
           "Link": "https://github.com/themix-project/oomox",
@@ -140,7 +140,7 @@ class ProjectsView(Mixin, View):
       0:
         {
           "Name": "Site Suru++ Pastas",
-          "Description": "Um site multilíngue e multitemático de Suru++ Past escrito em Hugo.",
+          "Description": "Um site multilíngue e multitemático de Suru++ Past escrito em Hugo",
           "Trabalho": "Desenvolvi um site, escrevendo em Hugo, que é um <i>framework</i> da linguagem de programação Go de Google, com vários temas para seu gosto e em várias línguas, para a documentação de Suru++ Pastas a fim de facilitar a compreensão dos usuários que estiverem a executar a modificar a cor das patas dos temas de ícones. Além disso, utilizei YAML para traduzir. O código em JavaScript, com base na filosofia de Lucas Ayabe, é inspirado no Vue.js",
           "Tags": ["Hugo", "Go", "Gulpfile", "HTML", "JavaScript", "JSON", "Markdown", "YAML"],
           "Link": "https://github.com/gusbemacbe/suru-plus-folders/tree/site-hugo",
