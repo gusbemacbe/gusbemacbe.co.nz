@@ -1,12 +1,12 @@
-Django
+# djangorestframework
+# ipychart
 dj-database-url
+Django
 django-extensions
 django-heroku
 django-sslserver
 django-tidy
-# djangorestframework
 gunicorn
-# ipychart
 pandas
 psycopg2
 pytz

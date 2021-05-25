@@ -1,0 +1,14 @@
+{% extends '../base.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="border-before-footer">
+  <div class="container">
+
+    <h1 class="cyberpunk">{% firstof title context.title %}</h1>
+    
+  </div>
+</section>
+
+{% endblock %}

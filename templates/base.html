@@ -8,6 +8,9 @@
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
   {% if request.path == '/' %}
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  {% elif request.path == '/portfolio/' %}
+  <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/flickity.css' %}">
+  <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
   {% elif request.path == '/projects/' %}
   <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/projects.css' %}">
   {% else %}
@@ -30,5 +33,11 @@
 
     {% include "footer.html" %}
     <script type="text/javascript" src="{% static 'js/global.js' %}"></script>
+    {% if request.path == '/portfolio/' %}
+    <script type="text/javascript" src="{% static 'js/flickity.pkgd.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/portfolio.js' %}"></script>
+    {% else %}
+    {% comment %} nothing {% endcomment %}
+    {% endif %}
   </body>
 </html>

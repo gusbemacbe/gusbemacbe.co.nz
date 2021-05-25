@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     # own
     'home',
+    'portfolio',
     'projects',
 
     # third-party apps
@@ -53,8 +54,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = (
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
