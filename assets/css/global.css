@@ -149,7 +149,7 @@ code
 
 .logotype
 {
-  background-image: url("../images/logotype_pt.svg");
+  background-image: url("../images/logotypes/logotype_pt.svg");
   background-position:  left top;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1118,7 +1118,7 @@ span[role=img][aria-label]:hover::after
 {
   .logotype
   {
-    background-image: url("../images/logotype_reduced.svg");
+    background-image: url("../images/logotypes/logotype_reduced.svg");
     width: 40px;
   }
 

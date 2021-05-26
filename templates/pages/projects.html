@@ -38,7 +38,7 @@
     
     {% for index, icon_project in icons_projects %}
     <div class="grid">
-      <img alt="{{ icon_project.Name}}" class="preview" src="/static/images/{{icon_project.Image}}">
+      <img alt="{{ icon_project.Name}}" class="preview" src="/static/images/projects/{{icon_project.Image}}">
       <div class="text">
         <h3>{{icon_project.Name}}</h3>
         <p>{{icon_project.Description | safe}}.</p>
