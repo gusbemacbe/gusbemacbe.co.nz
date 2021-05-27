@@ -25,6 +25,7 @@ from gusbemacbe import settings
 from home.views import home_view
 
 urlpatterns = [
+    path('admin/', include('smuggler.urls')),  # before admin url patterns!
     path('', home_view, name = 'home'),
     path('admin/', admin.site.urls),
     

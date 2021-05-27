@@ -1,11 +1,13 @@
-# djangorestframework
 # ipychart
 dj-database-url
 Django
+django-dbbackup
 django-extensions
 django-heroku
+django-smuggler
 django-sslserver
 django-tidy
+djangorestframework
 gunicorn
 pandas
 psycopg2

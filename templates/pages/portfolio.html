@@ -8,41 +8,42 @@
 
     <h1 class="cyberpunk">{% firstof title context.title %}</h1>
 
-    <p>Há duas décadas trabalhei com ambas as profissões de design gráfico e <i>web design</i>. No mundo de design gráfico, realizei vários trabalhos diferentes como <i>banners</i>, cartazes, cartões de visita e logógtipos. No mundo de web designer, em 2010, no qual mergulhei por meio dos Jogos Olímpicos de Inverno de 2010 em Vacnouver, que me inspirou a explorar a arte de internet. Neste portefólio, apresento-lhe meus trabalhos de alta qualidade que possam chamar a atenção. Escolha uma das categorias para pular.</p>
+    <p>Há duas décadas trabalhei com ambas as profissões de design gráfico e <i>web design</i>. No mundo de design gráfico, realizei vários trabalhos diferentes como <i>banners</i>, cartazes, cartões de visita e logógtipos. No mundo de web designer, em 2010, no qual mergulhei por meio dos Jogos Olímpicos de Inverno de 2010 em Vacnouver, que me inspirou a explorar a arte de internet. Neste portefólio, apresento-lhe meus trabalhos de alta qualidade que possam chamar a atenção.</p>
 
-    <p><a href="#"><i>Banners</i></a> <a href="#0">Cartazes</a> <a href="#0">Cartões de visita</a> <a href="#0">Logótipos</a></p>
-
-    <h2>Banners</h2>
-
-    <div x-data="carousel()" x-init="init()" x-ref="wrapper" class="carousel">
-      {% comment %} <figure x-show="slide === 0" class="carousel__slide">
-        <img
-            src="https://via.placeholder.com/1366x768"
-            alt="Slide 01"
-            class="carousel__image"
-            />
-        <figcaption class="carousel__caption">Imagem 01</figcaption>
-      </figure> {% endcomment %}
-
-      {% for index, banner in banners %}
-      <figure x-show="slide === {{ index }}" class="carousel__slide">
-        <img
-            src="/static/images/portfolio/{{ banner.Image }}"
-            alt="{{ banner.Name | safe }}"
-            class="carousel__image portfolio"
-            />
-        <figcaption class="carousel__caption">{{ banner.Description | safe }}</figcaption>
-      </figure>
-      {% endfor %}
-
-      <button @click="next()" class="carousel__control--previous">
-        &#10094;
-      </button>
-      <button @click="next()" class="carousel__control--next">
-        &#10095;
-      </button>
-    </div>
+    <p>Escolha uma das categorias para filtrar e mostrar só algumas imagens.</p>
     
+    <div class="button-group filters-button-group">
+      <button class="button active" data-filter="*">Tudo</button>
+      <button class="button"        data-filter=".banners">Banners</button>
+      <button class="button"        data-filter=".posters">Cartazes</button>
+      <button class="button"        data-filter=".cards">Cartões de visita</button>
+      <button class="button"        data-filter=".logotypes">Logótipos</button>
+    </div>
+
+    <div class="grid effect-2" id="grid">
+      <div class="grid-item banners"></div>
+      <div class="grid-item banners"></div>
+      <div class="grid-item banners"></div>
+      <div class="grid-item banners"></div>
+      <div class="grid-item posters"></div>
+      <div class="grid-item posters"></div>
+      <div class="grid-item posters"></div>
+      <div class="grid-item posters"></div>
+      <div class="grid-item cards"></div>
+      <div class="grid-item cards"></div>
+      <div class="grid-item cards"></div>
+      <div class="grid-item cards"></div>
+      <div class="grid-item logotypes"></div>
+      <div class="grid-item logotypes"></div>
+      <div class="grid-item logotypes"></div>
+      <div class="grid-item logotypes"></div>
+      <div class="grid-item logotypes"></div>
+      <div class="grid-item logotypes"></div>
+      <div class="grid-item cards"></div>
+      <div class="grid-item banners"></div>
+      <div class="grid-item cards"></div>
+    </div>
+
   </div>
 </section>
 

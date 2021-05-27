@@ -4,19 +4,10 @@ section
 }
 
 h1,
-h1 + p
+h1+ p
 {
   margin-bottom: 2rem;
   margin-top: 1rem;
-}
-
-p > a
-{
-  background-color: var(--pink-medium);
-  border-radius: 5px;
-  color: var(--cyan-grey-light);
-  margin-left: 10px;
-  padding: 5px;
 }
 
 h2,
@@ -28,7 +19,7 @@ h3
   margin-top: 1rem;
 }
 
-h2 ~ p span
+h2~ p span
 {
   background: var(--pink-dark);
   border-radius: 2px;
@@ -57,7 +48,7 @@ hr
   outline: 0;
 }
 
-hr ~ h2
+hr~ h2
 {
   margin-top: 5rem;
 }
@@ -70,83 +61,491 @@ hr:last-child
 img.portfolio
 {
   background-color: var(--indigo-dark);
-  border-radius: 10px;
   border: 30px solid var(--indigo-dark);
-  border-left: 5px solid var(--indigo-dark);
-  border-right: 5px solid var(--indigo-dark);
   border-bottom: 15px solid var(--indigo-dark);
+  border-left: 5px solid var(--indigo-dark);
+  border-radius: 10px;
+  border-right: 5px solid var(--indigo-dark);
   clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 15px) calc(100% - 10px), calc(80% - 10px)  calc(100% - 10px), calc(80% - 15px) calc(100% - 0px), 10px  calc(100% - 0px), 0% calc(100% - 10px));
   display: block;
   max-width: 100%;
 }
 
-.carousel
+.button
 {
-  width: 100%;
-}
-
-.carousel,
-.carousel__slide
-{
-  position: relative;
-}
-
-.carusel__image
-{
-  object-fit: cover;
-  width: 100%;
-}
-
-.carousel__caption
-{
-  background: var(--indigo-dark);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  bottom: 0;
-  color: var(--cyan-grey-light);
-  left: 0;
-  padding: 1em;
-  position: absolute;
-  right: 0;
-}
-
-.carousel__control--previous,
-.carousel__control--next
-{
-  background: #FFFFFF;
+  background-color: var(--pink-medium);
   border: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  color: var(--cyan-grey-light);
   cursor: pointer;
-  padding: 1em;
-  position: absolute;
-  top: 50%;
-  transform: translate3d(0, -50%, 0);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  user-select: none;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-bottom: 3em;
+  padding: 10px 18px;
 }
 
-.carousel__control--previous:hover,
-.carousel__control--next:hover
+.button:hover
 {
-  background: hsl(0, 0%, 98%);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--indigo-medium);
 }
 
-.carousel__control--previous:active,
-.carousel__control--next:active
+.button:active,
+.button.active
 {
-  background: hsl(0, 0%, 96%);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  background-color: var(--indigo-dark);
 }
 
-.carousel__control--previous
+.button-group:after
 {
-  left: 0;
+  clear: both;
+  content: "";
+  display: block;
 }
 
-.carousel__control--next
+.button-group .button
 {
-  right: 0;
+  border-radius: 0;
+  float: left;
+  margin-left: 0;
+  margin-right: 1px;
+}
+
+.button-group .button:first-child
+{
+  border-radius: 0.5em 0 0 0.5em;
+}
+
+.button-group .button:last-child
+{
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+.grid
+{
+  counter-reset: grid-item;
+}
+
+.grid:after
+{
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.grid.effect-1 .grid-item.animate
+{
+  -webkit-animation: fadeIn 0.65s ease forwards;
+          animation: fadeIn 0.65s ease forwards;
+}
+
+@-webkit-keyframes fadeIn
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1;
+  }
+}
+
+/* Effect 2: Move Up */
+.grid.effect-2 .grid-item.animate
+{
+  -webkit-animation: moveUp 0.65s ease forwards;
+          animation: moveUp 0.65s ease forwards;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+}
+
+@-webkit-keyframes moveUp
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes moveUp
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+/* Effect 3: Scale up */
+.grid.effect-3 .grid-item.animate
+{
+  -webkit-animation: scaleUp 0.65s ease-in-out forwards;
+          animation: scaleUp 0.65s ease-in-out forwards;
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+}
+
+@-webkit-keyframes scaleUp
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes scaleUp
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+/* Effect 4: fall perspective */
+.grid.effect-4
+{
+  -webkit-perspective: 1300px;
+          perspective: 1300px;
+}
+
+.grid.effect-4 .grid-item.animate
+{
+  -webkit-animation: fallPerspective 0.8s ease-in-out forwards;
+          animation: fallPerspective 0.8s ease-in-out forwards;
+  -webkit-transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+          transform: translateZ(400px) translateY(300px) rotateX(-90deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+@-webkit-keyframes fallPerspective
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+  }
+}
+
+@keyframes fallPerspective
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
+            transform: translateZ(0px) translateY(0px) rotateX(0deg);
+  }
+}
+
+/* Effect 5: fly (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+.grid.effect-5
+{
+  -webkit-perspective: 1300px;
+          perspective: 1300px;
+}
+
+.grid.effect-5 .grid-item.animate
+{
+  -webkit-animation: fly 0.8s ease-in-out forwards;
+          animation: fly 0.8s ease-in-out forwards;
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+  -webkit-transform-origin: 50% 50% -300px;
+          transform-origin: 50% 50% -300px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+@-webkit-keyframes fly
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: rotateX(0deg);
+  }
+}
+
+@keyframes fly
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+/* Effect 6: flip (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+.grid.effect-6
+{
+  -webkit-perspective: 1300px;
+          perspective: 1300px;
+}
+
+.grid.effect-6 .grid-item.animate
+{
+  -webkit-animation: flip 0.8s ease-in-out forwards;
+          animation: flip 0.8s ease-in-out forwards;
+  -webkit-transform: rotateX(-80deg);
+          transform: rotateX(-80deg);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+@-webkit-keyframes flip
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: rotateX(0deg);
+  }
+}
+
+@keyframes flip
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+/* Effect 7: helix (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+.grid.effect-7
+{
+  -webkit-perspective: 1300px;
+          perspective: 1300px;
+}
+
+.grid.effect-7 .grid-item.animate
+{
+  -webkit-animation: helix 0.8s ease-in-out forwards;
+          animation: helix 0.8s ease-in-out forwards;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+@-webkit-keyframes helix
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: rotateY(0deg);
+  }
+}
+
+@keyframes helix
+{
+  0%
+  {
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+/* Effect 8:  */
+.grid.effect-8
+{
+  -webkit-perspective: 1300px;
+          perspective: 1300px;
+}
+
+.grid.effect-8 .grid-item.animate
+{
+  -webkit-animation: popUp 0.8s ease-in forwards;
+          animation: popUp 0.8s ease-in forwards;
+  -webkit-transform: scale(0.4);
+          transform: scale(0.4);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+@-webkit-keyframes popUp
+{
+  0%
+  {
+  }
+
+  70%
+  {
+    -webkit-animation-timing-function: ease-out; 
+    opacity: 0.8;
+    -webkit-transform: scale(1.1);
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes popUp
+{
+  0%
+  {
+  }
+
+  70%
+  {
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out; 
+    opacity: 0.8;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+
+  100%
+  {
+    opacity: 1; 
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.grid-item
+{
+  background: #DD2266;
+  border: 2px solid #333333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+  float: left;
+  height: 120px;
+  margin-bottom: 10px;
+  width: 240px;
+}
+
+.grid-item:before
+{
+  color: white;
+  content: counter(grid-item);
+  counter-increment: grid-item;
+  display: block;
+  font-size: 1.4rem;
+  padding-top: 0.2em;
+  text-align: center;
+}
+
+.grid-item.banners
+{
+	background-color: rebeccapurple;
+}
+
+.grid-item.cards
+{
+	background-color: burlywood;
+}
+
+.grid-item.logotypes
+{
+	background-color: cadetblue;
+}
+
+.grid-item.posters
+{
+	background-color: coral;
+}
+
+.grid-item--width2
+{
+  width: 320px;
+}
+
+.grid-item--width3
+{
+  width: 480px;
+}
+
+.grid-item--width4
+{
+  width: 720px;
+}
+
+.grid-item--height2
+{
+  height: 200px;
+}
+
+.grid-item--height3
+{
+  height: 260px;
+}
+
+.grid-item--height4
+{
+  height: 360px;
 }
 
 /* Widescreen 1280 */
@@ -192,6 +591,12 @@ img.portfolio
   {
     padding: 1em 1em 6em 1em;
   }
+
+  .categories
+  {
+    display: grid;
+    word-wrap: break-word;
+  }
 }
 
 @media only screen and (max-width: 428px)
@@ -215,7 +620,7 @@ img.portfolio
 {
   h1.cyberpunk
   {
-    font-size: 2rem;
+    font-size: 1.7rem;
   }
 }
 

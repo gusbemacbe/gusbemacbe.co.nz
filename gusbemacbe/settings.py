@@ -49,7 +49,9 @@ INSTALLED_APPS = [
     'projects',
 
     # third-party apps
+    'dbbackup',
     'django_extensions',
+    'smuggler',
     'sslserver',
 ]
 
@@ -99,6 +101,9 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': 'backup/'}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
