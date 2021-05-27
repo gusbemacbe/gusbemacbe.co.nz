@@ -19,4 +19,6 @@ heroku addons:create heroku-postgresql:hobby-dev
 heroku addons:create heroku-redis:hobby-dev
 heroku config:set SECRET_KEY='replace me with a generated secret key'
 
+heroku container:push web
+heroku container:release web
 heroku open

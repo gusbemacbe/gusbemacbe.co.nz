@@ -3,7 +3,7 @@ version: '3.9'
 services:
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:1989
+    command: python manage.py runserver 0.0.0.0:8000
     environment:
       DEBUG: 1
     volumes:
@@ -15,7 +15,9 @@ services:
       - redis
 
   worker:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-Arch
     command: python manage.py rqworker default
     environment:
       DEBUG: 1

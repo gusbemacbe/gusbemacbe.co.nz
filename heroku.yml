@@ -1,0 +1,4 @@
+build:
+  docker:
+    web: arch
+    worker: dockerfiles/arch
