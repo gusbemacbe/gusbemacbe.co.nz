@@ -29,8 +29,11 @@ SECRET_KEY = 'django-insecure-mo9u!l7aco7us1&%k^(0-*lwyhc=%9zc1l#5zw+k_r*x6rkp*3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Application definition
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG,
+}
 
+# Application definition
 INSTALLED_APPS = [
     # Default
     'django.contrib.admin',
@@ -145,7 +148,7 @@ DATABASES['default'].update(dj_database_url.config(conn_max_age = 500, ssl_requi
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1']
 
 # BASE
 STATIC_ROOT    = os.path.join(BASE_DIR, 'assets')
