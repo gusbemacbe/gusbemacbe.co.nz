@@ -1,7 +1,14 @@
 // $('.grid').isotope(
 // {
 //   itemSelector: '.grid-item',
-//   layoutMode: 'fitRows',
+//   columnWidth: '.grid-size',
+//   percentPosition: true,
+//   masonry:
+//   {
+//     gutter: 20,
+//     horizontalOrder: true,
+//     layoutMode: 'fitRows',
+//   }
 // });
 
 // $('.button').click(function() 
@@ -21,21 +28,16 @@
 const iso = new Isotope('.grid',
   {
     itemSelector: '.grid-item',
+    layoutMode: 'fitRows',
     percentPosition: true,
-    masonry:
+    masonry: 
     {
-      columnWidth: 240,
-      gutter: 10,
-      horizontalOrder: true,
-      layoutMode: 'fitRows',
+      columnWidth: '.grid-sizer',
     }
   });
 
 [].forEach.call(document.querySelectorAll('.button'), function (el) {
   el.addEventListener('click', function () {
-
-    // el.querySelector('.active').classList.remove('active');
-    // el.classList.add('active');
 
     const selector = el.getAttribute('data-filter');
 
@@ -44,6 +46,12 @@ const iso = new Isotope('.grid',
     return false;
   })
 })
+
+imagesLoaded('.grid').on( 'progress', function() 
+{
+  // layout Isotope after each image loads
+  iso.layout();
+});
 
 // change is-checked class on buttons
 const buttonGroups = document.querySelectorAll('.button-group');
@@ -62,3 +70,4 @@ function radioButtonGroup (buttonGroup) {
     event.target.classList.add('active');
   });
 }
+

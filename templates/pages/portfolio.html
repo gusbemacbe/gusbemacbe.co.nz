@@ -20,31 +20,110 @@
       <button class="button"        data-filter=".logotypes">Logótipos</button>
     </div>
 
-    <div class="grid effect-2" id="grid">
-      <div class="grid-item banners"></div>
-      <div class="grid-item banners"></div>
-      <div class="grid-item banners"></div>
-      <div class="grid-item banners"></div>
-      <div class="grid-item posters"></div>
-      <div class="grid-item posters"></div>
-      <div class="grid-item posters"></div>
-      <div class="grid-item posters"></div>
-      <div class="grid-item cards"></div>
-      <div class="grid-item cards"></div>
-      <div class="grid-item cards"></div>
-      <div class="grid-item cards"></div>
-      <div class="grid-item logotypes"></div>
-      <div class="grid-item logotypes"></div>
-      <div class="grid-item logotypes"></div>
-      <div class="grid-item logotypes"></div>
-      <div class="grid-item logotypes"></div>
-      <div class="grid-item logotypes"></div>
-      <div class="grid-item cards"></div>
-      <div class="grid-item banners"></div>
-      <div class="grid-item cards"></div>
-    </div>
+    <div class="grid effect-2">
+      <div class="grid-sizer"></div>
+      {% for index, banner in banners %}
+        <figure class="grid-item banners">
+          <img alt="{{ banner.Name }}" src="/static/images/portfolio/{{ banner.Image }}"/>
+          <figcaption>
+            <p>{{ banner.Name }}</p>
+            <label class="btn" for="banner-{{ index }}">Mais detalhes</label>
+          </figcaption>
+        </figure>
+      {% endfor %}
 
+      {% for index, card in cards %}
+        <figure class="grid-item cards">
+          <img alt="{{ card.Name }}" src="/static/images/portfolio/{{ card.Image }}"/>
+          <figcaption>
+            <p>{{ card.Name }}</p>
+            <label class="btn" for="card-{{ index }}">Mais detalhes</label>
+          </figcaption>
+        </figure>
+      {% endfor %}
+
+      {% for index, logotype in logotypes %}
+        <figure class="grid-item logotypes">
+          <img alt="{{ logotype.Name }}" src="/static/images/portfolio/{{ logotype.Image }}"/>
+          <figcaption>
+            <p>{{ logotype.Name }}</p>
+            <label class="btn" for="logotype-{{ index }}">Mais detalhes</label>
+          </figcaption>
+        </figure>
+      {% endfor %}
+
+      {% for index, poster in posters %}
+        <figure class="grid-item posters">
+          <img alt="{{ poster.Name }}" src="/static/images/portfolio/{{ poster.Image }}"/>
+          <figcaption>
+            <p>{{ poster.Name }}</p>
+            <label class="btn" for="poster-{{ index }}">Mais detalhes</label>
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </div>
   </div>
+
+{% for index, banner in banners %}
+<input class="modal-state" id="banner-{{ index }}" type="checkbox" />
+<div class="modal">
+  <label class="modal__bg" for="banner-{{ index }}"></label>
+  <div class="modal__inner">
+    <label class="modal__close" for="banner-{{ index }}"></label>
+    <h2>{{ banner.Name }}</h2>
+    <p>
+      <img alt="{{ banner.Name }}" src="/static/images/portfolio/{{ banner.Image }}"/> 
+      {{ banner.Description | safe }}.
+    </p>
+  </div>
+</div>
+{% endfor %}
+
+{% for index, card in cards %}
+<input class="modal-state" id="card-{{ index }}" type="checkbox" />
+<div class="modal">
+  <label class="modal__bg" for="card-{{ index }}"></label>
+  <div class="modal__inner">
+    <label class="modal__close" for="card-{{ index }}"></label>
+    <h2>{{ card.Name }}</h2>
+    <p>
+      <img alt="{{ card.Name }}" src="/static/images/portfolio/{{ card.Image }}"/> 
+      {{ card.Description | safe }}.
+    </p>
+  </div>
+</div>
+{% endfor %}
+
+{% for index, logotype in logotypes %}
+<input class="modal-state" id="logotype-{{ index }}" type="checkbox" />
+<div class="modal">
+  <label class="modal__bg" for="logotype-{{ index }}"></label>
+  <div class="modal__inner">
+    <label class="modal__close" for="logotype-{{ index }}"></label>
+    <h2>{{ logotype.Name }}</h2>
+    <p>
+      <img alt="{{ logotype.Name }}" src="/static/images/portfolio/{{ logotype.Image }}"/> 
+      {{ logotype.Description | safe }}.
+    </p>
+  </div>
+</div>
+{% endfor %}
+
+{% for index, poster in posters %}
+<input class="modal-state" id="poster-{{ index }}" type="checkbox" />
+<div class="modal">
+  <label class="modal__bg" for="poster-{{ index }}"></label>
+  <div class="modal__inner">
+    <label class="modal__close" for="poster-{{ index }}"></label>
+    <h2>{{ poster.Name }}</h2>
+    <p>
+      <img alt="{{ poster.Name }}" src="/static/images/portfolio/{{ poster.Image }}"/> 
+      {{ poster.Description | safe }}.
+    </p>
+  </div>
+</div>
+{% endfor %}
+
 </section>
 
 {% endblock %}

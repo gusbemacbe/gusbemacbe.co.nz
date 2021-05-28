@@ -123,10 +123,10 @@ img.portfolio
 
 .grid
 {
-  counter-reset: grid-item;
+  max-width: 100%;
 }
 
-.grid:after
+.grid::after
 {
   clear: both;
   content: "";
@@ -180,7 +180,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: translateY(0);
   }
 }
@@ -193,7 +193,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
@@ -216,7 +216,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: scale(1);
   }
 }
@@ -229,7 +229,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: scale(1);
             transform: scale(1);
   }
@@ -260,7 +260,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
   }
 }
@@ -273,7 +273,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg);
             transform: translateZ(0px) translateY(0px) rotateX(0deg);
   }
@@ -306,7 +306,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: rotateX(0deg);
   }
 }
@@ -319,7 +319,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: rotateX(0deg);
             transform: rotateX(0deg);
   }
@@ -352,7 +352,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: rotateX(0deg);
   }
 }
@@ -365,7 +365,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: rotateX(0deg);
             transform: rotateX(0deg);
   }
@@ -396,7 +396,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: rotateY(0deg);
   }
 }
@@ -409,7 +409,7 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: rotateY(0deg);
             transform: rotateY(0deg);
   }
@@ -440,14 +440,14 @@ img.portfolio
 
   70%
   {
-    -webkit-animation-timing-function: ease-out; 
+    -webkit-animation-timing-function: ease-out;
     opacity: 0.8;
     -webkit-transform: scale(1.1);
   }
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: scale(1);
   }
 }
@@ -461,7 +461,7 @@ img.portfolio
   70%
   {
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out; 
+            animation-timing-function: ease-out;
     opacity: 0.8;
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
@@ -469,83 +469,198 @@ img.portfolio
 
   100%
   {
-    opacity: 1; 
+    opacity: 1;
     -webkit-transform: scale(1);
             transform: scale(1);
   }
 }
 
+.grid-sizer,
 .grid-item
 {
-  background: #DD2266;
-  border: 2px solid #333333;
-  border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
-  float: left;
-  height: 120px;
-  margin-bottom: 10px;
-  width: 240px;
+  width: 25%;
 }
 
-.grid-item:before
+.grid-item
 {
-  color: white;
-  content: counter(grid-item);
-  counter-increment: grid-item;
+  background-color: var(--indigo-dark);
+  border-radius: 10px;
+  float: left;
+}
+
+.grid-item img
+{
+  border-radius: 10px;
   display: block;
-  font-size: 1.4rem;
-  padding-top: 0.2em;
+  max-width: 100%;
+}
+
+.grid-item figcaption
+{
+  padding: 5px 5px 10px 5px;
   text-align: center;
 }
 
 .grid-item.banners
 {
-	background-color: rebeccapurple;
+
 }
 
 .grid-item.cards
 {
-	background-color: burlywood;
+
 }
 
 .grid-item.logotypes
 {
-	background-color: cadetblue;
+
+}
+
+.grid-item.logotypes img
+{
+  background-color: var(--indigo-dark);
+  padding: 10px;
 }
 
 .grid-item.posters
 {
-	background-color: coral;
+
 }
 
-.grid-item--width2
+.btn
 {
-  width: 320px;
+  background: var(--indigo-light);
+  border-radius: 3px;
+  color: var(--cyan-grey-light);
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5em 1em;
 }
 
-.grid-item--width3
+.btn:hover,
+.btn:focus
 {
-  width: 480px;
+  background: var(--indigo-medium);
 }
 
-.grid-item--width4
+.btn:active
 {
-  width: 720px;
+  background: var(--cyan-grey-dark);
+  box-shadow: 0 1px 2px rgba(0,0,0, 0.2) inset;
 }
 
-.grid-item--height2
+.modal
 {
-  height: 200px;
+  background: rgba(54, 14, 96, 0.9);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  text-align: left;
+  top: 0;
+  transition: opacity 0.25s ease;
+  visibility: hidden;
 }
 
-.grid-item--height3
+.modal__bg
 {
-  height: 260px;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
-.grid-item--height4
+.modal-state
 {
-  height: 360px;
+  display: none;
+}
+
+.modal-state:checked+ .modal
+{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-state:checked+ .modal .modal__inner
+{
+  top: 0;
+}
+
+.modal__inner
+{
+  background: var(--cyan-grey-dark);
+  border-radius: 5px;
+  bottom: 0;
+  height: 50%;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  padding: 1em 2em;
+  position: absolute;
+  right: 0;
+  top: -20%;
+  transition: top 0.25s ease;
+  width: 50%;
+}
+
+p img 
+{
+  height: auto;
+  float: left;
+  max-width: 400px;
+  margin: 0 1em 1em 0;
+  width: 100%;
+}
+
+.modal__close
+{
+  cursor: pointer;
+  height: 1.1em;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 1.1em;
+}
+
+.modal__close:after,
+.modal__close:before
+{
+  background: #CCCCCC;
+  content: "";
+  display: block;
+  height: 1.5em;
+  left: 50%;
+  margin: -3px 0 0 -1px;
+  position: absolute;
+  top: 0;
+  transform: rotate(45deg);
+  width: 2px;
+}
+
+.modal__close:hover:after,
+.modal__close:hover:before
+{
+  background: #AAAAAA;
+}
+
+.modal__close:before
+{
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 768px)
+{
+  .modal__inner
+  {
+    box-sizing: border-box;
+    height: 90%;
+    width: 90%;
+  }
 }
 
 /* Widescreen 1280 */
@@ -567,6 +682,11 @@ img.portfolio
   {
     line-height: 2.5em;
   }
+
+  p img 
+  {
+    max-width: 300px;
+  }
 }
 
 @media only screen and (max-width: 800px)
@@ -583,6 +703,10 @@ img.portfolio
 
 @media screen and (max-width: 640px)
 {
+  p img 
+  {
+    max-width: 200px;
+  }
 }
 
 @media only screen and (max-width: 540px)
@@ -601,6 +725,10 @@ img.portfolio
 
 @media only screen and (max-width: 428px)
 {
+  p img 
+  {
+    display: none
+  }
 }
 
 /* Xiaomi Redmi Note 7 – Portrato */
