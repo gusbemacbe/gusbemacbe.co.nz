@@ -670,10 +670,6 @@ p img
 
 @media only screen and (max-width: 1024px)
 {
-  section
-  {
-    background-color: var(--indigo-dark);
-  }
 }
 
 @media only screen and (max-width: 990px)
@@ -703,6 +699,29 @@ p img
 
 @media screen and (max-width: 640px)
 {
+  .grid-sizer,
+  .grid-item
+  {
+    width: 360px;
+  }
+
+  .button-group
+  {
+    box-sizing: content-box;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, auto);
+    position: relative;
+  }
+
+  .button-group .button:first-child, 
+  .button-group .button:last-child,
+  .button-group .button
+  {
+    border-radius: 0px;
+    margin-bottom: 0px;
+  }
+
   p img 
   {
     max-width: 200px;
@@ -716,10 +735,15 @@ p img
     padding: 1em 1em 6em 1em;
   }
 
-  .categories
+  .grid-sizer,
+  .grid-item
   {
-    display: grid;
-    word-wrap: break-word;
+    width: 200px;
+  }
+
+  .modal h2
+  {
+    font-size: 1.2em;
   }
 }
 
