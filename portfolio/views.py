@@ -143,14 +143,14 @@ class PortfolioView(Mixin, View):
       9:
         {
           "Name": "Jhonatan Queirós Historiador",
-          "Description": "Realizado em 14 de maio de 2021. Analisei, estudei e explorei os gostos e a profissão do Jhonatan Queirós. Ele gosta da história de comunismo e de culturas índigenas. Por isso, desenhei um ícone de pirâmide que significa qualquer pirâmide das Américas, desde a do México às desparecidas do Brasil. Escolhi as cores, não só do comunismo, mas também mais utilizadas na maioria das culturas índigenas, inclusive nas astecas, incas, inuítes e maias. Escolhi a fonte de origem soviética porque Jhonatas se interessava na história do comunismo. O fundo do logótipo é enchido com \"barulhos\", simbolizando a terra",
+          "Description": "Realizado em 14 de maio de 2021. Analisei, estudei e explorei os gostos e a profissão do Jhonatan Queirós. Ele gosta da história de comunismo e de culturas índigenas. Por isso, desenhei um ícone de pirâmide que significa qualquer pirâmide das Américas, desde a do México às desparecidas do Brasil. Escolhi as cores, não só do comunismo, mas também mais utilizadas na maioria das culturas índigenas, inclusive nas astecas, incas, inuítes e maias. Escolhi a fonte de origem soviética porque Jhonatas se interessava na história da antiga URSS. O fundo do logótipo é enchido com \"barulhos\", simbolizando a terra",
           "Date": "2021-05-14",
           "Image": "logotypes/jhonatan-queiros.png"
         },
       10:
         {
           "Name": "TI Antenado",
-          "Description": "Realizado em maiod e 2021. Ressuscitada das extintas <i>startups</i> Digitec, SistaWeb e UNITI, comandada pelo Thiago Corrêa, com um logótipo novo, minimalista, neumórfico e glassmórfico, com letras em neon de uma cor luxuosa, pois a cor púrpura simboliza o poder da tecnologia e prediz o futuro. As letras representam várias linguagens de desenvolvimento e vários códigos semelhantes mais utilizados nalgumas linguagens como C++, Flutter, JavaScript e Python",
+          "Description": "Realizado em maio de 2021. Ressuscitada das extintas <i>startups</i> Digitec, SistaWeb e UNITI, comandada pelo Thiago Corrêa, com um logótipo novo, minimalista, neumórfico e glassmórfico, com letras em neon de uma cor luxuosa, pois a cor púrpura simboliza o futurismo e o poder da tecnologia. As letras representam várias linguagens de desenvolvimento e vários códigos semelhantes mais utilizados nalgumas linguagens como C++, Flutter, JavaScript e Python",
           "Date": "2021-05-14",
           "Image": "logotypes/ti-antenado.png"
         },

@@ -699,10 +699,15 @@ p img
 
 @media screen and (max-width: 640px)
 {
+  .grid
+  {
+    margin-left: 20px;
+  }
+
   .grid-sizer,
   .grid-item
   {
-    width: 360px;
+    width: 380px;
   }
 
   .button-group
@@ -735,10 +740,14 @@ p img
     padding: 1em 1em 6em 1em;
   }
 
-  .grid-sizer,
-  .grid-item
+  figure
   {
-    width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .grid
+  {
+    margin-left: 15px;
   }
 
   .modal h2
@@ -758,14 +767,26 @@ p img
 /* Xiaomi Redmi Note 7 – Portrato */
 @media only screen and (max-width: 395px)
 {
+  .grid
+  {
+    margin-left: -13px;
+  }
 }
 
 @media only screen and (max-width: 384px)
 {
+  .grid
+  {
+    margin-left: -20px;
+  }
 }
 
 @media only screen and (max-width: 375px)
 {
+  .grid
+  {
+    margin-left: -22px;
+  }
 }
 
 @media only screen and (max-width: 320px)
@@ -773,6 +794,17 @@ p img
   h1.cyberpunk
   {
     font-size: 1.7rem;
+  }
+
+  .grid
+  {
+    margin-left: -7px;
+  }
+
+  .grid-sizer,
+  .grid-item
+  {
+    width: 200px;
   }
 }
 
