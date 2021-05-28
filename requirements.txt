@@ -10,8 +10,8 @@ django-tidy
 djangorestframework
 gunicorn
 pandas
-# psycopg2-binary
-# psycopg2-binary
-# pytz
+# psycopg2
+psycopg2-binary
+pytz
 whitenoise
 xlrd
