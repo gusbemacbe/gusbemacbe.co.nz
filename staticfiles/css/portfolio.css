@@ -771,6 +771,12 @@ p img
   {
     margin-left: -13px;
   }
+
+  .grid-sizer,
+  .grid-item
+  {
+    width: 280px;
+  }
 }
 
 @media only screen and (max-width: 384px)

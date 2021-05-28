@@ -1081,8 +1081,8 @@ span[role=img][aria-label]:hover::after
   }
 }
 
-/* Widescreen 1280 */
-@media only screen and (max-width: 1280px)
+/* Widescreens 1280 and 1390 */
+@media only screen and (max-width: 1390px)
 {
   footer ul
   {
