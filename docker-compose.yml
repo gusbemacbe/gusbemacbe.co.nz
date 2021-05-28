@@ -15,9 +15,7 @@ services:
       - redis
 
   worker:
-    build:
-      context: .
-      dockerfile: Dockerfile-Arch
+    build: .
     command: python manage.py rqworker default
     environment:
       DEBUG: 1
