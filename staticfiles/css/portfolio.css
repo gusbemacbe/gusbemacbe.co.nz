@@ -756,6 +756,25 @@ p img
   }
 }
 
+@media only screen and (max-width: 472px)
+{
+  .grid-sizer,
+  .grid-item
+  {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 451px)
+{
+  .grid-sizer,
+  .grid-item
+  {
+    width: 290px;
+  }
+}
+
+
 @media only screen and (max-width: 428px)
 {
   p img 
