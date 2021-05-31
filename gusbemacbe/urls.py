@@ -30,6 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # Pages
+    path('aparecida-covid-19-tracker/', include('AparecidaCovidTracker.urls')),
     path('portfolio/', include('portfolio.urls')),
     path('projects/', include('projects.urls')),
 ]
