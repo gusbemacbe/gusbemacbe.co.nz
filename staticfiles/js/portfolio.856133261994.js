@@ -28,11 +28,11 @@
 const iso = new Isotope('.grid',
   {
     itemSelector: '.grid-item',
-    layoutMode: 'fitRows',
     percentPosition: true,
     masonry: 
     {
-      columnWidth: '.grid-sizer',
+      // columnWidth: 40,
+      layoutMode: 'packery',
     }
   });
 
@@ -70,4 +70,3 @@ function radioButtonGroup (buttonGroup) {
     event.target.classList.add('active');
   });
 }
-

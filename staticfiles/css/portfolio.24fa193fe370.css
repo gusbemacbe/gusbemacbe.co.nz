@@ -653,13 +653,44 @@ p img
   transform: rotate(-45deg);
 }
 
-@media screen and (max-width: 768px)
+.carousel {
+  background: transparent;
+}
+
+.carousel img {
+  display: block;
+  height: 800px;
+}
+
+.carousel-cell {
+  width: 66%;
+  height: 400px;
+  margin-right: 10px;
+  background: #333;
+}
+
+.carousel-cell-image {
+  display: block;
+  max-height: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s;
+          transition: opacity 0.4s;
+}
+
+/* fade in lazy loaded image */
+.carousel-cell-image.flickity-lazyloaded,
+.carousel-cell-image.flickity-lazyerror {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 1440px)
 {
-  .modal__inner
+  .modal__inner.websites
   {
-    box-sizing: border-box;
-    height: 90%;
-    width: 90%;
+    height: 600px;
+    width: 1300px;
   }
 }
 
@@ -695,14 +726,38 @@ p img
 
 @media only screen and (max-width: 780px)
 {
+  .carousel img 
+  {
+    height: 400px;
+  }
+
+  .carousel-cell img 
+  {
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 768px)
+{
+  .modal__inner
+  {
+    box-sizing: border-box;
+    height: 90%;
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 640px)
 {
+  .grid
+  {
+    margin-left: 20px;
+  }
+
   .grid-sizer,
   .grid-item
   {
-    width: 360px;
+    width: 380px;
   }
 
   .button-group
@@ -735,10 +790,14 @@ p img
     padding: 1em 1em 6em 1em;
   }
 
-  .grid-sizer,
-  .grid-item
+  figure
   {
-    width: 200px;
+    margin-bottom: 20px;
+  }
+
+  .grid
+  {
+    margin-left: 15px;
   }
 
   .modal h2
@@ -746,6 +805,25 @@ p img
     font-size: 1.2em;
   }
 }
+
+@media only screen and (max-width: 472px)
+{
+  .grid-sizer,
+  .grid-item
+  {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 451px)
+{
+  .grid-sizer,
+  .grid-item
+  {
+    width: 290px;
+  }
+}
+
 
 @media only screen and (max-width: 428px)
 {
@@ -758,14 +836,32 @@ p img
 /* Xiaomi Redmi Note 7 – Portrato */
 @media only screen and (max-width: 395px)
 {
+  .grid
+  {
+    margin-left: -13px;
+  }
+
+  .grid-sizer,
+  .grid-item
+  {
+    width: 280px;
+  }
 }
 
 @media only screen and (max-width: 384px)
 {
+  .grid
+  {
+    margin-left: -20px;
+  }
 }
 
 @media only screen and (max-width: 375px)
 {
+  .grid
+  {
+    margin-left: -22px;
+  }
 }
 
 @media only screen and (max-width: 320px)
@@ -773,6 +869,17 @@ p img
   h1.cyberpunk
   {
     font-size: 1.7rem;
+  }
+
+  .grid
+  {
+    margin-left: -7px;
+  }
+
+  .grid-sizer,
+  .grid-item
+  {
+    width: 200px;
   }
 }
 

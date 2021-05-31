@@ -18,6 +18,7 @@
       <button class="button"        data-filter=".posters">Cartazes</button>
       <button class="button"        data-filter=".cards">Cartões de visita</button>
       <button class="button"        data-filter=".logotypes">Logótipos</button>
+      <button class="button"        data-filter=".websites">Websites</button>
     </div>
 
     <div class="grid effect-2">
@@ -58,6 +59,16 @@
           <figcaption>
             <p>{{ poster.Name }}</p>
             <label class="btn" for="poster-{{ index }}">Mais detalhes</label>
+          </figcaption>
+        </figure>
+      {% endfor %}
+
+      {% for index, website in websites %}
+        <figure class="grid-item websites">
+          <img alt="{{ website.Name }}" src="/static/images/portfolio/{{ website.Image }}"/>
+          <figcaption>
+            <p>{{ website.Name }}</p>
+            <label class="btn" for="website-{{ index }}">Mais detalhes</label>
           </figcaption>
         </figure>
       {% endfor %}
@@ -120,6 +131,25 @@
       <img alt="{{ poster.Name }}" src="/static/images/portfolio/{{ poster.Image }}"/> 
       {{ poster.Description | safe }}.
     </p>
+  </div>
+</div>
+{% endfor %}
+
+{% for index, website in websites %}
+<input class="modal-state" id="website-{{ index }}" type="checkbox" />
+<div class="modal">
+  <label class="modal__bg" for="website-{{ index }}"></label>
+  <div class="modal__inner websites">
+    <label class="modal__close" for="website-{{ index }}"></label>
+    <h2>{{ website.Name }}</h2>
+      {{ website.Description | safe }}
+      <div class="carousel" data-flickity='{ "lazyLoad": true, "imagesLoaded": true, "percentPosition": false }'>
+        {% for image in website.Carousel %}
+        <div class="carousel-cell">
+          <a href="/static/images/portfolio/websites/{{ image }}" target="_blank"><img alt="{{ website.Name }}" class="carousel-cell-image" data-flickity-lazyload="/static/images/portfolio/websites/{{ image }}" /></a>
+        </div>
+        {% endfor %}
+      </div>
   </div>
 </div>
 {% endfor %}

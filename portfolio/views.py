@@ -17,7 +17,8 @@ class PortfolioView(Mixin, View):
       'banners': self.banners_list(),
       'cards': self.cards(),
       'logotypes': self.logotypes(),
-      'posters': self.posters()
+      'posters': self.posters(),
+      'websites': self.websites()
     }
     return render(request, template, context)
   
@@ -170,3 +171,33 @@ class PortfolioView(Mixin, View):
     }
     
     return sorted(posters.items(), key = lambda item: item[1]['Name'])
+  
+  def websites(self):
+    websites = {
+      0:
+        {
+          "Name": "Lerma Móveis",
+          "Description": "<p>Em colaboração com <a href=\"https://www.linkedin.com/in/jacksonzacarias/\">Jackson Zacarias</a>, que cuidou do projeto gráfico de UI/UX de um <i>site</i> de venda de móveis, enquanto cuidei de ambos o <i>back-end</i> e o <i>front-end</i>. O <i>site</i> é escrito em PHP MVC orientado a objeto. Além disso, desenvolvi um painel administrativo, contendo banco de dados em MySQL e permitindo o acesso ao painel a fim de mudar ou atualizar as imagens. Nas páginas de contato e representante, utilizei o PHPMailer via Composer. Nas páginas de mapa, utilizei o código-fonte limpo em JavaScript para extrair o JSON para lista de representantes no mapa escrito em SVG. Na página de produtos, também utilizei o código limpo em JavaScript para extrair a lista de produtos na ppesquisa para revelar um vídeo.</p> <p>Neste carrossel, você pode deslizar as imagens abaixo para visualizar, clicar nelas em nova aba e ampliá-la.</p>",
+          "Date": "2020",
+          "Image": "websites/lermamoveis-1.png",
+          "Carousel": [ "lermamoveis-1.png", "lermamoveis-2.png", "lermamoveis-3.png", "lermamoveis-4.png", "lermamoveis-5.png", "lermamoveis-6.png", "lermamoveis-7.png"]
+        },
+      1:
+        {
+          "Name": "Portal Lacrei",
+          "Description": "<p>Em colaboração com <a href=\"https://www.linkedin.com/in/murilo-oliveira-517649160/\">Murilo de Oliveira</a>, que cuidou do projeto gráfico de UI/UX de um <i>site</i> de uma plataforma virtual criada para potencializar a inclusão social e jurídica na comunidade LGBTQIA+, além de ter prepardo o <i>front-end</i> da página inicial inteira, cuidei de ambos o <i>back-end</i> e o <i>front-end</i>. O <i>site</i> de todas as páginas está escrito em puro HTML e puro JavaScript.</p> <p>Neste carrossel, você pode deslizar as imagens abaixo para visualizar, clicar nelas em nova aba e ampliá-la.</p>",
+          "Date": "2020",
+          "Image": "websites/portallacrei-1.png",
+          "Carousel": [ "portallacrei-1.png", "portallacrei-2.png", "portallacrei-3.png", "portallacrei-4.png", "portallacrei-5.png"]
+        },
+      2:
+        {
+          "Name": "TH Produções Artísticas",
+          "Description": "<p>Em colaboração com <a href=\"#0\">Jackson Zacarias</a>, que cuidou do projeto gráfico de UI/UX de um <i>site</i> de agenciamento musical, de eventos e de venda de bilhetes, enquanto cuidei de ambos o <i>back-end</i> e o <i>front-end</i>. O <i>site</i> é escrito em PHP MVC orientado a objeto. Além disso, desenvolvi um painel administrativo, contendo bancos de dados em MySQL, com Hydrahon, um complemento de Composer e permitindo o acesso ao painel a fim de mudar ou atualizar as imagens do carrossel e dos eventos e um vídeo. Nas páginas de contato e orçamento, utilizei o PHPMailer via Composer.</p> <p>Neste carrossel, você pode deslizar as imagens abaixo para visualizar, clicar nelas em nova aba e ampliá-la.</p>",
+          "Date": "2020",
+          "Image": "websites/thproducoes-1.png",
+          "Carousel": [ "thproducoes-1.png", "thproducoes-2.png", "thproducoes-3.png"]
+        },
+    }
+    
+    return sorted(websites.items(), key = lambda item: item[1]['Name'])
