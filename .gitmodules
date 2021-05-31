@@ -1,0 +1,3 @@
+[submodule "aparecida-covid-19-tracker"]
+	path = aparecida-covid-19-tracker
+	url = git@github.com:gusbemacbe/aparecida-covid-19-tracker.git
