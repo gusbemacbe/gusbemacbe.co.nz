@@ -1,6 +1,7 @@
 # ipychart
 dj-database-url
 Django
+django-chartjs
 django-dbbackup
 django-extensions
 django-heroku
