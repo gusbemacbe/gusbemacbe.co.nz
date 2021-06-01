@@ -24,3 +24,11 @@ heroku container:release web
 heroku open
 
 git subtree add --prefix AparecidaCovidTracker/ git@github.com:gusbemacbe/aparecida-covid-19-tracker.git main --squash
+git subtree pull --prefix AparecidaCovidTracker/ git@github.com:gusbemacbe/aparecida-covid-19-tracker.git main --squash
+
+git remote add -f covid-19 git@github.com:gusbemacbe/aparecida-covid-19-tracker.git
+git subtree add --prefix AparecidaCovidTracker/ covid-19 main --squash
+git fetch covid-19 main git subtree pull --prefix AparecidaCovidTracker/ covid-19 main --squash
+ 
+git remote add aparecida-covid-19 ssh://git@github.com:gusbemacbe/aparecida-covid-19-tracker.git
+git subtree push --prefix=AparecidaCovidTracker/ aparecida-covid-19 main
