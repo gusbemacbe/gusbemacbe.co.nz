@@ -151,6 +151,12 @@ code
   align-items: center;
 }
 
+.navbar-fixed
+{
+  height: 90px;
+  position: relative;
+}
+
 .logotype
 {
   /* Gustavo's modified code */

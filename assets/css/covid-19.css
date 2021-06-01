@@ -1,7 +1,6 @@
-section,
-section.border-before-footer
+section
 {
-  padding: 10em 5em 10em 5em;
+  padding: 5em 5em 10em 5em;
 }
 
 h1, h1 + p
