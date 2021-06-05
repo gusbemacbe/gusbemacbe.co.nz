@@ -1,0 +1,52 @@
+# COVID-19 Tracker for Aparecida, São Paulo, Brazil
+#
+msgid ""
+msgstr ""
+"Content-Transfer-Encoding: 8bit\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Generated-By: pygettext.py 1.5\n"
+"Last-Translator: Gustavo <gusbemacbe@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2021-04-10 23:50+0000\n"
+"POT-Creation-Date: 2021-04-10 23:50+0000\n"
+"Project-Id-Version: 1.0\n"
+
+msgid "Hello world"
+msgstr "Olá mundo"
+
+msgid "This is a translatable string"
+msgstr "Esta é uma variável traduzível"
+
+msgid "Confirmed"
+msgstr "Confirmados"
+
+msgid "Deaths"
+msgstr "Óbitos"
+
+msgid "Recovered"
+msgstr "Recuperados"
+
+msgid "Legend colour"
+msgstr "Cor de legenda"
+
+msgid "Cumulative number of confirmed cases, deaths and recovered"
+msgstr "Número total de casos confirmados, óbitos e recuperados"
+
+msgid "Daily new number of confirmed cases, deaths and recovered"
+msgstr "Novo número diário de casos confirmados, mortes e recuperados"
+
+msgid "Active cases"
+msgstr "Casos ativos"
+
+msgid "Cumulative number of active cases"
+msgstr "Número total de casos ativos"
+
+msgid "Occupied beds"
+msgstr "Leitos ocupados"
+
+msgid "Intubated"
+msgstr "Intubados"
+
+msgid "Cumulative number of occupied beds and intubated"
+msgstr "Número total de leitos ocupados e intubados"
+
