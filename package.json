@@ -1,0 +1,54 @@
+{
+  "name": "gusbemacbe.co.nz",
+  "version": "1.0.0",
+  "description": "my personal and professional website",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusbemacbe/gusbemacbe.co.nz.git"
+  },
+  "keywords": [
+    "computer",
+    "science",
+    "computer",
+    "scientist",
+    "covid-19",
+    "covid-19",
+    "tracker",
+    "data",
+    "science",
+    "data",
+    "scientist",
+    "designer",
+    "developer",
+    "django",
+    "full-stack",
+    "developer",
+    "generalist",
+    "jupyter",
+    "jupyterlab",
+    "Jupyter",
+    "Notebook",
+    "jupyter-notebook",
+    "python",
+    "Python",
+    "web",
+    "designer",
+    "web",
+    "developer"
+  ],
+  "author": "Gustavo Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gusbemacbe/gusbemacbe.co.nz/issues"
+  },
+  "homepage": "https://github.com/gusbemacbe/gusbemacbe.co.nz#readme",
+  "dependencies": {
+    "chartjs": "^0.3.24",
+    "date-fns": "^2.22.1",
+    "xlsx": "^0.17.0"
+  }
+}

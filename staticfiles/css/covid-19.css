@@ -30,6 +30,12 @@ h3
   color: var(--cyan-medium);
 }
 
+canvas
+{
+  height: 100px;
+  width: 100%;
+}
+
 p
 {
   font-size: 1.25rem;

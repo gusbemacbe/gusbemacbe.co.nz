@@ -7,8 +7,23 @@
   <div class="container">
     <h1 class="cyberpunk">{% firstof title context.title %}</h1>
 
-    <p>Teste</p>
+    <h2>Números cumulativos de casos, mortes e recuperados</h2>
+    <canvas id="TotalNumber"></canvas>
+    <hr/>
+    <h2>Números diários de casos, mortes e recuperados</h2>
+    <canvas id="DailyNumber"></canvas>
+    <hr/>
+    <h2>Números diários de casos ativos</h2>
+    <canvas id="ActiveCasesNumber"></canvas>
+    <hr/>
+    <h2>Números diários de leitos ocupados e UTIs</h2>
+    <canvas id="BedsNumber"></canvas>
+    
   </div>
 </section>
+
+{% endblock %}
+
+{% block covid_19 %}
 
 {% endblock %}
