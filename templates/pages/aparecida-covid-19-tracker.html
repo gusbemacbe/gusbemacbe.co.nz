@@ -7,6 +7,9 @@
   <div class="container">
     <h1 class="cyberpunk">{% firstof title context.title %}</h1>
 
+    <h2>Hoje</h2>
+    {{ today_cases | safe }}
+
     <h2>Números cumulativos de casos, mortes e recuperados</h2>
     <canvas id="TotalNumber"></canvas>
     <hr/>
