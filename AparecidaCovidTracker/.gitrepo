@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/gusbemacbe/aparecida-covid-19-tracker
 	branch = main
-	commit = d78384d6c835e0a6719a6cf7c92be855660c8c28
-	parent = 65f40c57e8bc625dd60c18fed801685e8026ba47
+	commit = cbda7bbf06d3c4429501ada4325a93a374d08f6d
+	parent = 7ee6fc8d9f3db273a40364ef352f4c83bc9050ff
 	method = merge
 	cmdver = 0.4.3
