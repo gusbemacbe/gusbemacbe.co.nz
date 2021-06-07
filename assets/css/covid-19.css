@@ -247,7 +247,10 @@ hr:last-child
 /* Xiaomi Redmi Note 7 – Portrato */
 @media only screen and (max-width: 395px)
 {
-  
+  h1.cyberpunk
+  {
+    font-size: 1.65em;
+  }
 }
 
 @media only screen and (max-width: 384px)
@@ -262,10 +265,7 @@ hr:last-child
 
 @media only screen and (max-width: 320px)
 {
-  h1.cyberpunk
-  {
-    font-size: 1.65em;
-  }
+
 }
 
 @media only screen and (max-width: 280px)

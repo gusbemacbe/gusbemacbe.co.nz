@@ -836,6 +836,11 @@ p img
 /* Xiaomi Redmi Note 7 – Portrato */
 @media only screen and (max-width: 395px)
 {
+  h1.cyberpunk
+  {
+    font-size: 1.65em;
+  }
+
   .grid
   {
     margin-left: -13px;
@@ -866,11 +871,6 @@ p img
 
 @media only screen and (max-width: 320px)
 {
-  h1.cyberpunk
-  {
-    font-size: 1.7rem;
-  }
-
   .grid
   {
     margin-left: -7px;
