@@ -59,48 +59,23 @@ const makeChart = async () =>
 
   const ageFemaleCases = ages.filter((person) => 
   {
-    return person.isDeath == "1" && person.sex === 'FEMININO';
+    return person.sex === 'FEMININO';
   })
 
   const ageMaleCases = ages.filter((person) => 
   {
-    return person.isDeath == "1" && person.sex === 'MASCULINO';
+    return person.sex === 'MASCULINO';
   })
 
-  const data = [
-    {
-      sex: "MASCULINO",
-      age: "18",
-      isDeath: "1",
-      city: "Aparecida",
-      ibge_code: "11111",
-      sympthom_starting_date: "1111",
-    },
-    {
-      sex: "FEMININO",
-      age: "21",
-      isDeath: "1",
-      city: "Aparecida",
-      ibge_code: "11111",
-      sympthom_starting_date: "1111",
-    },
-    {
-      sex: "MASCULINO",
-      age: "21",
-      isDeath: "0",
-      city: "Aparecida",
-      ibge_code: "11111",
-      sympthom_starting_date: "1111",
-    },
-    {
-      sex: "MASCULINO",
-      age: "25",
-      isDeath: "1",
-      city: "Aparecida",
-      ibge_code: "11111",
-      sympthom_starting_date: "1111",
-    },
-  ];
+  const isDeathFemaleCases = ages.reduce((person) => 
+  {
+    return person.isDeath == "1";
+  })
+
+  const isDeathMaleCases = ages.reduce((person) => 
+  {
+    return person.isDeath == "1";
+  })
 
   const conditions = (predicates) => (item) => {
     return predicates.map((predicate) => predicate(item)).every(Boolean);
@@ -109,18 +84,19 @@ const makeChart = async () =>
   const isMale = ({ sex }) => sex === "MASCULINO";
   const isFemale = ({ sex }) => sex === "FEMININO";
   const isAdult = ({ age }) => +age > 19 && +age < 60;
-  const isDead = ({ isDeath }) => !!Number(isDeath);
+  const isDead = ({ ISDeath }) => !!Number(ISDeath);
 
   const isDeadAdultMale = conditions([isDead, isMale, isAdult]);
   const isDeadAdultFemale = conditions([isDead, isFemale, isAdult]);
 
-  const deadAdultMales = data.filter(isDeadAdultMale);
-  const deadAdultFemales = data.filter(isDeadAdultFemale);
+  const deadAdultMales = ages.filter(isDeadAdultMale);
+  const deadAdultFemales = ages.filter(isDeadAdultFemale);
   
   Chart.defaults.font.size = 16
   Chart.defaults.font.family = "'Exo 2', sans-serif"
 
-  const formatTick = (month) => {
+  const formatTick = (month) => 
+  {
     switch (true) 
     {
       case month.includes("Jan"):
