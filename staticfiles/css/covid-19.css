@@ -36,6 +36,17 @@ canvas
   width: 100%;
 }
 
+canvas ~ p
+{
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+
+canvas ~ p small
+{
+  display: block;
+}
+
 p
 {
   font-size: 1.25rem;
@@ -60,6 +71,98 @@ hr ~ h2
 hr:last-child
 {
   display: none;
+}
+
+.labels
+{
+  display: block;
+  padding-bottom: 3em;
+}
+
+.labels li
+{
+  float: left;
+  list-style: none;
+  line-height: normal;
+}
+
+.circle
+{
+  border-radius: 50%;
+  display: block;
+  float: left;
+  height: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 20px;
+}
+
+.circle.high
+{
+  background-color: var(--red-light);
+  margin-left: 0px;
+}
+
+.circle.stability
+{
+  background-color: var(--yellow-light);
+}
+
+.circle.fall
+{
+  background-color: var(--green-light);
+}
+
+.hoje
+{
+  border: 1px solid var(--cyan-grey-medium);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+
+  float: none;
+  clear: both;
+  margin-bottom: 3em;
+}
+
+.hoje .item
+{
+  border: 1px solid var(--cyan-grey-medium);
+  padding: 10px;
+}
+
+.hoje .item h3
+{
+  margin: 0px;
+}
+
+.hoje .item [class^="item-"]
+{
+  background-color: var(--cyan-grey-light);
+  border-radius: 5px;
+  color: var(--cyan-grey-dark);
+  display: inline-block;
+  font-size: 1em;
+  height: 35px;
+  text-align: center;
+  width: 50px;
+  padding: 5px;
+}
+
+.hoje .item [class^="item-"].high
+{
+  background-color: var(--red-light);
+}
+
+.hoje .item [class^="item-"].stability
+{
+  background-color: var(--yellow-light);
+}
+
+.hoje .item [class^="item-"].fall
+{
+  background-color: var(--green-light);
 }
 
 /* Widescreen 1280 */
@@ -100,12 +203,16 @@ hr:last-child
 
 @media only screen and (max-width: 780px)
 {
-
+  .hoje
+  {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
 }
 
 @media screen and (max-width: 640px)
 {
-  
+
 }
 
 @media only screen and (max-width: 540px)
@@ -113,6 +220,22 @@ hr:last-child
   section
   {
     padding: 1em 1em 6em 1em;
+  }
+
+  h1.cyberpunk
+  {
+    font-size: 1.8em;
+    line-height: 1.4em;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+  }
+
+  .hoje
+  {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(11, 1fr);
   }
 }
 
@@ -141,7 +264,7 @@ hr:last-child
 {
   h1.cyberpunk
   {
-    font-size: 2rem;
+    font-size: 1.65em;
   }
 }
 

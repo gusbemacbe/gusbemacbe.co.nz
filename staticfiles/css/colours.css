@@ -1,5 +1,7 @@
 :root
 {
+  /** Official Colours **/
+
   --indigo-default:    rgba(54, 14, 96, 1);
   --indigo-dark:       rgba(36, 10, 64, 1);
   --indigo-medium:     rgba(72, 19, 128, 1);
@@ -19,4 +21,21 @@
   --cyan-grey-dark:    rgba(49, 54, 54, 1);
   --cyan-grey-medium:  rgba(99, 108, 109, 1);
   --cyan-grey-light:   rgba(221, 232, 232, 1);
+
+  /** Unoffical colours **/
+
+  --red-default:      rgba(164, 62, 62, 1);
+  --red-dark:         rgba(110, 42, 42, 1);
+  --red-medium:       rgba(219, 83, 83, 1);
+  --red-light:        rgba(226, 117, 117, 1);
+
+  --green-default:    rgba(62, 164, 113, 1);
+  --green-dark:       rgba(42, 110, 76, 1);
+  --green-medium:     rgba(83, 219, 151, 1);
+  --green-light:      rgba(117, 226, 171, 1);
+
+  --yellow-default:   rgba(164, 164, 62, 1);
+  --yellow-dark:      rgba(110, 110, 42, 1);
+  --yellow-medium:    rgba(219, 219, 83, 1);
+  --yellow-light:     rgba(226, 226, 117, 1);
 }

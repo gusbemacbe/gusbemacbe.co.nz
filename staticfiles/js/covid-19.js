@@ -8,16 +8,23 @@ for (let c = 0; c < colours.length; c++)
   colourValues[colours] = bodyStyles.getPropertyValue(colours);
 }
 
-const readCsv = async () => 
+const datesCSV = async () => 
 {
   const array = []
   await d3.csv("/static/data/prefeitura-de-aparecida/aparecida-small-without-duplicates.csv", data => { array.push(data)});
   return array;
 }
 
+const agesCSV = async () => 
+{
+  const array = []
+  await d3.csv("/static/data/gustavo/confirmados/aparecida-casos-e-mortes-por-faixa-etária.csv", data => { array.push(data)});
+  return array;
+}
+
 const makeChart = async () => 
 {
-  const dates = await readCsv()
+  const dates = await datesCSV()
   const dateLabels = dates.map(d => new Date(d.date))
 
   const totalDeathsData = dates.map(d => d.totalDeaths)
@@ -47,11 +54,100 @@ const makeChart = async () =>
   const totalBedsData = dates.map(d => d.totalBeds)
   const totalICUData = dates.map(d => d.intubated)
 
+  const ages = await agesCSV()
+  const ageLabels = ages.map(a => a.age);
+
+  const ageFemaleCases = ages.filter((person) => 
+  {
+    return person.isDeath == "1" && person.sex === 'FEMININO';
+  })
+
+  const ageMaleCases = ages.filter((person) => 
+  {
+    return person.isDeath == "1" && person.sex === 'MASCULINO';
+  })
+
+  const data = [
+    {
+      sex: "MASCULINO",
+      age: "18",
+      isDeath: "1",
+      city: "Aparecida",
+      ibge_code: "11111",
+      sympthom_starting_date: "1111",
+    },
+    {
+      sex: "FEMININO",
+      age: "21",
+      isDeath: "1",
+      city: "Aparecida",
+      ibge_code: "11111",
+      sympthom_starting_date: "1111",
+    },
+    {
+      sex: "MASCULINO",
+      age: "21",
+      isDeath: "0",
+      city: "Aparecida",
+      ibge_code: "11111",
+      sympthom_starting_date: "1111",
+    },
+    {
+      sex: "MASCULINO",
+      age: "25",
+      isDeath: "1",
+      city: "Aparecida",
+      ibge_code: "11111",
+      sympthom_starting_date: "1111",
+    },
+  ];
+
+  const conditions = (predicates) => (item) => {
+    return predicates.map((predicate) => predicate(item)).every(Boolean);
+  };
+
+  const isMale = ({ sex }) => sex === "MASCULINO";
+  const isFemale = ({ sex }) => sex === "FEMININO";
+  const isAdult = ({ age }) => +age > 19 && +age < 60;
+  const isDead = ({ isDeath }) => !!Number(isDeath);
+
+  const isDeadAdultMale = conditions([isDead, isMale, isAdult]);
+  const isDeadAdultFemale = conditions([isDead, isFemale, isAdult]);
+
+  const deadAdultMales = data.filter(isDeadAdultMale);
+  const deadAdultFemales = data.filter(isDeadAdultFemale);
+  
   Chart.defaults.font.size = 16
   Chart.defaults.font.family = "'Exo 2', sans-serif"
 
+  const formatTick = (month) => {
+    switch (true) 
+    {
+      case month.includes("Jan"):
+        return month
+      case month.includes("Feb"):
+        return month.replace("Feb", "Fev").split(" ")[0];
+      case month.includes("Mar"):
+        return month.replace("Mar", "Mar").split(" ")[0];
+      case month.includes("Apr"):
+        return month.replace("Apr", "Abr").split(" ")[0];
+      case month.includes("May"):
+        return month.replace("May", "Maio").split(" ")[0];
+      case month.includes("Jun"):
+        return month.replace("Jun", "Jun").split(" ")[0];
+      case month.includes("Jul"):
+        return month.replace("Jul", "Jul").split(" ")[0];
+      case month.includes("Aug"):
+        return month.replace("Aug", "Ago").split(" ")[0];
+      case month.includes("Sep"):
+        return month.replace("Sep", "Set").split(" ")[0];
+      default:
+        return month
+    }
+  };
+
   let temp = ''
-  const total_number = new Chart(document.getElementById('TotalNumber').getContext('2d'),
+  const total_number = new Chart('TotalNumber',
   {
     type: "bar",
     data: 
@@ -95,15 +191,15 @@ const makeChart = async () =>
       {
         legend: 
         {
-            labels: 
+          labels: 
+          {
+            color: "rgba(221, 232, 232, 1)",
+            font: 
             {
-              color: "rgba(221, 232, 232, 1)",
-              font: 
-              {
-                  family: "'Exo 2', sans-serif",
-                  size: 14
-              }
+                family: "'Exo 2', sans-serif",
+                size: 14
             }
+          }
         },
         title: 
         {
@@ -125,12 +221,7 @@ const makeChart = async () =>
           ticks: 
           {
             color: "rgba(198, 216, 217, 1)",
-            callback: function(value, index) 
-            {
-              if (value.includes("Jan"))
-                return value;
-              return value.split(" ")[0]
-            }
+            callback: formatTick
           },
           grid: 
           {
@@ -141,7 +232,7 @@ const makeChart = async () =>
           },
           stacked: true,
         },
-        y: 
+        yAxes: 
         {
           grid: 
           {
@@ -223,11 +314,7 @@ const makeChart = async () =>
           ticks: 
           {
             color: "rgba(198, 216, 217, 1)",
-            callback: function(value, index) {
-              if (value.includes("Dec"))
-                return value;
-              return value.split(" ")[0]
-            }
+            callback: formatTick
           },
           grid: 
           {
@@ -305,11 +392,7 @@ const makeChart = async () =>
           ticks: 
           {
             color: "rgba(198, 216, 217, 1)",
-            callback: function(value, index) {
-              if (value.includes("Jan"))
-                return value;
-              return value.split(" ")[0]
-            }
+            callback: formatTick
           },
           grid: 
           {
@@ -335,7 +418,7 @@ const makeChart = async () =>
     }
   })
 
-  const beds_number = new Chart(document.getElementById('BedsNumber').getContext('2d'),
+  const beds_number = new Chart('BedsNumber',
   {
     type: "bar",
     data: 
@@ -399,11 +482,7 @@ const makeChart = async () =>
           ticks: 
           {
             color: "rgba(198, 216, 217, 1)",
-            callback: function(value, index) {
-              if (value.includes("Dec"))
-                return value;
-              return value.split(" ")[0]
-            }
+            callback: formatTick
           },
           grid: 
           {
@@ -428,6 +507,53 @@ const makeChart = async () =>
       }
     }
   });
+
+  const cases_by_age = new Chart('CasesbyAge',
+  {
+    type: "bar",
+    data: 
+    {
+      labels: ["0-10", "11-15", "16-24", "25-29", "30-39", "40-49", "50-59", "60-69", "70-79", "80+"],
+      datasets: 
+      [
+        {
+          color: "rgba(226, 117, 169, 1)",
+          backgroundColor: "rgba(226, 117, 169, 1)",
+          borderColor: "rgba(226, 117, 169, 1)",
+          data: deadAdultFemales,
+          label: "Female"
+        },
+        {
+          color: "rgba(113, 205, 248, 1)",
+          backgroundColor: "rgba(113, 205, 248, 1)",
+          borderColor: "rgba(113, 205, 248, 1)",
+          data: deadAdultMales,
+          label: "Male"
+        }
+      ]
+    },
+    options: 
+    {
+      indexAxis: 'y',
+      elements: {
+        bar: {
+          borderWidth: 2,
+        }
+      },
+      responsive: true,
+      scales: 
+      {
+        yAxes: 
+        [{
+            stacked: true
+        }],
+        xAxes: 
+        [{
+            stacked: false
+        }]
+      }
+    },
+  })
 }
 
 makeChart();

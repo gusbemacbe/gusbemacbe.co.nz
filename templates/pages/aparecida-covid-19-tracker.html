@@ -8,19 +8,92 @@
     <h1 class="cyberpunk">{% firstof title context.title %}</h1>
 
     <h2>Hoje</h2>
-    {{ today_cases | safe }}
+
+    <h3>Etiquetas</h3>
+
+    <ul class="labels">
+      <li><span class="circle high"></span> Alta</li>
+      <li><span class="circle stability"></span> Estabilidade</li>
+      <li><span class="circle fall"></span> Queda</li>
+    </ul>
+
+    <div class="hoje">
+      <div class="item">
+        <h3>Casos totais</h3>
+        <span class="item-1">{{ today_cases | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Novos casos</h3>
+        <span class="item-2 {{ condition_cases }}">{{ today_new_cases | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Casos ativos</h3>
+        <span class="item-3">{{ today_active_cases | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Mortes totais</h3>
+        <span class="item-4">{{ today_deaths | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Novas mortes</h3>
+        <span class="item-5 {{ condition_deaths }}">{{ today_new_deaths | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Recuperados</h3>
+        <span class="item-6">{{ today_recovered | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Novos recuperados</h3>
+        <span class="item-7">{{ today_new_recovered | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Leitos ocupados</h3>
+        <span class="item-8 {{ condition_beds }}">{{ today_busy_beds | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Novos leitos ocupados</h3>
+        <span class="item-9 {{ condition_beds }}">{{ today_new_busy_beds | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>UTIs</h3>
+        <span class="item-10 {{ condition_ICUs }}">{{ today_ICUs | safe }}</span>
+      </div>
+
+      <div class="item">
+        <h3>Novos UTIs</h3>
+        <span class="item-11 {{ condition_ICUs }}">{{ today_new_ICUs | safe }}</span>
+      </div>
+    </div>
 
     <h2>Números cumulativos de casos, mortes e recuperados</h2>
     <canvas id="TotalNumber"></canvas>
+    <p><b>Fonte:</b> Dados dos painéis da Prefeitura de Aparecida, dados da SEADE no repositório de GitHub e dados tabulados pelo pesquisador Wesley Cota, da UFV.<br><small>Infográfico atualizado em: 03/06/2021</small></p>
+    
     <hr/>
     <h2>Números diários de casos, mortes e recuperados</h2>
     <canvas id="DailyNumber"></canvas>
+    <p><b>Fonte:</b> Dados dos painéis da Prefeitura de Aparecida, dados da SEADE no repositório de GitHub e dados tabulados pelo pesquisador Wesley Cota, da UFV.<br><small>Infográfico atualizado em: 03/06/2021</small></p>
+
     <hr/>
     <h2>Números diários de casos ativos</h2>
     <canvas id="ActiveCasesNumber"></canvas>
+    <p><b>Fonte:</b> Dados dos painéis da Prefeitura de Aparecida, dados da SEADE no repositório de GitHub e dados tabulados pelo pesquisador Wesley Cota, da UFV.<br><small>Infográfico atualizado em: 03/06/2021</small></p>
+
     <hr/>
     <h2>Números diários de leitos ocupados e UTIs</h2>
     <canvas id="BedsNumber"></canvas>
+    <p><b>Fonte:</b> Dados dos painéis da Prefeitura de Aparecida, dados da SEADE no repositório de GitHub e dados tabulados pelo pesquisador Wesley Cota, da UFV.<br><small>Infográfico atualizado em: 03/06/2021</small></p>
+    
+    {% comment %} <canvas id="CasesbyAge"></canvas> {% endcomment %}
     
   </div>
 </section>
