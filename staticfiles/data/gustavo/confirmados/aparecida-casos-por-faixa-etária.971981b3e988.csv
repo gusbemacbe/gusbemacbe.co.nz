@@ -1,4 +1,4 @@
-city,ibge_code,age,sex,sympthom_starting_date,iSDeath
+city,ibge_code,age,sex,sympthom_starting_date,isDeath
 Aparecida,3502507,57,FEMININO,1584154800000,0
 Aparecida,3502507,58,MASCULINO,1584241200000,0
 Aparecida,3502507,33,FEMININO,1586574000000,0

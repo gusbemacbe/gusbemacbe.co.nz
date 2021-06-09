@@ -44,11 +44,14 @@
       <script type="text/javascript" src="{% static 'js/portfolio.js' %}"></script>
     {% elif request.path == '/aparecida-covid-19-tracker/' %}
       <script type="text/javascript" src="{% static 'js/d3.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/lodash.js' %}"></script>
       <script type="text/javascript" src="{% static 'js/chart.js' %}" referrerpolicy="no-referrer"></script>
       <script type="text/javascript" src="{% static 'js/date_fns.min.js' %}" referrerpolicy="no-referrer"></script>
       <script type="text/javascript" src="{% static 'js/chartjs-adapter-date-fns.bundle.min.js' %}" referrerpolicy="no-referrer"></script>
       {% block covid_19 %} {% endblock %}
       <script type="text/javascript" src="{% static 'js/covid-19.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/covid-19-cases-ages-and-gender.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/covid-19-deaths-ages-and-gender.js' %}"></script>
     {% else %}
     {% comment %} nothing {% endcomment %}
     {% endif %}
