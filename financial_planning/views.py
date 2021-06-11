@@ -22,6 +22,7 @@ class financial_planning(Mixin, View):
       'title': "Planejamentos financeiros",
       'bills': self.bills(),
       'food': self.food(),
+      'medicaments': self.medicaments(),
       'shopping': self.shopping(),
       'supermarket': self.supermarket(),
       'total_s_sp': self.total_s_sp(),
@@ -70,6 +71,27 @@ class financial_planning(Mixin, View):
     c["NZD"] = (c['Price (BRL)'] * nzd).round().astype(int)
     
     html_table = c.to_html(classes = 'food', index = False)
+    
+    return html_table
+  
+  def medicaments(self):
+    cc = CurrencyRates()
+
+    cad = cc.convert('BRL', 'CAD', 1)
+    nzd = cc.convert('BRL', 'NZD', 1)
+    usd = cc.convert('BRL', 'USD', 1)
+    
+    base_path = Path(__file__).parent
+    file_path = (base_path / "static/data/brazil/medicaments.csv").resolve()
+    c = pd.read_csv(file_path)
+    c.loc["Total"] = c.sum()
+    c["Item"].values[-1] = "Total"
+    
+    c["USD"] = (c['Price (BRL)'] * usd).round().astype(int)
+    c["CAD"] = (c['Price (BRL)'] * cad).round().astype(int)
+    c["NZD"] = (c['Price (BRL)'] * nzd).round().astype(int)
+    
+    html_table = c.to_html(classes = 'medicaments', index = False)
     
     return html_table
   
