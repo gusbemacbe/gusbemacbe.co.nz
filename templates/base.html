@@ -11,6 +11,8 @@
     <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
   {% elif request.path == '/aparecida-covid-19-tracker/' %}
     <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/covid-19.css' %}">
+  {% elif request.path == '/financial-planning/' %}
+    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/financial-planning.css' %}">
   {% elif request.path == '/portfolio/' %}
     <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/flickity.css' %}">
     <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
@@ -52,6 +54,8 @@
       <script type="text/javascript" src="{% static 'js/covid-19.js' %}"></script>
       <script type="text/javascript" src="{% static 'js/covid-19-cases-ages-and-gender.js' %}"></script>
       <script type="text/javascript" src="{% static 'js/covid-19-deaths-ages-and-gender.js' %}"></script>
+    {% elif request.path == '/financial-planning/' %}
+      <script type="text/javascript" src="{% static 'js/financial-planning.js' %}"></script>
     {% else %}
     {% comment %} nothing {% endcomment %}
     {% endif %}

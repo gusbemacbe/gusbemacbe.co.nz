@@ -1,0 +1,334 @@
+section
+{
+  padding: 5em 5em 10em 5em;
+}
+
+.title
+{
+  line-height: 4rem;
+  letter-spacing: -0.15625rem;
+}
+
+.subtitle
+{
+  font-size: 1.25rem;
+  padding-left: 0;
+  line-height: 1.75rem;
+  text-align: left;
+}
+
+.context-h2-intertitle,
+.context-h3-intertitle,
+{
+  line-height: 2.25rem;
+  letter-spacing: -0.0625rem;
+  margin-bottom: -.5rem;
+  margin-top: 1rem;
+}
+
+.title + .context-text
+{
+  margin-top: 2rem;
+}
+
+.context-text
+{
+  font-size: 1.25rem;
+  letter-spacing: -.03125rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  overflow-wrap: break-word;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+h2 + .razor-vertical-edge
+{
+  margin-top: 2rem;
+}
+
+h3
+{
+  color: var(--cyan-medium);
+}
+
+.group-tabbed
+{
+  background-color: rgba(198, 216, 217, 0.2);
+  border: 30px solid var(--cyan-grey-light);
+  border-bottom: 21px solid var(--cyan-grey-light);
+  border-left: 5px solid var(--cyan-grey-light);
+  border-right: 5px solid var(--cyan-grey-light);
+  clip-path: polygon(0px 25px, 26px 0px, calc(60% - 25px) 0px, 60% 25px, 100% 25px, 100% calc(100% - 10px), calc(100% - 0px) calc(100% - 0px), 400px calc(100% - 0px), 375px calc(100% - 15px), 0% calc(100% - 15px));
+  padding: 10px;
+}
+
+.tabbed-set 
+{
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.tabbed-set .highlight 
+{
+  background: #ddd;
+}
+
+.tabbed-set .tabbed-content 
+{
+  box-shadow: 0 -.05rem var(--cyan-grey-light);
+  display: none;
+  order: 99;
+  width: 100%;
+}
+
+.tabbed-set label 
+{
+  width: auto;
+  margin: 0 0.5em;
+  padding: 0.25em;
+  font-size: 120%;
+  cursor: pointer;
+}
+
+.tabbed-set input 
+{
+  position: absolute;
+  opacity: 0;
+}
+
+.tabbed-set input:nth-child(n+1) 
+{
+  color: #333333;
+}
+
+.tabbed-set input:nth-child(n+1):checked + label 
+{
+  border-bottom: 4px solid var(--pink-light);
+  color: var(--pink-light);
+  margin-bottom: -2px;
+  z-index: 2;
+}
+
+.tabbed-set input:nth-child(n+1):checked + label + .tabbed-content 
+{
+    display: block;
+    padding: 10px;
+}
+
+.advantages-and-disadvantages
+{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  padding: 0rem 1.875rem 2rem 1.875rem;
+}
+
+.razor-vertical-edge
+{
+  background-image: url("../images/razor_vertical_edge.25e2ed073969.svg");
+  background-position: top right;
+  background-repeat: repeat-y;
+  background-size: 32px 1080px;
+  position: relative;
+  z-index: 2;
+
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 800px;
+}
+
+.table 
+{
+  border: 1px solid var(--pink-light);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  /* width: 800px; */
+  z-index: 1;
+}
+
+.table table 
+{
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 0px solid transparent;
+  width: 100%;
+}
+
+.table caption 
+{
+  background-color: var(--pink-light);
+  color: var(--cyan-grey-light);
+  font-size: 1.5em;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.table table td, .table table th 
+{
+  border: 0px solid transparent;
+  color: var(--cyan-grey-light);
+  padding: 10px;
+}
+
+.table table td 
+{
+  text-align: center;
+  vertical-align: middle;
+  border-right: 1px solid var(--pink-light);
+}
+
+.table table td:last-child 
+{
+  border-right: 0px solid transparent;
+  font-size: 0.95em;
+  line-height: 1.4;
+  width: 180px;
+}
+
+.table table th 
+{
+  background-color: var(--pink-medium);
+  color: var(--cyan-grey-light);
+  font-weight: bold;
+  text-align: center;
+}
+
+.table table tr:nth-child(2n) 
+{
+  background-color: rgba(110, 42, 74, 0.2);
+}
+
+.table table tr:nth-child(2n+1) 
+{
+  background-color: transparent;
+}
+
+/* Widescreen 1280 */
+@media only screen and (max-width: 1280px)
+{
+
+}
+
+@media only screen and (max-width: 1024px)
+{
+  section
+  {
+    background-color: var(--indigo-dark);
+  }
+}
+
+@media only screen and (max-width: 990px)
+{
+
+}
+
+@media only screen and (max-width: 800px)
+{
+  section
+  {
+    padding: 3em 3em 6em 3em;
+  }
+}
+
+@media only screen and (max-width: 780px)
+{
+  .advantages-and-disadvantages
+  {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+  }
+
+  .razor-vertical-edge
+  {
+    background-image: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+  }
+
+  .table table td:last-child 
+  {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 640px)
+{
+
+}
+
+@media only screen and (max-width: 540px)
+{
+  section
+  {
+    padding: 1em 1em 6em 1em;
+  }
+
+  h1.cyberpunk
+  {
+    font-size: 1.8em;
+    line-height: 1.4em;
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+  }
+
+  .table
+  { 
+    width: 100%;
+  }
+
+  .table .header
+  {
+    width: 100%
+  }
+
+}
+
+@media only screen and (max-width: 428px)
+{
+  
+}
+
+/* Xiaomi Redmi Note 7 – Portrato */
+@media only screen and (max-width: 395px)
+{
+  h1.cyberpunk
+  {
+    font-size: 1.65em;
+  }
+}
+
+@media only screen and (max-width: 384px)
+{
+  
+}
+
+@media only screen and (max-width: 375px)
+{
+  
+}
+
+@media only screen and (max-width: 320px)
+{
+
+}
+
+@media only screen and (max-width: 280px)
+{
+  
+}
+
+@media only screen and (max-width: 240px)
+{
+  
+}
+
+

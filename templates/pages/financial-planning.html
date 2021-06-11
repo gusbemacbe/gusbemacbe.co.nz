@@ -1,0 +1,100 @@
+{% extends '../base.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="border-before-footer">
+  <div class="container">
+    <div class="title context-h1-intertitle">
+      <h1 class="cyberpunk">{% firstof title context.title %}</h1>
+    </div>
+
+    <div class="context-text">
+      <p>Estes são meus futuros planejamentos financeiros para eu viver sozinho com a minha independência e a minha liberdade totais. Se eu não tiver oportunidade ou sorte de ir para estes países, ficarei no Brasil, mas devo residir numa cidade com menores porcentagens de morte por COVID-19, homicídio e roubo, valoriza mais e leva mais as ciências e as futuras pandemias a sério. Não residirei nas cidades mais conservadoras e com maior porcentagem de opositores das ciências, das medidas necessárias e preventivas das futuras pandemias e da vacina.</p>
+    </div>
+
+    <div class="context-text">
+      <p>A lista de compras de itens de casa e de limpeza é temporária e uma vez. No caso de itens de limpeza, devo comprar alguns deles. A lista de comida, contas de casa (água, aluguel, gás e luz) e remédios é mensal. </p>
+    </div>
+    
+    <div class="group-tabbed">
+      <div class="tabbed-set">
+        <input name="__tabbed_1" type="radio" id="__tabbed_1_1" checked="checked">
+        <label for="__tabbed_1_1">Brasil</label>
+        <div class="tabbed-content">
+
+          <div class="context-text">
+            <p>Se eu não tiver sorte de ir para Chile, Costa Rica, Islândia, Nova Zelândia ou Uruguai por motivos de idade e de restrições, ficarei no Brasil.</p>
+          </div>
+          <div class="context-text">
+            <p>Já tenho guarda-roupa, cama, computador com gabiente, mesa, monitor e cadeira de escritório.</p>
+          </div>
+
+          <div class="advantages-and-disadvantages">
+            <div class="advantages">
+              <div class="context-h3-intertitle">
+                <h3>Vantagens</h3>
+              </div>
+              <ul>
+                <li>O custo de vista mensal é mais barato do que os em todos estes países.</li>
+                <li>O aluguel de um apartamento é mais barato.</li>
+              </ul>
+            </div>
+            <div class="disadvantages">
+              <h3>Desvantagens</h3>
+              <ul>
+                <li>Brasil é um país desigual, preconceituoso e violento, então tenho menos chance de viver.</li>
+                <li>Brasil é um país muito conservador e religioso, o que significa uma grande porcentagem de negacionistas da pandemia e opositores da vacina, o que reuslta num aumento rápido de mortes por COVID-19.</li>
+                <li>Mesmo o custo de vida sendo mais barato, meu salário é baixo. Se eu vier trabalhar e for demitido, posso não conseguir reabilitar o benefício designado para pessoas com deficiência como eu.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Pagamento temporário e único</h2>
+        
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ shopping | safe }}
+            </div>
+          </div>
+        
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ supermarket | safe }}
+            </div>
+          </div>
+
+          <div class="context-text">
+            <p>Totalizando: {{ total_s_sp }} reais ({{ total_s_sp_usd }} dólares americanos ou {{ total_s_sp_cad }} dólares canadenses ou {{ total_s_sp_nzd }} dólares neozelandeses).</p>
+          </div>
+
+          <h2>Pagamentos mensais</h2>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ bills | safe }}
+            </div>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ food | safe }}
+            </div>
+          </div>
+        
+        </div>
+
+        <input name="__tabbed_1" type="radio" id="__tabbed_1_2">
+        <label for="__tabbed_1_2">Nova Zelândia</label>
+        <div class="tabbed-content">Test 2</div>
+
+        <input name="__tabbed_1" type="radio" id="__tabbed_1_3">
+        <label for="__tabbed_1_3">Uruguai</label>
+        <div class="tabbed-content">Test 3</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

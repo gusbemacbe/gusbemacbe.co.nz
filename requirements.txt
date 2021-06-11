@@ -9,10 +9,12 @@ django-smuggler
 django-sslserver
 django-tidy
 djangorestframework
+forex-python
 gunicorn
 pandas
 # psycopg2
 psycopg2-binary
+pymdown-extensions
 pytz
 whitenoise
 xlrd
