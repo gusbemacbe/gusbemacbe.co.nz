@@ -29,6 +29,14 @@ class financial_planning(Mixin, View):
       'total_s_sp_cad': self.total_s_sp_cad(),
       'total_s_sp_nzd': self.total_s_sp_nzd(),
       'total_s_sp_usd': self.total_s_sp_usd(),
+      'total_bfm': self.total_bfm(),
+      'total_bfm_cad': self.total_bfm_cad(),
+      'total_bfm_nzd': self.total_bfm_nzd(),
+      'total_bfm_usd': self.total_bfm_usd(),
+      'total_brazil': self.total_brazil(),
+      'total_brazil_cad': self.total_brazil_cad(),
+      'total_brazil_nzd': self.total_brazil_nzd(),
+      'total_brazil_usd': self.total_brazil_usd(),
     }
     return render(request, template, context)
   
@@ -137,6 +145,9 @@ class financial_planning(Mixin, View):
     
     return html_table
   
+  # region [rgba(36, 10, 64, 0.3)] 
+  # Shopping and supermarket
+  
   def total_s_sp(self):
     base_path = Path(__file__).parent
     shopping = (base_path / "static/data/brazil/purchases.csv").resolve()
@@ -170,6 +181,94 @@ class financial_planning(Mixin, View):
   
   def total_s_sp_usd(self):
     t = self.total_s_sp()
+    
+    cc = CurrencyRates()
+    usd = cc.convert('BRL', 'USD', 1)
+    
+    tusd = (t * usd).round().astype(int)
+    
+    return tusd
+
+# endregion
+
+# region [ rgba(110, 42, 74, 0.15) ]
+# Bills, food and medicaments
+
+  def total_bfm(self):
+    base_path = Path(__file__).parent
+    bills = (base_path / "static/data/brazil/bills.csv").resolve()
+    food = (base_path / "static/data/brazil/food.csv").resolve()
+    medicaments = (base_path / "static/data/brazil/medicaments.csv").resolve()
+    b = read_csv(bills)
+    f = read_csv(food)
+    m = read_csv(medicaments)
+    
+    t = b["Price (BRL)"].sum() + f["Price (BRL)"].sum() + m["Price (BRL)"].sum()
+    
+    return t
+  
+  def total_bfm_cad(self):
+    t = self.total_bfm()
+    
+    cc = CurrencyRates()
+    cad = cc.convert('BRL', 'CAD', 1)
+    
+    tcad = (t * cad).round().astype(int)
+    
+    return tcad
+  
+  def total_bfm_nzd(self):
+    t = self.total_bfm()
+    
+    cc = CurrencyRates()
+    nzd = cc.convert('BRL', 'NZD', 1)
+    
+    tnzd = (t * nzd).round().astype(int)
+    
+    return tnzd
+  
+  def total_bfm_usd(self):
+    t = self.total_bfm()
+    
+    cc = CurrencyRates()
+    usd = cc.convert('BRL', 'USD', 1)
+    
+    tusd = (t * usd).round().astype(int)
+    
+    return tusd
+
+# endregion
+
+  def total_brazil(self): 
+    t1 = self.total_s_sp()
+    t2 = self.total_bfm()
+    
+    t = t1 + t2
+    
+    return t
+
+  def total_brazil_cad(self):
+    t = self.total_brazil()
+    
+    cc = CurrencyRates()
+    cad = cc.convert('BRL', 'CAD', 1)
+    
+    tcad = (t * cad).round().astype(int)
+    
+    return tcad
+  
+  def total_brazil_nzd(self):
+    t = self.total_brazil()
+    
+    cc = CurrencyRates()
+    nzd = cc.convert('BRL', 'NZD', 1)
+    
+    tnzd = (t * nzd).round().astype(int)
+    
+    return tnzd
+  
+  def total_brazil_usd(self):
+    t = self.total_brazil()
     
     cc = CurrencyRates()
     usd = cc.convert('BRL', 'USD', 1)
