@@ -24,7 +24,7 @@
         <div class="tabbed-content">
 
           <div class="context-text">
-            <p>Se eu não tiver sorte de ir para Chile, Costa Rica, Islândia, Nova Zelândia ou Uruguai por motivos de idade e de restrições, ficarei no Brasil.</p>
+            <p>Se eu não tiver sorte de ir para Nova Zelândia ou Uruguai por motivos de idade e de restrições, ficarei no Brasil.</p>
           </div>
           <div class="context-text">
             <p>Já tenho guarda-roupa, cama, computador com gabiente, mesa, monitor e cadeira de escritório.</p>
@@ -54,48 +54,46 @@
         
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {{ shopping | safe }}
+              {{ brazil_shopping | safe }}
             </div>
           </div>
         
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {{ supermarket | safe }}
+              {{ brazil_supermarket | safe }}
             </div>
-          </div>
-
-          <div class="context-text">
-            <p>Totalizando: {{ total_s_sp }} reais ({{ total_s_sp_usd }} dólares americanos ou {{ total_s_sp_cad }} dólares canadenses ou {{ total_s_sp_nzd }} dólares neozelandeses).</p>
           </div>
 
           <h2>Pagamentos mensais</h2>
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {{ bills | safe }}
+              {{ brazil_bills | safe }}
             </div>
           </div>
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {{ food | safe }}
+              {{ brazil_food | safe }}
             </div>
           </div>
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {{ medicaments | safe }}
+              {{ brazil_medicaments | safe }}
             </div>
           </div>
 
+          <h2>Totalização</h2>
+
           <div class="context-text">
-            <p>Totalizando estas três: {{ total_bfm }} reais ({{ total_bfm_usd }} dólares americanos ou {{ total_bfm_cad }} dólares canadenses ou {{ total_bfm_nzd }} dólares neozelandeses).</p>
+            <p>Finalizando os cálculos, devo guardar o total na última linha ciano: </p>
           </div>
 
-          <h2>Conclusão</h2>
-
-          <div class="context-text">
-            <p>Finalizando os cálculos, devo guardar {{ total_brazil }} reais ({{ total_brazil_usd }} dólares americanos ou {{ total_brazil_cad }} dólares canadenses ou {{ total_brazil_nzd }} dólares neozelandeses) na conta de poupança.</p>
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ brazil_totalisation | safe }}
+            </div>
           </div>
         
         </div>
@@ -114,6 +112,45 @@
 
           <div class="context-text" id="salary-of-a-developer">
             <p>O salário minímo anual de um desenvolvedor pleno é 50 mil dólares neozelandeses, o médio é 65 mil e o máximo é 92 mil. Já mensalmente, no minímo, receberá [[ minimum_monthly_salary ]] dólares neozelandeses, no médio [[ average_monthly_salary ]] e no máximo, [[ maximium_monthly_salary ]].</p>
+          </div>
+
+          <div class="advantages-and-disadvantages">
+            <div class="advantages">
+              <div class="context-h3-intertitle">
+                <h3>Vantagens</h3>
+              </div>
+              <ul>
+                <li>A Nova Zelândia é um dos países com menor percentual de corrupção no governo.</li>
+                <li>Tem menos chance de desastres naturais.</li>
+                <li>É um país mais colaborativo com as medidas necessárias e preventivas de COVID-19 e das próximas pandemias.</li>
+                <li>É um país mais sério em relação às ciências, à medicina e à saúde, e que valoriza mais os trabalhadores de hospital.</li>
+                <li>É um dos países mais <i>gay-friendly</i>.</li>
+              </ul>
+            </div>
+            <div class="disadvantages">
+              <h3>Desvantagens</h3>
+              <ul>
+                <li>Possui um custo de vida mais alto que os no Brasil e no Uruguai.</li>
+                <li>Domperidona e timtolol de maleato não estão disponíveis na Nova Zelândia, mas omeprazol está disponível.</li>
+                <li>Possui muias restrições rígidas em relação à imigração. O visto <i>holiday working</i> é aplicado apenas para pessoas com até 30 anos e com 21 mil reais na conta. Talvez eue steja encaixado no <i>skill shortage list checker</i> em que minhas profissões estão em demanda, mas terei de competir com inúmeros concorrentes das mesmas profissões.</li>
+                <li>Gostam mais dos argentinos, dos chilenos e dos uruguaios e não gostam mais de brasileiros. Podem desconfiar de nós com suspeita, por causa do governo do Bolsonaro.</li>
+                <li>Brasileiros precisam de vistos, diferentemente dos argentinos, chilenos, portugueses e uruguaios que não precisam de visto.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Pré-viagem</h2>
+
+          <div class="context-text">
+            <p>Antes da pré-viagem, primeiramente devo consultar um <i>immigrant advisor</i> brasileiro e licenciado pelas autoridades neozelandesas para checar se tenho mais chance com a Nova Zelândia devido à minha idade.</p>
+          </div>
+
+          <div class="context-text">
+            <p>Se o <i>immigrant advisor</i> confirmar que terei chance, então antes da viagem, devo comprar duas malas grandes, uma para guardar as roupas e os acessórios para cuidados da higiene pessoal, outra para guardar as peças e os componentes do computador sem trazer o gabinete que não caberia na mala. Não posso levar os remédios. Quando eu estiver na Nova Zelândia, tenho de consultar um gastroenterologista e um oftalmologista para obter as alternativas disponíveis à domperidona e ao timtolol de maleato.</p>
+          </div>
+
+          <div class="context-text">
+            <p>Além disso, decidirei ou não se tentarei obter uma cidadania portuguesa por possuir uma descendência de judeus sefarditas. A agência que analisar a minha descendência e a embaixada ou o consulado que fizer uma cidadania e um passaporte, custam mais ou menos 3,1 mil reais. Com isto, não precisarei de visto para Nova Zelândia.</p>
           </div>
 
         </div>
