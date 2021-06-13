@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
     # own
     'AparecidaCovidTracker',
-    'financial_planning',
+    'financial_planning.apps.FinancialPlanningConfig',
     'home',
     'portfolio',
     'projects',

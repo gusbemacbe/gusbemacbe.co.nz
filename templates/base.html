@@ -19,7 +19,7 @@
   {% elif request.path == '/projects/' %}
     <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/projects.css' %}">
   {% else %}
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    {% comment %} nothing to comment {% endcomment %}
   {% endif %}
 
   <meta charset="UTF-8">
@@ -55,7 +55,9 @@
       <script type="text/javascript" src="{% static 'js/covid-19-cases-ages-and-gender.js' %}"></script>
       <script type="text/javascript" src="{% static 'js/covid-19-deaths-ages-and-gender.js' %}"></script>
     {% elif request.path == '/financial-planning/' %}
-      <script type="text/javascript" src="{% static 'js/financial-planning.js' %}"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="{% static 'js/financial-planning.js' %}"></script>
+      {% block vue %} {% endblock %}
     {% else %}
     {% comment %} nothing {% endcomment %}
     {% endif %}

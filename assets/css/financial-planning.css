@@ -163,6 +163,7 @@ h3
   background-color: var(--pink-light);
   color: var(--cyan-grey-light);
   font-size: 1.5em;
+  font-weight: bold;
   padding: 1rem;
   text-align: center;
   text-transform: uppercase;

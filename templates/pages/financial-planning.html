@@ -19,7 +19,7 @@
     
     <div class="group-tabbed">
       <div class="tabbed-set">
-        <input name="__tabbed_1" type="radio" id="__tabbed_1_1" checked="checked">
+        <input name="__tabbed_1" type="radio" id="__tabbed_1_1">
         <label for="__tabbed_1_1">Brasil</label>
         <div class="tabbed-content">
 
@@ -100,9 +100,23 @@
         
         </div>
 
-        <input name="__tabbed_1" type="radio" id="__tabbed_1_2">
+        <input name="__tabbed_1" type="radio" id="__tabbed_1_2" checked="checked">
         <label for="__tabbed_1_2">Nova Zelândia</label>
-        <div class="tabbed-content">Test 2</div>
+        <div class="tabbed-content">
+
+          <div class="context-text">
+            <p>Se eu conseguir guardar centenas de milhares de reais na conta de poupança, terei mais chance de ir à Nova Zelândia.</p>
+          </div>
+
+          <div class="context-text" id="minimum-wage">
+            <p>Primeiramente, segundo <a href="https://www.employment.govt.nz/hours-and-wages/pay/minimum-wage/minimum-wage-rates/">o Ministério de Negócios, Inovação e Emprego neozelandês</a>, como em [[ date ]], um estagiário ganha [[ trainee ]] dólares neozelandeses por hora, e um adulto ganha [[ adult ]] dólares neozelandeses por hora. Por semana, [[ trainee_week ]] e [[adult_week ]] dólares neozelandes. Por mês, [[ trainee_month ]] e [[adult_month ]] dólares neozelandeses. Por ano, [[ trainee_year ]] e [[ adult_year ]] dólares neozelandeses.</p>
+          </div>
+
+          <div class="context-text" id="salary-of-a-developer">
+            <p>O salário minímo anual de um desenvolvedor pleno é 50 mil dólares neozelandeses, o médio é 65 mil e o máximo é 92 mil. Já mensalmente, no minímo, receberá [[ minimum_monthly_salary ]] dólares neozelandeses, no médio [[ average_monthly_salary ]] e no máximo, [[ maximium_monthly_salary ]].</p>
+          </div>
+
+        </div>
 
         <input name="__tabbed_1" type="radio" id="__tabbed_1_3">
         <label for="__tabbed_1_3">Uruguai</label>
@@ -112,5 +126,9 @@
 
   </div>
 </section>
+
+{% endblock %}
+
+{% block vue %}
 
 {% endblock %}
