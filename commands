@@ -33,3 +33,5 @@ git subtree pull --prefix AparecidaCovidTracker/ covid-19 main --squash
  
 git remote add aparecida-covid-19 ssh://git@github.com:gusbemacbe/aparecida-covid-19-tracker.git
 git subtree push --prefix=AparecidaCovidTracker/ aparecida-covid-19 main
+
+npm install -g vue-cli
