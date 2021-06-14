@@ -209,6 +209,30 @@ h3
   background-color: transparent;
 }
 
+.table table.totalisation tr:nth-child(6) 
+{
+  background-color: rgba(115, 30, 204, 0.2);
+}
+
+.table table.totalisation tr:last-child
+{
+  background-color: rgba(113, 205, 248, 0.2);
+}
+
+.table table.comparison-1 tr:nth-child(3),
+.table table.comparison-1 tr:nth-child(4),
+.table table.comparison-2 tr:nth-child(3),
+.table table.comparison-2 tr:nth-child(4) 
+{
+  background-color: rgba(115, 30, 204, 0.2);
+}
+
+.table table.comparison-1 tr:nth-child(5),
+.table table.comparison-1 tr:nth-child(6) 
+{
+  background-color: rgba(113, 205, 248, 0.2);
+}
+
 /* Widescreen 1280 */
 @media only screen and (max-width: 1280px)
 {

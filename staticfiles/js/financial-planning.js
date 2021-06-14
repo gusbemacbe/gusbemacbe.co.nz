@@ -1,24 +1,75 @@
 // Tables caption
-const food = document.querySelector('table.food');
-food.id = "food";
+const bills = document.querySelectorAll('.bills');
 
-const bills = document.querySelector('table.bills');
-bills.id = "bills";
+for (let i = 0; i < bills.length; i++) 
+{
+  const caption = bills[i].createCaption();
+  caption.textContent = "Contas mensais";
+}
 
-const medicaments = document.querySelector('table.medicaments');
-medicaments.id = "medicaments";
+const food = document.querySelectorAll('.food');
 
-const shopping = document.querySelector('table.shopping');
-shopping.id = "shopping";
+for (let i = 0; i < food.length; i++) 
+{
+  const caption = food[i].createCaption();
+  caption.textContent = "Comida";
+}
 
-const supermarket = document.querySelector('table.supermarket');
-supermarket.id = "supermarket";
+const medicaments = document.querySelectorAll('.medicaments');
 
-document.getElementById("bills").createCaption().textContent = "Contas mensais";
-document.getElementById("food").createCaption().textContent = "Comida";
-document.getElementById("medicaments").createCaption().textContent = "Remédios";
-document.getElementById("shopping").createCaption().textContent = "Compras";
-document.getElementById("supermarket").createCaption().textContent = "Supermercado";
+for (let i = 0; i < medicaments.length; i++) 
+{
+  const caption = medicaments[i].createCaption();
+  caption.textContent = "Remédios";
+}
+
+const office = document.querySelectorAll('.office');
+
+for (let i = 0; i < office.length; i++) 
+{
+  const caption = office[i].createCaption();
+  caption.textContent = "Escritório";
+}
+
+const pre_travel = document.querySelectorAll('.pre-travel');
+
+for (let i = 0; i < pre_travel.length; i++) 
+{
+  const caption = pre_travel[i].createCaption();
+  caption.textContent = "Pré-viagem";
+}
+
+const shopping = document.querySelectorAll('.shopping');
+
+for (let i = 0; i < shopping.length; i++) 
+{
+  const caption = shopping[i].createCaption();
+  caption.textContent = "Compras";
+}
+
+const supermarket = document.querySelectorAll('.supermarket');
+
+for (let i = 0; i < supermarket.length; i++) 
+{
+  const caption = supermarket[i].createCaption();
+  caption.textContent = "Supermercado";
+}
+
+const comparison = document.querySelectorAll('.comparison-1');
+
+for (let i = 0; i < comparison.length; i++) 
+{
+  const caption = comparison[i].createCaption();
+  caption.textContent = "Salário mensal minímo de um adulto ou estagiário";
+}
+
+const developer = document.querySelectorAll('.comparison-2');
+
+for (let i = 0; i < developer.length; i++) 
+{
+  const caption = developer[i].createCaption();
+  caption.textContent = "Salário mensal médio de um desenvolvedor";
+}
 
 // Current minimum wage rates in New Zealand
 const locale = 'pt-BR';
