@@ -160,3 +160,22 @@ const salary_of_a_developer = new Vue({
       minimum_weekly_salary: Math.round((minimum / 12) / 4)
   }
 });
+
+// Current minimum wage in Uruguay
+const uy_minimum_wage = new Vue({ 
+  el: '#minimum-wage-uruguay',
+  delimiters: ['[[', ']]'],
+  data: 
+  {
+    uy_date: new Date(Date.UTC(2021, 00, 01, 01, 01, 0)).toLocaleDateString(locale, options),
+    uy_minimum: 17930
+  },
+  computed: 
+  {
+    uy_year:
+    function () 
+    {
+      return kFormatter(this.uy_minimum * 12)
+    },
+  }
+});

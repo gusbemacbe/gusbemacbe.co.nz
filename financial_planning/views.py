@@ -34,7 +34,8 @@ class financial_planning(Mixin, View):
       'nz_supermarket': self.nz_supermarket(),
       'nz_totalisation': self.nz_totalisation(),
       'nz_comparison_minimum_wage': self.nz_comparison_minimum_wage(),
-      'nz_comparison_minimum_wage_developer': self.nz_comparison_minimum_wage_developer()
+      'nz_comparison_minimum_wage_developer': self.nz_comparison_minimum_wage_developer(),
+      'uy_pre_travel': self.uy_pre_travel(),
     }
     return render(request, template, context)
   
@@ -283,6 +284,33 @@ class financial_planning(Mixin, View):
     
     return html_table
   
+# endregion
+
+# region [ rgba(123, 63, 0, 0.1) ]
+# Costs of living in Uruguay
+
+  def uy_pre_travel(self):
+    
+    cc = CurrencyRates()
+    
+    cad = cc.convert('BRL', 'CAD', 1)
+    nzd = cc.convert('BRL', 'NZD', 1)
+    usd = cc.convert('BRL', 'USD', 1)
+    
+    base_path = Path(__file__).parent
+    file_path = (base_path / "static/data/nz/pre-travel.csv").resolve()
+    c = pd.read_csv(file_path)
+    c.loc["Total"] = c.sum()
+    c["Item"].values[-1] = "Total"
+    
+    c["CAD"] = (c['Price (BRL)'] * cad).round().astype(int)
+    c["NZD"] = (c['Price (BRL)'] * nzd).round().astype(int)
+    c["USD"] = (c['Price (BRL)'] * usd).round().astype(int)
+    
+    html_table = c.to_html(classes = 'pre-travel', index = False)
+    
+    return html_table
+
 # endregion
 
   def brazil_totalisation(self):
