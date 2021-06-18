@@ -5,6 +5,7 @@ from pathlib import Path
 
 import json
 import pandas as pd
+import requests
 from pandas.io.parsers import read_csv
 
 class Mixin(object):
@@ -35,9 +36,26 @@ class financial_planning(Mixin, View):
       'nz_totalisation': self.nz_totalisation(),
       'nz_comparison_minimum_wage': self.nz_comparison_minimum_wage(),
       'nz_comparison_minimum_wage_developer': self.nz_comparison_minimum_wage_developer(),
+      'uy_bills': self.uy_bills(),
+      'uy_food': self.uy_food(),
+      'uy_medicaments': self.uy_medicaments(),
+      'uy_office': self.uy_office(),
       'uy_pre_travel': self.uy_pre_travel(),
+      'uy_shopping': self.uy_shopping(),
+      'uy_supermarket': self.uy_supermarket(),
+      'uy_totalisation': self.uy_totalisation(),
+      'uy_comparison_minimum_wage': self.uy_comparison_minimum_wage(),
+      'uy_comparison_minimum_wage_developer': self.uy_comparison_minimum_wage_developer()
     }
     return render(request, template, context)
+  
+  def uruguayan_currency_conversion(self):
+    url = 'https://v6.exchangerate-api.com/v6/47d50b6538abaa595f633cee/latest/UYU'
+    
+    response = requests.get(url)
+    data = response.json()
+    
+    return data
   
 # region [ rgba(0, 39, 118, 0.1) ]
 # Costs of living in Brazil
@@ -298,7 +316,7 @@ class financial_planning(Mixin, View):
     usd = cc.convert('BRL', 'USD', 1)
     
     base_path = Path(__file__).parent
-    file_path = (base_path / "static/data/nz/pre-travel.csv").resolve()
+    file_path = (base_path / "static/data/uruguay/pre-travel.csv").resolve()
     c = pd.read_csv(file_path)
     c.loc["Total"] = c.sum()
     c["Item"].values[-1] = "Total"
@@ -308,6 +326,120 @@ class financial_planning(Mixin, View):
     c["USD"] = (c['Price (BRL)'] * usd).round().astype(int)
     
     html_table = c.to_html(classes = 'pre-travel', index = False)
+    
+    return html_table
+  
+  def uy_bills(self):
+    
+    data = self.uruguayan_currency_conversion()
+    
+    base_path = Path(__file__).parent
+    file_path = (base_path / "static/data/uruguay/bills.csv").resolve()
+    c = pd.read_csv(file_path)
+    c.loc["Total"] = c.sum()
+    c["Item"].values[-1] = "Total"
+    
+    c["BRL"] = (data['conversion_rates']['BRL'] * c['Price (UYU)']).round().astype(int)
+    c["CAD"] = (data['conversion_rates']['CAD'] * c['Price (UYU)']).round().astype(int)
+    c["NZD"] = (data['conversion_rates']['NZD'] * c['Price (UYU)']).round().astype(int)
+    c["USD"] = (data['conversion_rates']['USD'] * c['Price (UYU)']).round().astype(int)
+    
+    html_table = c.to_html(classes = 'bills', index = False)
+    
+    return html_table
+  
+  def uy_food(self):
+    
+    data = self.uruguayan_currency_conversion()
+    
+    base_path = Path(__file__).parent
+    file_path = (base_path / "static/data/uruguay/food.csv").resolve()
+    c = pd.read_csv(file_path)
+    c.loc["Total"] = c.sum()
+    c["Item"].values[-1] = "Total"
+    
+    c["BRL"] = (data['conversion_rates']['BRL'] * c['Price (UYU)']).round().astype(int)
+    c["CAD"] = (data['conversion_rates']['CAD'] * c['Price (UYU)']).round().astype(int)
+    c["NZD"] = (data['conversion_rates']['NZD'] * c['Price (UYU)']).round().astype(int)
+    c["USD"] = (data['conversion_rates']['USD'] * c['Price (UYU)']).round().astype(int)
+    
+    html_table = c.to_html(classes = 'food', index = False)
+    
+    return html_table
+  
+  def uy_medicaments(self):
+    
+    data = self.uruguayan_currency_conversion()
+    
+    base_path = Path(__file__).parent
+    file_path = (base_path / "static/data/uruguay/medicaments.csv").resolve()
+    c = pd.read_csv(file_path)
+    c.loc["Total"] = c.sum()
+    c["Item"].values[-1] = "Total"
+    
+    c["BRL"] = (data['conversion_rates']['BRL'] * c['Price (UYU)']).round().astype(int)
+    c["CAD"] = (data['conversion_rates']['CAD'] * c['Price (UYU)']).round().astype(int)
+    c["NZD"] = (data['conversion_rates']['NZD'] * c['Price (UYU)']).round().astype(int)
+    c["USD"] = (data['conversion_rates']['USD'] * c['Price (UYU)']).round().astype(int)
+    
+    html_table = c.to_html(classes = 'medicaments', index = False)
+    
+    return html_table
+  
+  def uy_office(self):
+    
+    data = self.uruguayan_currency_conversion()
+    
+    base_path = Path(__file__).parent
+    file_path = (base_path / "static/data/uruguay/office.csv").resolve()
+    c = pd.read_csv(file_path)
+    c.loc["Total"] = c.sum()
+    c["Item"].values[-1] = "Total"
+    
+    c["BRL"] = (data['conversion_rates']['BRL'] * c['Price (UYU)']).round().astype(int)
+    c["CAD"] = (data['conversion_rates']['CAD'] * c['Price (UYU)']).round().astype(int)
+    c["NZD"] = (data['conversion_rates']['NZD'] * c['Price (UYU)']).round().astype(int)
+    c["USD"] = (data['conversion_rates']['USD'] * c['Price (UYU)']).round().astype(int)
+    
+    html_table = c.to_html(classes = 'office', index = False)
+    
+    return html_table
+  
+  def uy_shopping(self):
+    
+    data = self.uruguayan_currency_conversion()
+    
+    base_path = Path(__file__).parent
+    file_path = (base_path / "static/data/uruguay/shopping.csv").resolve()
+    c = pd.read_csv(file_path)
+    c.loc["Total"] = c.sum()
+    c["Item"].values[-1] = "Total"
+    
+    c["BRL"] = (data['conversion_rates']['BRL'] * c['Price (UYU)']).round().astype(int)
+    c["CAD"] = (data['conversion_rates']['CAD'] * c['Price (UYU)']).round().astype(int)
+    c["NZD"] = (data['conversion_rates']['NZD'] * c['Price (UYU)']).round().astype(int)
+    c["USD"] = (data['conversion_rates']['USD'] * c['Price (UYU)']).round().astype(int)
+    
+    html_table = c.to_html(classes = 'shopping', index = False)
+    
+    return html_table
+  
+  def uy_supermarket(self):
+    
+    data = self.uruguayan_currency_conversion()
+    
+    base_path = Path(__file__).parent
+    file_path = (base_path / "static/data/uruguay/supermarket.csv").resolve()
+    c = pd.read_csv(file_path)
+    c.loc["Total"] = c.sum()
+    c["Item"].values[-1] = "Total"
+    
+    c["BRL"] = (data['conversion_rates']['BRL'] * c['Price (UYU)']).round().astype(int)
+    c["CAD"] = (data['conversion_rates']['CAD'] * c['Price (UYU)']).round().astype(int)
+    c["NZD"] = (data['conversion_rates']['NZD'] * c['Price (UYU)']).round().astype(int)
+    c["USD"] = (data['conversion_rates']['USD'] * c['Price (UYU)']).round().astype(int)
+    
+    html_table = c.to_html(classes = 'supermarket', index = False)
     
     return html_table
 
@@ -442,7 +574,7 @@ class financial_planning(Mixin, View):
     brl_total_furnished = (t_f * brl).round().astype(int)
     
     data = {
-        "List" : [ "Bills", "Food", "Medicaments", "Shopping", "Supermarket", "Total (non-furnished)", "Total (furnished)" ],
+        "List" : [ "Bills", "Food", "Office", "Shopping", "Supermarket", "Total (non-furnished)", "Total (furnished)" ],
         "Total (NZD)": [ b_v, f_v, o_v, s_v, sp_v, t, t_f ],
         "USD": [  usd_bills, usd_food, usd_office, usd_shopping, usd_supermarket, usd_total_non_furnished, usd_total_furnished ],
         "CAD": [  cad_bills, cad_food, cad_office, cad_shopping, cad_supermarket, cad_total_non_furnished, cad_total_furnished ],
@@ -452,6 +584,88 @@ class financial_planning(Mixin, View):
     df = pd.DataFrame(data)
     
     html_table = df.to_html(classes = 'totalisation', index = False)
+    
+    return html_table
+  
+  def uy_totalisation(self):
+    
+    data = self.uruguayan_currency_conversion()
+    
+    base_path = Path(__file__).parent
+    bills = (base_path / "static/data/uruguay/bills.csv").resolve()
+    food = (base_path / "static/data/uruguay/food.csv").resolve()
+    medicaments = (base_path / "static/data/uruguay/medicaments.csv").resolve()
+    office = (base_path / "static/data/uruguay/office.csv").resolve()
+    shopping = (base_path / "static/data/uruguay/shopping.csv").resolve()
+    supermarket = (base_path / "static/data/uruguay/supermarket.csv").resolve()
+    
+    b = read_csv(bills)
+    f = read_csv(food)
+    m = read_csv(medicaments)
+    o = read_csv(office)
+    s = read_csv(shopping)
+    sp = read_csv(supermarket)
+    
+    b.loc["Total"] = b.sum()
+    f.loc["Total"] = f.sum()
+    m.loc["Total"] = m.sum()
+    o.loc["Total"] = o.sum()
+    s.loc["Total"] = s.sum()
+    sp.loc["Total"] = sp.sum()
+    
+    b_v = b.loc["Total"].values[1]
+    f_v = f.loc["Total"].values[1]
+    m_v = m.loc["Total"].values[1]
+    o_v = o.loc["Total"].values[1]
+    s_v = s.loc["Total"].values[1]
+    sp_v = sp.loc["Total"].values[1]
+    
+    t = b_v + f_v + m_v + o_v + s_v + sp_v
+        
+    usd_bills = (data['conversion_rates']['USD'] * b_v).round().astype(int)
+    usd_food = (data['conversion_rates']['USD'] * f_v).round().astype(int)
+    usd_medicaments = (data['conversion_rates']['USD'] * m_v).round().astype(int)
+    usd_office = (data['conversion_rates']['USD'] * o_v).round().astype(int)
+    usd_shopping = (data['conversion_rates']['USD'] * s_v).round().astype(int)
+    usd_supermarket = (data['conversion_rates']['USD'] * sp_v).round().astype(int)
+    usd_total = (data['conversion_rates']['USD'] * t).round().astype(int)
+        
+    cad_bills = (data['conversion_rates']['CAD'] * b_v).round().astype(int)
+    cad_food = (data['conversion_rates']['CAD'] * f_v).round().astype(int)
+    cad_medicaments = (data['conversion_rates']['CAD'] * m_v).round().astype(int)
+    cad_office = (data['conversion_rates']['CAD'] * o_v).round().astype(int)
+    cad_shopping = (data['conversion_rates']['CAD'] * s_v).round().astype(int)
+    cad_supermarket = (data['conversion_rates']['CAD'] * sp_v).round().astype(int)
+    cad_total = (data['conversion_rates']['CAD'] * t).round().astype(int)
+        
+    brl_bills = (data['conversion_rates']['BRL'] * b_v).round().astype(int)
+    brl_food = (data['conversion_rates']['BRL'] * f_v).round().astype(int)
+    brl_medicaments = (data['conversion_rates']['BRL'] * m_v).round().astype(int)
+    brl_office = (data['conversion_rates']['BRL'] * o_v).round().astype(int)
+    brl_shopping = (data['conversion_rates']['BRL'] * s_v).round().astype(int)
+    brl_supermarket = (data['conversion_rates']['BRL'] * sp_v).round().astype(int)
+    brl_total = (data['conversion_rates']['BRL'] * t).round().astype(int)
+        
+    nzd_bills = (data['conversion_rates']['NZD'] * b_v).round().astype(int)
+    nzd_food = (data['conversion_rates']['NZD'] * f_v).round().astype(int)
+    nzd_medicaments = (data['conversion_rates']['NZD'] * m_v).round().astype(int)
+    nzd_office = (data['conversion_rates']['NZD'] * o_v).round().astype(int)
+    nzd_shopping = (data['conversion_rates']['NZD'] * s_v).round().astype(int)
+    nzd_supermarket = (data['conversion_rates']['NZD'] * sp_v).round().astype(int)
+    nzd_total = (data['conversion_rates']['NZD'] * t).round().astype(int)
+    
+    data = {
+        "List" : [ "Bills", "Food", "Medicaments", "Office", "Shopping", "Supermarket", "Total" ],
+        "Total (UYU)": [ b_v, f_v, m_v, o_v, s_v, sp_v, t ],
+        "USD": [  usd_bills, usd_food, usd_medicaments, usd_office, usd_shopping, usd_supermarket, usd_total ],
+        "CAD": [  cad_bills, cad_food, cad_medicaments, cad_office, cad_shopping, cad_supermarket, cad_total ],
+        "BRL": [  brl_bills, brl_food, brl_medicaments, brl_office, brl_shopping, brl_supermarket, brl_total ],
+        "NZD": [  nzd_bills, nzd_food, nzd_medicaments, nzd_office, nzd_shopping, nzd_supermarket, nzd_total ]
+    }
+    
+    df = pd.DataFrame(data)
+    
+    html_table = df.to_html(classes = 'totalisation uruguay', index = False)
     
     return html_table
   
@@ -496,6 +710,43 @@ class financial_planning(Mixin, View):
     
     return html_table
   
+  def uy_comparison_minimum_wage(self):
+    base_path = Path(__file__).parent
+    bills = (base_path / "static/data/uruguay/bills.csv").resolve()
+    food = (base_path / "static/data/uruguay/food.csv").resolve()
+    medicaments = (base_path / "static/data/uruguay/medicaments.csv").resolve()
+    
+    b = read_csv(bills)
+    f = read_csv(food)
+    m = read_csv(medicaments)
+    
+    b.loc["Total"] = b.sum()
+    f.loc["Total"] = f.sum()
+    m.loc["Total"] = m.sum()
+    
+    b_v = b.loc["Total"].values[1]
+    f_v = f.loc["Total"].values[1]
+    m_v = m.loc["Total"].values[1]
+    
+    t = b_v + f_v + m_v
+    
+    # Minimum wage per hout
+    minimum = 17930
+    
+    # Per month
+    rn = minimum - t
+    
+    data = {
+        "List" : [ "Monthly Bills", "Minimum wage", "Remnant"],
+        "UYU": [ t, minimum, rn ],
+    }
+    
+    df = pd.DataFrame(data)
+    
+    html_table = df.to_html(classes = 'uy-comparison-1', index = False)
+    
+    return html_table
+  
   def nz_comparison_minimum_wage_developer(self):
     base_path = Path(__file__).parent
     bills = (base_path / "static/data/nz/bills.csv").resolve()
@@ -535,5 +786,45 @@ class financial_planning(Mixin, View):
     df = pd.DataFrame(data)
     
     html_table = df.to_html(classes = 'comparison-2', index = False)
+    
+    return html_table
+  
+  def uy_comparison_minimum_wage_developer(self):
+    base_path = Path(__file__).parent
+    bills = (base_path / "static/data/uruguay/bills.csv").resolve()
+    food = (base_path / "static/data/uruguay/food.csv").resolve()
+    medicaments = (base_path / "static/data/uruguay/medicaments.csv").resolve()
+    
+    b = read_csv(bills)
+    f = read_csv(food)
+    m = read_csv(medicaments)
+    
+    b.loc["Total"] = b.sum()
+    f.loc["Total"] = f.sum()
+    m.loc["Total"] = m.sum()
+    
+    b_v = b.loc["Total"].values[1]
+    f_v = f.loc["Total"].values[1]
+    m_v = m.loc["Total"].values[1]
+    
+    t = b_v + f_v + m_v
+    
+    # Average salary of a developer in New Zealand
+    minimum = 8000
+    average = 15000
+    maximium = 30000
+    
+    rnm = minimum - t
+    rna = average - t
+    rnmx = maximium - t
+    
+    data = {
+        "List" : [ "Monthly Bills", "Minimum wage", "Remnant 1", "Average wage", "Remnant 2", "Maximum wage", "Remnant 3"],
+        "UYU": [ t, minimum, rnm, average, rna, maximium, rnmx],
+    }
+    
+    df = pd.DataFrame(data)
+    
+    html_table = df.to_html(classes = 'comparison-2 uruguay', index = False)
     
     return html_table

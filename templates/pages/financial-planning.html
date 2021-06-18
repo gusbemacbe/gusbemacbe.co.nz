@@ -19,7 +19,7 @@
     
     <div class="group-tabbed">
       <div class="tabbed-set">
-        <input name="__tabbed_1" type="radio" id="__tabbed_1_1">
+        <input name="__tabbed_1" type="radio" id="__tabbed_1_1" checked="checked">
         <label for="__tabbed_1_1">Brasil</label>
         <div class="tabbed-content">
 
@@ -98,7 +98,7 @@
         
         </div>
 
-        <input name="__tabbed_1" type="radio" id="__tabbed_1_2" checked="checked">
+        <input name="__tabbed_1" type="radio" id="__tabbed_1_2">
         <label for="__tabbed_1_2">Nova Zelândia</label>
         <div class="tabbed-content">
 
@@ -258,17 +258,17 @@
         <label for="__tabbed_1_3">Uruguai</label>
         <div class="tabbed-content">
 
-        <div class="context-text">
-          <p>Se o <i>immigration advisor</i> da Nova Zelândia disser que eu não terei nenhuma chance de residir na Nova Zelândia, irei para o Uruguai.</p>
-        </div>
-        
-        <div class="context-text" id="minimum-wage-uruguay">
-          <p>Primeiramente, segundo o <a href="https://www.presidencia.gub.uy//comunicacion/comunicacionnoticias/mieres-salario-minimo">portal do governo uruguaio</a>, em [[ uy_date ]], um trabalhador comum ganha mensalmente [[ uy_minimum ]] pesos uruguaios. Por ano, [[ uy_year ]] pesos uruguaios.</p>
-        </div>
+          <div class="context-text">
+            <p>Se o <i>immigration advisor</i> da Nova Zelândia disser que eu não terei nenhuma chance de residir na Nova Zelândia, irei para o Uruguai.</p>
+          </div>
+          
+          <div class="context-text" id="minimum-wage-uruguay">
+            <p>Primeiramente, segundo o <a href="https://www.presidencia.gub.uy//comunicacion/comunicacionnoticias/mieres-salario-minimo">portal do governo uruguaio</a>, em [[ uy_date ]], um trabalhador comum ganha mensalmente [[ uy_minimum ]] pesos uruguaios. Por ano, [[ uy_year ]] pesos uruguaios.</p>
+          </div>
 
-        <div class="context-text">
-          <p>Quanto ao salário de um desenvolvedor, depende da empresa e da cidade, segundo a <a href="https://www.reddit.com/r/uruguay/comments/9gjol5/programadordesarrollador_cu%C3%A1nto_ganas/">discussão do <i>subreddit</i> /r/uruguay</a>, um salário mensal com entre 7,8 e 9 horas por dia varia dentre 7, 8, 13 e 30 mil pesos uruguaios.</p>
-        </div>
+          <div class="context-text">
+            <p>Quanto ao salário de um desenvolvedor, depende da empresa e da cidade, segundo a <a href="https://www.reddit.com/r/uruguay/comments/9gjol5/programadordesarrollador_cu%C3%A1nto_ganas/">discussão do <i>subreddit</i> /r/uruguay</a>, um salário mensal com entre 7,8 e 9 horas por dia varia dentre 7, 8, 13 e 30 mil pesos uruguaios.</p>
+          </div>
 
           <div class="advantages-and-disadvantages">
             <div class="advantages">
@@ -297,7 +297,7 @@
           <h2>Pré-viagem</h2>
 
           <div class="context-text">
-            <p>Antes da pré-viagem, primeiramente devo consultar um <i>immigrant advisor</i> brasileiro ou uruguaio e licenciado pelas autoridades uruguaias para checar se tenho mais chance com o Uruguai.</p>
+            <p>AInda não consegui localizar um <i>immigration advisor</i>. Antes da pré-viagem, primeiramente devo consultar um <i>immigrant advisor</i> brasileiro ou uruguaio e licenciado pelas autoridades uruguaias para checar se tenho mais chance com o Uruguai.</p>
           </div>
 
           <div class="context-text">
@@ -311,6 +311,108 @@
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
               {{ uy_pre_travel | safe }}
+            </div>
+          </div>
+
+          <h2>Pagamento temporário e único</h2>
+
+          <div class="context-text">
+            <p>Se eu alugar um apartamento não mobiliado, incluirei a tabela de compras de eletrodomésticos e móveis. Os preços da lista de eletrodomésticos e de móveis são obtidos do site <a href="https://mercadolibre.com.uy">Mercado Libre Uruguay</a>.</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_shopping | safe }}
+            </div>
+          </div>  
+
+          <div class="context-text">
+            <p>Como o gabinete não caberá na mala e não posso trazer um monitor, terei de desmontá-lo para levar os componentes e as peças de computador na mala. No Uruguai, terei de comprar uma cadeira e uma mesa de escritório, um monitor e um gabinete. Os preços da lista de escritório foram obtidos do <i>site</i> <a href="https://mercadolibre.com.uy">Mercado Libre Uruguay</a>.</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_office | safe }}
+            </div>
+          </div>    
+
+          <div class="context-text">
+            <p>Também preciso comprar produtos de limpeza no supermercado. Esta compra é temporária e única. Devo comprá-los quando uns produtos de limpeza acabarem. Os preços da lista de supermercado foram obtidos dos <i>sites</i> do <a href="https://www.disco.com.uy/">supermercado Disco</a> e do <a href="https://mercadolibre.com.uy">Mercado Libre Uruguay</a>.</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_supermarket | safe }}
+            </div>
+          </div>
+
+          <h2>Pagamento mensal</h2>
+
+          <div class="context-text">
+            <p>As contas de água, internet e luz são mensais, a de internet é mensal. Na tabela, o preço será mensal. Optarei pelo <i>cooktop</i> elétrico de indução, não incluirei o gás na tabela</p>
+          </div>
+
+          <div class="context-text">
+            <p>O pagamento de aluguel no Uruguai é mensal e menos caro que o na Nova Zelândia, mas mais caro que o no Brasil. Depende da casa ou do apartamento e da cidade. A média de pagamento mensal de aluguel no Uruguai é 14 mil pesos uruguaios. O pagamento é feito em dólar americano ou em peso uruguaio. Varia dentre 9 e 15 mil pesos uruguaios, e dentre 50 e 80 dólares americanos. Opto por um apartamento mobiliado comum dormitório, na cidade de Piriápolis, custando 80 dólares americanos.</p>
+          </div>
+
+          <div class="context-text">
+            <p>O preço de água mineral foi obtido dos <i>sites</i> <a href="https://www.aquaa.com.uy/">Aquaa</a> e <a href="https://www.elaljibe.com.uy/">El Aljibe</a>. O de internet foi obtido do <i>site</i> <a href="https://tienda.antel.com.uy/">Antel</a>. O de luz foi obtido do portal do <i>site</i> <a href="https://www.ute.com.uy/">UTE</a>.</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_bills | safe }}
+            </div>
+          </div>
+
+          <div class="context-text">
+            <p>Os meus três remédios estão disponível no Uruguai, mas infelizmente, são três vezes mais caros que no Brasil. Os preços foram obtidos dos sites das farmácias <a href="https://tienda.farmashop.com.uy/">Farmashop</a> e <a href="https://pulpi.com.uy/">Pulpi</a>.</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_medicaments | safe }}
+            </div>
+          </div>
+
+          <div class="context-text">
+            <p>Os preços de lista de comida foram obtidos do <i>site</i> do <a href="https://www.disco.com.uy/">supermercado Disco</a>.</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_food | safe }}
+            </div>
+          </div>
+
+          <h2>Totalização</h2>
+
+          <div class="context-text">
+            <p>A finalizar, devo guardar na última linha:</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_totalisation | safe }}
+            </div>
+          </div>
+
+          <h2>Comparação de totalização mensal e salário minímo</h2>
+
+          <div class="context-text">
+            <p>Incluirei apenas as tabelas de contas, comida e aluguel. Compararei o preço total mensal de totalização com um salário minímo mensal geral decretado pelas autoridades uruguaias, e com um salário mensal de um desenvolvedor, e veja quanto sobra:</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_comparison_minimum_wage | safe }}
+            </div>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+              {{ uy_comparison_minimum_wage_developer | safe }}
             </div>
           </div>
 

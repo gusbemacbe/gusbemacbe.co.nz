@@ -60,7 +60,15 @@ const comparison = document.querySelectorAll('.comparison-1');
 for (let i = 0; i < comparison.length; i++) 
 {
   const caption = comparison[i].createCaption();
-  caption.textContent = "Salário mensal minímo de um adulto ou estagiário";
+  caption.textContent = "Salário mensal mínimo de um adulto ou estagiário";
+}
+
+const uy_comparison = document.querySelectorAll('.uy-comparison-1');
+
+for (let i = 0; i < uy_comparison.length; i++) 
+{
+  const caption = uy_comparison[i].createCaption();
+  caption.textContent = "Salário mínimo mensal";
 }
 
 const developer = document.querySelectorAll('.comparison-2');
@@ -68,7 +76,7 @@ const developer = document.querySelectorAll('.comparison-2');
 for (let i = 0; i < developer.length; i++) 
 {
   const caption = developer[i].createCaption();
-  caption.textContent = "Salário mensal médio de um desenvolvedor";
+  caption.textContent = "Salário mensal de um desenvolvedor";
 }
 
 // Current minimum wage rates in New Zealand
