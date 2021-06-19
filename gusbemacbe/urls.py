@@ -31,7 +31,6 @@ urlpatterns = [
     
     # Pages
     path('aparecida-covid-19-tracker/', include('AparecidaCovidTracker.urls')),
-    path('expense/', include('expense.urls', namespace = 'expense')),
     path('financial-planning/', include('financial_planning.urls')),
     path('portfolio/', include('portfolio.urls')),
     path('projects/', include('projects.urls')),
