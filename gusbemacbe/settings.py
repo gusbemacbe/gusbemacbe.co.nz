@@ -105,11 +105,18 @@ WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
-
 DATABASES = {
-    'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
+
+# DATABASES = {
+#     'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
+# }
 
 # DATABASES = {
 #     'default': {

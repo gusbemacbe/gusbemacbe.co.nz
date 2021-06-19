@@ -1,27 +1,4 @@
 // Tables caption
-const bills = document.querySelectorAll('.bills');
-
-for (let i = 0; i < bills.length; i++) 
-{
-  const caption = bills[i].createCaption();
-  caption.textContent = "Contas mensais";
-}
-
-const food = document.querySelectorAll('.food');
-
-for (let i = 0; i < food.length; i++) 
-{
-  const caption = food[i].createCaption();
-  caption.textContent = "Comida";
-}
-
-const medicaments = document.querySelectorAll('.medicaments');
-
-for (let i = 0; i < medicaments.length; i++) 
-{
-  const caption = medicaments[i].createCaption();
-  caption.textContent = "Remédios";
-}
 
 const office = document.querySelectorAll('.office');
 
@@ -37,22 +14,6 @@ for (let i = 0; i < pre_travel.length; i++)
 {
   const caption = pre_travel[i].createCaption();
   caption.textContent = "Pré-viagem";
-}
-
-const shopping = document.querySelectorAll('.shopping');
-
-for (let i = 0; i < shopping.length; i++) 
-{
-  const caption = shopping[i].createCaption();
-  caption.textContent = "Compras";
-}
-
-const supermarket = document.querySelectorAll('.supermarket');
-
-for (let i = 0; i < supermarket.length; i++) 
-{
-  const caption = supermarket[i].createCaption();
-  caption.textContent = "Supermercado";
 }
 
 const comparison = document.querySelectorAll('.comparison-1');

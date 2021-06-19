@@ -1,5 +1,6 @@
 from django import template
-from django.db.models import F, Sum
+from django.db.models import Sum
+from django.db.models.functions import Coalesce
 from financial_planning.models import BrazilBill
 from forex_python.converter import CurrencyRates
 
@@ -19,10 +20,11 @@ response = requests.get(url)
 data = response.json()
 uyu = data['conversion_rates']['UYU']
 
-
 @register.filter
 def brazil_bill_total_brl(value):
-    return BrazilBill.objects.aggregate(Sum('price')).get('price__sum')
+    total = BrazilBill.objects.all().aggregate(Sum('price'))
+    total.get('price__sum')
+    return total
 
 @register.filter
 def brazil_bill_total_cad(value):

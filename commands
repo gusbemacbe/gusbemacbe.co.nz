@@ -1,12 +1,12 @@
 django-admin startproject trydjango .
-python manage.py startapp nome_do_aplicativo
-python manage.py makemigrations
-python manage.py migrate
+./manage.py startapp nome_do_aplicativo
+./manage.py makemigrations
+./manage.py migrate
 
-python manage.py createsuperuser
-python manage.py collectstatic
+./manage.py createsuperuser
+echo yes | ./manage.py collectstatic
 
-python manage.py changepassword gusbemacbe
+./manage.py changepassword gusbemacbe
 
 $ docker-compose up -d --build
 $ docker-compose exec web python manage.py migrate
@@ -54,3 +54,5 @@ initdb  -D '/var/lib/postgres/data'
 sudo su - postgres
 psql -U postgres -c "CREATE ROLE myuser ENCRYPTED PASSWORD 'mypass' LOGIN;"
 psql -U postgres -c "CREATE DATABASE mydb OWNER myuser;"
+
+cp db.sqlite3 backup/databases/$(date +%F-%H:%M)-db.sqlite3

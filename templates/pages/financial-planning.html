@@ -1,7 +1,6 @@
 {% extends '../base.html' %}
 
 {% block content %}
-{% load total_price %}
 {% load static %}
 
 <section class="border-before-footer">
@@ -56,22 +55,9 @@
         
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ brazil_shopping | safe }} {% endcomment %}
-            </div>
-          </div>
-        
-          <div class="razor-vertical-edge">
-            <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ brazil_supermarket | safe }} {% endcomment %}
-            </div>
-          </div>
-
-          <h2>Pagamentos mensais</h2>
-
-          <div class="razor-vertical-edge">
-            <div class="table" style="overflow-x: auto;">
 
               <table class="bills">
+                <caption>Compras</caption>
                 <thead>
                   <tr>
                     <th>Item</th>
@@ -83,7 +69,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for object in brazil_bills %}
+                  {% for object in brazil_shopping %}
                     <tr>
                       <td>{{ object.item }}</td>
                       <td>{{ object.price }}</td>
@@ -95,11 +81,93 @@
                   {% endfor %}
                   <tr>
                     <td>Total</td>
-                    <td>{{ object | brazil_bill_total_brl }}</td>
-                    <td>{{ object | brazil_bill_total_cad }}</td>
-                    <td>{{ object | brazil_bill_total_nzd }}</td>
-                    <td>{{ object | brazil_bill_total_usd }}</td>
-                    <td>{{ object | brazil_bill_total_uyu }}</td>
+                    <td>{{ brazil_shopping_total_brl }}</td>
+                    <td>{{ brazil_shopping_total_cad }}</td>
+                    <td>{{ brazil_shopping_total_nzd }}</td>
+                    <td>{{ brazil_shopping_total_usd }}</td>
+                    <td>{{ brazil_shopping_total_uyu }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+
+              <table class="supermarket">
+                <caption>Supermarket</caption>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price (BRL)</th>
+                    <th>CAD</th>
+                    <th>NZD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for object in brazil_supermarket %}
+                    <tr>
+                      <td>{{ object.item }}</td>
+                      <td>{{ object.price }}</td>
+                      <td>{{ object.cad_price }}</td>
+                      <td>{{ object.nzd_price }}</td>
+                      <td>{{ object.usd_price }}</td>
+                      <td>{{ object.uyu_price }}</td>
+                    </tr>
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td>{{ brazil_supermarket_total_brl }}</td>
+                    <td>{{ brazil_supermarket_total_cad }}</td>
+                    <td>{{ brazil_supermarket_total_nzd }}</td>
+                    <td>{{ brazil_supermarket_total_usd }}</td>
+                    <td>{{ brazil_supermarket_total_uyu }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
+          <h2>Pagamentos mensais</h2>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+
+              <table class="bills">
+                <caption>Contas Mensais</caption>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price (BRL)</th>
+                    <th>CAD</th>
+                    <th>NZD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for object in brazil_bill %}
+                    <tr>
+                      <td>{{ object.item }}</td>
+                      <td>{{ object.price }}</td>
+                      <td>{{ object.cad_price }}</td>
+                      <td>{{ object.nzd_price }}</td>
+                      <td>{{ object.usd_price }}</td>
+                      <td>{{ object.uyu_price }}</td>
+                    </tr>
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td>{{ brazil_bill_total_brl }}</td>
+                    <td>{{ brazil_bill_total_cad }}</td>
+                    <td>{{ brazil_bill_total_nzd }}</td>
+                    <td>{{ brazil_bill_total_usd }}</td>
+                    <td>{{ brazil_bill_total_uyu }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -109,13 +177,81 @@
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ brazil_food | safe }} {% endcomment %}
+
+              <table class="food">
+                <caption>Comida</caption>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price (BRL)</th>
+                    <th>CAD</th>
+                    <th>NZD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for object in brazil_food %}
+                    <tr>
+                      <td>{{ object.item }}</td>
+                      <td>{{ object.price }}</td>
+                      <td>{{ object.cad_price }}</td>
+                      <td>{{ object.nzd_price }}</td>
+                      <td>{{ object.usd_price }}</td>
+                      <td>{{ object.uyu_price }}</td>
+                    </tr>
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td>{{ brazil_food_total_brl }}</td>
+                    <td>{{ brazil_food_total_cad }}</td>
+                    <td>{{ brazil_food_total_nzd }}</td>
+                    <td>{{ brazil_food_total_usd }}</td>
+                    <td>{{ brazil_food_total_uyu }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ brazil_medicaments | safe }} {% endcomment %}
+
+              <table class="food">
+                <caption>Remédios</caption>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price (BRL)</th>
+                    <th>CAD</th>
+                    <th>NZD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for object in brazil_medicaments %}
+                    <tr>
+                      <td>{{ object.item }}</td>
+                      <td>{{ object.price }}</td>
+                      <td>{{ object.cad_price }}</td>
+                      <td>{{ object.nzd_price }}</td>
+                      <td>{{ object.usd_price }}</td>
+                      <td>{{ object.uyu_price }}</td>
+                    </tr>
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td>{{ brazil_medicaments_total_brl }}</td>
+                    <td>{{ brazil_medicaments_total_cad }}</td>
+                    <td>{{ brazil_medicaments_total_nzd }}</td>
+                    <td>{{ brazil_medicaments_total_usd }}</td>
+                    <td>{{ brazil_medicaments_total_uyu }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
 
