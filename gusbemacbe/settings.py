@@ -50,7 +50,6 @@ INSTALLED_APPS = [
 
     # own
     'AparecidaCovidTracker',
-    'expense',
     'financial_planning',
     'home',
     'portfolio',
@@ -58,7 +57,6 @@ INSTALLED_APPS = [
 
     # third-party apps
     # 'chartjs',
-    'currencies',
     'dbbackup',
     'django_extensions',
     'smuggler',
@@ -94,7 +92,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'currencies.context_processors.currencies',
             ],
         },
     },
@@ -108,22 +105,22 @@ WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
-
-# DATABASES = {
-#     'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
-# }
+default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB', 'postgres'),
-        'USER': config('POSTGRES_USER', 'postgres'),
-        'PASSWORD': config('POSTGRES_PASSWORD', ''),
-        'HOST': config('DB_HOST', ''),
-        'PORT': '5432',
-    }
+    'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('POSTGRES_DB', 'postgres'),
+#         'USER': config('POSTGRES_USER', 'postgres'),
+#         'PASSWORD': config('POSTGRES_PASSWORD', ''),
+#         'HOST': config('DB_HOST', ''),
+#         'PORT': '5432',
+#     }
+# }
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': 'backup/'}
