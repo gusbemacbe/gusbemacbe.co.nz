@@ -1,0 +1,33 @@
+{% extends '../../base.html' %}
+
+{% block content %}
+{% load static %}
+  <h1>
+    Lista de Despesas
+    <a href="{% url 'expense:expense_create' %}">Adicionar</a>
+  </h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Pago a</th>
+        <th>Valor</th>
+        <th>Data de pagamento</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for object in object_list %}
+        <tr>
+          <td>
+            <a href="{{ object.get_absolute_url }}">{{ object.description }}</a>
+          </td>
+          <td>{{ object.customer|default:'---' }}</td>
+          <td>{{ object.value }}</td>
+          <td>{{ object.payment_date|date:'d/m/Y'|default:'---' }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

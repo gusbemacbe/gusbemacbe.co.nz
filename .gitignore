@@ -77,8 +77,10 @@ target/
 celerybeat-schedule
 
 # virtualenv
+.env/
 .venv/
 ENV/
+env/
 venv/
 
 # Spyder project settings
@@ -89,6 +91,8 @@ venv/
 
 # Others
 bootstrap
+
+# ANGULAR, ANGULAR.JS, NODE.JS, REACT.JS, VUE.JS
 
 # Logs
 logs
@@ -161,7 +165,7 @@ web_modules/
 # Yarn Integrity file
 .yarn-integrity
 
- dotenv environment variables file
+# dotenv environment variables file
 .env
 .env.test
 .env.production

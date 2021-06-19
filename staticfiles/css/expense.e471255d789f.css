@@ -1,0 +1,15 @@
+body
+{
+  margin-top: 60px;
+}
+
+label.required:after
+{
+  color: red;
+  content: " *";
+}
+
+.no
+{
+  color: red;
+}

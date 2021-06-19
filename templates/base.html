@@ -11,6 +11,8 @@
     <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
   {% elif request.path == '/aparecida-covid-19-tracker/' %}
     <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/covid-19.css' %}">
+  {% elif request.path == '/expense/' %}
+    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/expense.css' %}">
   {% elif request.path == '/financial-planning/' %}
     <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/financial-planning.css' %}">
   {% elif request.path == '/portfolio/' %}
@@ -21,6 +23,8 @@
   {% else %}
     {% comment %} nothing to comment {% endcomment %}
   {% endif %}
+
+  <link rel="shortcut icon" href="https://www.djangoproject.com/favicon.ico">
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

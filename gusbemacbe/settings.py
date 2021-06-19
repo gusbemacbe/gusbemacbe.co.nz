@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import dj_database_url
 import django_heroku
+from decouple import Csv, config
+from dj_database_url import parse as dburl
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,10 +26,10 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = "{{ secret_key }}"
-SECRET_KEY = 'django-insecure-mo9u!l7aco7us1&%k^(0-*lwyhc=%9zc1l#5zw+k_r*x6rkp*3'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default = False, cast = bool)
 
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG,
@@ -48,13 +50,15 @@ INSTALLED_APPS = [
 
     # own
     'AparecidaCovidTracker',
-    'financial_planning.apps.FinancialPlanningConfig',
+    'expense',
+    'financial_planning',
     'home',
     'portfolio',
     'projects',
 
     # third-party apps
     # 'chartjs',
+    'currencies',
     'dbbackup',
     'django_extensions',
     'smuggler',
@@ -90,10 +94,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'currencies.context_processors.currencies',
             ],
         },
     },
 ]
+
+OPENEXCHANGERATES_APP_ID = "b2b7b7a032aa421685d8084b7234a4ff"
 
 # WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
@@ -101,10 +108,20 @@ WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
+
+# DATABASES = {
+#     'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('POSTGRES_DB', 'postgres'),
+        'USER': config('POSTGRES_USER', 'postgres'),
+        'PASSWORD': config('POSTGRES_PASSWORD', ''),
+        'HOST': config('DB_HOST', ''),
+        'PORT': '5432',
     }
 }
 
@@ -132,8 +149,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'pt-pt'
+TIME_ZONE = 'America/Sao_Paulo'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -151,15 +168,15 @@ DATABASES['default'].update(dj_database_url.config(conn_max_age = 500, ssl_requi
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default = [], cast = Csv())
 
 # BASE
-STATIC_ROOT    = os.path.join(BASE_DIR, 'assets')
-STATIC_URL     = '/assets/'
+STATIC_ROOT     = os.path.join(BASE_DIR, 'static')
+STATIC_URL      = '/static/'
 
 # Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # PROJECT

@@ -43,3 +43,14 @@ heroku buildpacks:add heroku/python
 heroku config:set PYTHON_RUNTIME_VERSION=3.9.5
 heroku config:set POETRY_VERSION=1.1.6
 heroku config:set POETRY_EXPORT_DEV_REQUIREMENTS=1
+
+du -h -d 1 "$(pip -V | cut -d ' ' -f 4 | sed 's/pip//g')" | grep -vE "dist-info|_distutils_hack|__pycache__" | sort -h
+
+sudo mkdir /var/lib/postgres/data
+sudo chown -R postgres:postgres /var/lib/postgres/data
+sudo -i -u postgres
+initdb  -D '/var/lib/postgres/data'
+
+sudo su - postgres
+psql -U postgres -c "CREATE ROLE myuser ENCRYPTED PASSWORD 'mypass' LOGIN;"
+psql -U postgres -c "CREATE DATABASE mydb OWNER myuser;"
