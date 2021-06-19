@@ -1,20 +1,21 @@
 # ipychart
 dj-database-url
 Django
-django-chartjs
+# django-chartjs
 django-dbbackup
 django-extensions
 django-heroku
 django-smuggler
 django-sslserver
-django-tidy
+# django-tidy
 djangorestframework
 forex-python
 gunicorn
-pandas
+# pandas
 # psycopg2
 psycopg2-binary
 pymdown-extensions
+python-decouple
 pytz
 whitenoise
-xlrd
+# xlrd
