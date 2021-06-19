@@ -35,3 +35,11 @@ git remote add aparecida-covid-19 ssh://git@github.com:gusbemacbe/aparecida-covi
 git subtree push --prefix=AparecidaCovidTracker/ aparecida-covid-19 main
 
 npm install -g vue-cli
+
+heroku buildpacks:clear
+heroku buildpacks:add https://github.com/moneymeets/python-poetry-buildpack.git
+heroku buildpacks:add heroku/python
+
+heroku config:set PYTHON_RUNTIME_VERSION=3.9.5
+heroku config:set POETRY_VERSION=1.1.6
+heroku config:set POETRY_EXPORT_DEV_REQUIREMENTS=1
