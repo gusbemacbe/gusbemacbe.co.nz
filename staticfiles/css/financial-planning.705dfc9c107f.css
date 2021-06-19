@@ -26,7 +26,7 @@ section
   margin-top: 1rem;
 }
 
-.title + .context-text
+.title + .context-text,
 {
   margin-top: 2rem;
 }
@@ -40,6 +40,11 @@ section
   overflow-wrap: break-word;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.comparison-of-minimum-wages
+{
+  margin-top: 2rem;
 }
 
 h2 + .razor-vertical-edge, h2 + .context-text
@@ -123,6 +128,9 @@ h3
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
   padding: 0rem 1.875rem 2rem 1.875rem;
+
+  column-gap: 30px;
+  row-gap: 0px;
 }
 
 .razor-vertical-edge
@@ -209,6 +217,52 @@ h3
   background-color: transparent;
 }
 
+.table table.totalisation tr:nth-child(6) 
+{
+  background-color: rgba(115, 30, 204, 0.2);
+}
+
+.table table.totalisation.uruguay tr:nth-child(6) 
+{
+  background-color: rgba(110, 42, 74, 0.2);
+}
+
+.table table.totalisation tr:last-child
+{
+  background-color: rgba(113, 205, 248, 0.2);
+}
+
+.table table.comparison-1 tr:nth-child(3),
+.table table.comparison-1 tr:nth-child(4),
+.table table.comparison-2 tr:nth-child(3),
+.table table.comparison-2 tr:nth-child(4) 
+{
+  background-color: rgba(115, 30, 204, 0.2);
+}
+
+.table table.comparison-1 tr:nth-child(5),
+.table table.comparison-1 tr:nth-child(6) 
+{
+  background-color: rgba(113, 205, 248, 0.2);
+}
+
+.table table.comparison-2.uruguay tr:nth-child(3)
+{
+  background-color: transparent;
+}
+
+.table table.comparison-2.uruguay tr:nth-child(1),
+.table table.comparison-2.uruguay tr:nth-child(3),
+.table table.comparison-2.uruguay tr:nth-child(5)
+{
+  border-bottom: 3px solid var(--pink-light);
+}
+
+.table table.comparison-2.uruguay tr:nth-child(4)
+{
+  background-color: rgba(110, 42, 74, 0.2);
+}
+
 /* Widescreen 1280 */
 @media only screen and (max-width: 1280px)
 {
@@ -242,7 +296,8 @@ h3
   {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, auto);
-    gap: 20px;
+    column-gap: 0px;
+    row-gap: 20px;
   }
 
   .razor-vertical-edge

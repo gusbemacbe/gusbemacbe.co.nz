@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'projects',
 
     # third-party apps
-    'chartjs',
+    # 'chartjs',
     'dbbackup',
     'django_extensions',
     'smuggler',

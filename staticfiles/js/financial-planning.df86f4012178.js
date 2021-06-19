@@ -187,3 +187,35 @@ const uy_minimum_wage = new Vue({
     },
   }
 });
+
+// Comaprisons
+/** Minimum wage **/
+
+const comparisons = new Vue({ 
+  el: '#comparison-of-minimum-wages',
+  delimiters: ['[[', ']]'],
+  data: 
+  {
+    adult: 20,
+    trainee: 16,
+    uy_minimum_month: 17930
+  },
+  computed: 
+  {
+    nz_adult_minimum_month: 
+    function () 
+    {
+      return month(this.adult)
+    },
+    nz_trainee_minimum_month: 
+    function () 
+    {
+      return month(this.trainee)
+    },
+    uy_minimum_month_to_brl: 
+    function () 
+    {
+      return this.uy_minimum_month * 0.12
+    },
+  }
+});

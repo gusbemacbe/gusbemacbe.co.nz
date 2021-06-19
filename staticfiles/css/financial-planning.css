@@ -26,7 +26,7 @@ section
   margin-top: 1rem;
 }
 
-.title + .context-text
+.title + .context-text,
 {
   margin-top: 2rem;
 }
@@ -40,6 +40,11 @@ section
   overflow-wrap: break-word;
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.comparison-of-minimum-wages
+{
+  margin-top: 2rem;
 }
 
 h2 + .razor-vertical-edge, h2 + .context-text
