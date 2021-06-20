@@ -57,10 +57,10 @@ psql -U postgres -c "CREATE DATABASE mydb OWNER myuser;"
 
 cp db.sqlite3 backup/databases/$(date +%F-%H:%M)-db.sqlite3
 
-python manage.py dumpdata --exclude contenttypes > data.json
-python manage.py dumpdata > data.json
+python manage.py dumpdata --exclude contenttypes > backup/databases/data.json
+python manage.py dumpdata > backup/databases/data.json
 heroku run python manage.py migrate
-heroku run python manage.py loaddata data.json
+heroku run python manage.py loaddata backup/databases/data.json
 
 heroku pg:backups:capture
 heroku pg:backups:download

@@ -16,8 +16,9 @@ DEBUG = True
 SECRET_KEY = %s
 ALLOWED_HOSTS = 127.0.0.1, localhost, localhost:1984, 0.0.0.0
 
-# DATABASE_URL = postgres://USER:PASSWORD@HOST:PORT/NAME
-# POSTGRES_DB =  mydb
+DATABASE_URL = sqlite:///db.sqlite3
+# POSTGRES_DB_URL = postgres://USER:PASSWORD@HOST:PORT/NAME
+# POSTGRES_DB = mydb
 # POSTGRES_USER = gusbemacbe
 # POSTGRES_PASSWORD = %s
 # DB_HOST = localhost

@@ -438,7 +438,41 @@
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ nz_bills | safe }} {% endcomment %}
+
+              <table class="bills">
+                <caption>Contas mensais</caption>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price (NZD)</th>
+                    <th>BRL</th>
+                    <th>CAD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for object in nz_bill %}
+                    <tr>
+                      <td>{{ object.item }}</td>
+                      <td>{{ object.price }}</td>
+                      <td>{{ object.brl_price }}</td>
+                      <td>{{ object.cad_price }}</td>
+                      <td>{{ object.usd_price }}</td>
+                      <td>{{ object.uyu_price }}</td>
+                    </tr>
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td>{{ nz_bill_total_nzd }}</td>
+                    <td>{{ nz_bill_total_brl }}</td>
+                    <td>{{ nz_bill_total_cad }}</td>
+                    <td>{{ nz_bill_total_usd }}</td>
+                    <td>{{ nz_bill_total_uyu }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
 
@@ -448,7 +482,41 @@
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ nz_food | safe }} {% endcomment %}
+
+              <table class="food">
+                <caption>Comida</caption>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price (NZD)</th>
+                    <th>BRL</th>
+                    <th>CAD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for object in nz_food %}
+                    <tr>
+                      <td>{{ object.item }}</td>
+                      <td>{{ object.price }}</td>
+                      <td>{{ object.brl_price }}</td>
+                      <td>{{ object.cad_price }}</td>
+                      <td>{{ object.usd_price }}</td>
+                      <td>{{ object.uyu_price }}</td>
+                    </tr>
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td>{{ nz_food_total_nzd }}</td>
+                    <td>{{ nz_food_total_brl }}</td>
+                    <td>{{ nz_food_total_cad }}</td>
+                    <td>{{ nz_food_total_usd }}</td>
+                    <td>{{ nz_food_total_uyu }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
 

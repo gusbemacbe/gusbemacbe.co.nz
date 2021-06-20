@@ -3,7 +3,7 @@ from django.db.models.functions import Coalesce
 from django.shortcuts import get_object_or_404, render
 from django.views import View
 from forex_python.converter import CurrencyRates
-from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket
+from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood
 import requests
 
 cc = CurrencyRates()
@@ -14,10 +14,17 @@ cc = CurrencyRates()
 # uy = response.json()
 # uyu = uy['conversion_rates']['UYU']
 
+# Convert the Brazil currency to CAD, NZD, USD and UYU
 brl_to_cad = cc.convert('BRL', 'CAD', 1)
 brl_to_nzd = cc.convert('BRL', 'NZD', 1)
 brl_to_usd = cc.convert('BRL', 'USD', 1)
 brl_to_uyu = 8.60
+
+# Convert New Zealander dollar to BRL, CAD, U and UYU
+nzd_to_brl = cc.convert('NZD', 'BRL', 1)
+nzd_to_cad = cc.convert('NZD', 'CAD', 1)
+nzd_to_usd = cc.convert('NZD', 'USD', 1)
+nzd_to_uyu = 30.52
 
 class Mixin(object):
   def get_data(self):
@@ -67,8 +74,23 @@ class financial_planning(Mixin, View):
       'brazil_total_nzd': self.brazil_total_nzd(),
       'brazil_total_usd': self.brazil_total_usd(),
       'brazil_total_uyu': self.brazil_total_uyu(),
+      'nz_bill': self.nz_bill(),
+      'nz_bill_total_nzd': self.nz_bill_total_nzd(),
+      'nz_bill_total_brl': self.nz_bill_total_brl(),
+      'nz_bill_total_cad': self.nz_bill_total_cad(),
+      'nz_bill_total_usd': self.nz_bill_total_usd(),
+      'nz_bill_total_uyu': self.nz_bill_total_uyu(),
+      'nz_food': self.nz_food(),
+      'nz_food_total_nzd': self.nz_food_total_nzd(),
+      'nz_food_total_brl': self.nz_food_total_brl(),
+      'nz_food_total_cad': self.nz_food_total_cad(),
+      'nz_food_total_usd': self.nz_food_total_usd(),
+      'nz_food_total_uyu': self.nz_food_total_uyu(),
     }
     return render(request, template, context)
+
+# region [ rgba(0, 39, 118, 0.1) ]
+## Brazil
   
   # Bills
   def brazil_bill(self):
@@ -267,5 +289,77 @@ class financial_planning(Mixin, View):
   def brazil_total_uyu(self):
     brl = self.brazil_total_brl()
     total = float(brl) * brl_to_uyu
+    
+    return round(total, 2)
+  # endregion
+  
+# region [ rgba(0, 39, 118, 0.1) ]
+## New Zealand
+  
+  # Bills
+  def nz_bill(self):
+    object_list = NZBill.objects.all().order_by('item')
+    
+    return object_list
+  
+  def nz_bill_total_nzd(self):
+    return round(NZBill.objects.all().aggregate(Sum('price')).get('price__sum'), 2)
+  
+  def nz_bill_total_brl(self):
+    nzd = self.nz_bill_total_nzd()
+    total = float(nzd) * nzd_to_brl
+    
+    return round(total, 2)
+  
+  def nz_bill_total_cad(self):
+    nzd = self.nz_bill_total_nzd()
+    total = float(nzd) * nzd_to_cad
+    
+    return round(total, 2)
+  
+  def nz_bill_total_usd(self):
+    nzd = self.nz_bill_total_nzd()
+    total = float(nzd) * nzd_to_usd
+    
+    return round(total, 2)
+  
+  def nz_bill_total_uyu(self):
+    nzd = self.nz_bill_total_nzd()
+    total = float(nzd) * nzd_to_uyu
+    
+    return round(total, 2)
+  
+  # Food
+  def nz_food(self):
+    object_list = NZFood.objects.all().order_by('item')
+    
+    return object_list
+  
+  def nz_food_total_nzd(self):
+    total = NZFood.objects.all().aggregate(Sum('price')).get('price__sum')
+    
+    return round(total, 2)
+  
+  def nz_food_total_brl(self):
+    nzd = self.nz_food_total_nzd()
+    total = float(nzd) * nzd_to_brl
+    
+    return round(total, 2)
+  
+  def nz_food_total_cad(self):
+    nzd = self.nz_food_total_nzd()
+    total = float(nzd) * nzd_to_cad
+    
+    return round(total, 2)
+  
+  def nz_food_total_usd(self):
+    nzd = self.nz_food_total_nzd()
+    total = float(nzd) * nzd_to_usd
+    
+    return round(total, 2)
+  
+  def nz_food_total_uyu(self):
+    nzd = self.nz_food_total_nzd()
+    total = float(nzd) * nzd_to_uyu
     
     return round(total, 2)

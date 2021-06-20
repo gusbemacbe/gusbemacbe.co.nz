@@ -1,4 +1,4 @@
-release: python manage.py migrate
+release: chmod au+x release && ./release
 web: gunicorn gusbemacbe.wsgi --log-file -
 
 # Docker
