@@ -1,8 +1,7 @@
 # Pull base image
 FROM archlinux/archlinux:latest
 
-# Install psql so that "python manage.py dbshell" works
-RUN yes | pacman -Syu
+RUN yes | pacman -Syyu
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -12,12 +11,10 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
 # Install dependencies
-RUN yes | pacman -S neofetch postgresql postgresql-libs python python-pip python-psycopg2 python-pytz tidy
-RUN neofetch
-RUN python --version
+RUN yes | pacman -S --needed gcc postgresql postgresql-libs python python-pip
 
-COPY requirements.txt /app/requirements.txt
-RUN pip install --user -r /app/requirements.txt
+COPY pyproject.toml /app/pyproject.toml
+RUN poetry install
 
 # Copy project
 COPY . /app/

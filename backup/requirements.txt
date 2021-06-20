@@ -1,4 +1,3 @@
-# ipychart
 dj-database-url
 Django
 # django-chartjs
@@ -11,7 +10,8 @@ django-sslserver
 djangorestframework
 forex-python
 gunicorn
-# pandas
+# ipychart
+pandas
 # psycopg2
 psycopg2-binary
 pymdown-extensions

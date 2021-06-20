@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      DEBUG: 1
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+      - redis
+
+  worker:
+    build: .
+    command: python manage.py rqworker default
+    environment:
+      DEBUG: 1
+    volumes:
+      - .:/app
+    depends_on:
+      - web
+
+  redis:
+    image: redis:latest
+
+volumes:
+  pgdata:

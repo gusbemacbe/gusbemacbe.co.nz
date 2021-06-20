@@ -28,6 +28,7 @@ urlpatterns = [
     path('admin/', include('smuggler.urls')),  # before admin url patterns!
     path('', home_view, name = 'home'),
     path('admin/', admin.site.urls),
+    path('django-rq/', include('django_rq.urls')),
     
     # Pages
     path('aparecida-covid-19-tracker/', include('AparecidaCovidTracker.urls')),

@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     # third-party apps
     # 'chartjs',
     'dbbackup',
+    'django_rq',
     'django_extensions',
     'smuggler',
     'sslserver',
@@ -75,7 +76,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'tidy.middleware.TidyMiddleware',
+    # 'tidy.middleware.TidyMiddleware'
 ]
 
 # ROOT_URLCONF = '{{ project_name }}.urls'
@@ -110,11 +111,13 @@ WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
 #     }
 # }
 
-default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
-
-DATABASES = {
-    'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
-}
+# DATABASES = {
+#     # If DATABASE_URL environment variable isn't set, use Docker Compose Postgres database.
+#     'default': dj_database_url.config(
+#         default = 'postgres://postgres:postgres@db:5432/gusbemacbe',
+#         conn_max_age = 600,
+#     )
+# }
 
 # DATABASES = {
 #     'default': {
@@ -126,6 +129,12 @@ DATABASES = {
 #         'PORT': '5432',
 #     }
 # }
+
+default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
+
+DATABASES = {
+    'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
+}
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': 'backup/'}
@@ -192,6 +201,27 @@ STATICFILES_DIRS = (
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Configure Redis cache and Django-RQ.
+
+# https://django-redis-cache.readthedocs.io/en/latest/intro_quick_start.html#quick-start
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        # By default use Docker Compose Redis instance.
+        'LOCATION': os.getenv('REDIS_URL', 'redis:6379'),
+    },
+}
+
+# https://github.com/rq/django-rq#support-for-django-redis-and-django-redis-cache
+RQ_QUEUES = {
+    'default': {
+        'USE_REDIS_CACHE': 'default',
+        'DEFAULT_TIMEOUT': 360,
+    },
+}
+
+RQ_SHOW_ADMIN_LINK = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

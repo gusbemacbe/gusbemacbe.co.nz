@@ -14,7 +14,7 @@ password = "".join(random.sample(chars, size))
 CONFIG_STRING = """
 DEBUG = True
 SECRET_KEY = %s
-ALLOWED_HOSTS = 127.0.0.1, localhost, localhost:1984, 0.0.0.0
+ALLOWED_HOSTS = *, 127.0.0.1, localhost, localhost:1980, localhost:1984, 0.0.0.0
 
 DATABASE_URL = sqlite:///db.sqlite3
 # POSTGRES_DB_URL = postgres://USER:PASSWORD@HOST:PORT/NAME
