@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import dj_database_url
 import django_heroku
+import dotenv
 from decouple import Csv, config
 from dj_database_url import parse as dburl
 from pathlib import Path
@@ -97,20 +98,18 @@ TEMPLATES = [
     },
 ]
 
-OPENEXCHANGERATES_APP_ID = "b2b7b7a032aa421685d8084b7234a4ff"
-
 # WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
 
@@ -128,6 +127,16 @@ DATABASES = {
 #         'PORT': '5432',
 #     }
 # }
+
+# load environment variables from .env
+dotenv_file = os.path.join(BASE_DIR, ".env")
+
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+    
+# load database from the DATABASE_URL environment variable
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age = 600)
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': 'backup/'}
