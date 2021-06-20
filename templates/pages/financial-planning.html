@@ -263,7 +263,70 @@
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ brazil_totalisation | safe }} {% endcomment %}
+
+              <table class="totalisation">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>BRL</th>
+                    <th>CAD</th>
+                    <th>NZD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <td>Bills</td>
+                      <td>{{ brazil_bill_total_brl }}</td>
+                      <td>{{ brazil_bill_total_cad }}</td>
+                      <td>{{ brazil_bill_total_nzd }}</td>
+                      <td>{{ brazil_bill_total_usd }}</td>
+                      <td>{{ brazil_bill_total_uyu }}</td>
+                    </tr>
+                    <tr>
+                      <td>Food</td>
+                      <td>{{ brazil_food_total_brl }}</td>
+                      <td>{{ brazil_food_total_cad }}</td>
+                      <td>{{ brazil_food_total_nzd }}</td>
+                      <td>{{ brazil_food_total_usd }}</td>
+                      <td>{{ brazil_food_total_uyu }}</td>
+                    </tr>
+                    <tr>
+                      <td>Medicaments</td>
+                      <td>{{ brazil_medicaments_total_brl }}</td>
+                      <td>{{ brazil_medicaments_total_cad }}</td>
+                      <td>{{ brazil_medicaments_total_nzd }}</td>
+                      <td>{{ brazil_medicaments_total_usd }}</td>
+                      <td>{{ brazil_medicaments_total_uyu }}</td>
+                    </tr>
+                    <tr>
+                      <td>Shopping</td>
+                      <td>{{ brazil_shopping_total_brl }}</td>
+                      <td>{{ brazil_shopping_total_cad }}</td>
+                      <td>{{ brazil_shopping_total_nzd }}</td>
+                      <td>{{ brazil_shopping_total_usd }}</td>
+                      <td>{{ brazil_shopping_total_uyu }}</td>
+                    </tr>
+                    <tr>
+                      <td>Supermarket</td>
+                      <td>{{ brazil_supermarket_total_brl }}</td>
+                      <td>{{ brazil_supermarket_total_cad }}</td>
+                      <td>{{ brazil_supermarket_total_nzd }}</td>
+                      <td>{{ brazil_supermarket_total_usd }}</td>
+                      <td>{{ brazil_supermarket_total_uyu }}</td>
+                    </tr>
+                    <tr>
+                      <td>Total</td>
+                      <td>{{ brazil_total_brl }}</td>
+                      <td>{{ brazil_total_cad }}</td>
+                      <td>{{ brazil_total_nzd }}</td>
+                      <td>{{ brazil_total_usd }}</td>
+                      <td>{{ brazil_total_uyu }}</td>
+                    </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
         

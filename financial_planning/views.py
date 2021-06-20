@@ -62,6 +62,11 @@ class financial_planning(Mixin, View):
       'brazil_supermarket_total_nzd': self.brazil_supermarket_total_nzd(),
       'brazil_supermarket_total_usd': self.brazil_supermarket_total_usd(),
       'brazil_supermarket_total_uyu': self.brazil_supermarket_total_uyu(),
+      'brazil_total_brl': self.brazil_total_brl(),
+      'brazil_total_cad': self.brazil_total_cad(),
+      'brazil_total_nzd': self.brazil_total_nzd(),
+      'brazil_total_usd': self.brazil_total_usd(),
+      'brazil_total_uyu': self.brazil_total_uyu(),
     }
     return render(request, template, context)
   
@@ -226,6 +231,41 @@ class financial_planning(Mixin, View):
   
   def brazil_supermarket_total_uyu(self):
     brl = self.brazil_supermarket_total_brl()
+    total = float(brl) * brl_to_uyu
+    
+    return round(total, 2)
+  
+  def brazil_total_brl(self):
+    bills = self.brazil_bill_total_brl()
+    food = self.brazil_food_total_brl()
+    medicaments = self.brazil_medicaments_total_brl()
+    shopping = self.brazil_shopping_total_brl()
+    supermarket = self.brazil_supermarket_total_brl()
+    
+    total = bills + food + medicaments + shopping + supermarket
+    
+    return round(total, 2)
+  
+  def brazil_total_cad(self):
+    brl = self.brazil_total_brl()
+    total = float(brl) * brl_to_cad
+    
+    return round(total, 2)
+  
+  def brazil_total_nzd(self):
+    brl = self.brazil_total_brl()
+    total = float(brl) * brl_to_nzd
+    
+    return round(total, 2)
+  
+  def brazil_total_usd(self):
+    brl = self.brazil_total_brl()
+    total = float(brl) * brl_to_usd
+    
+    return round(total, 2)
+  
+  def brazil_total_uyu(self):
+    brl = self.brazil_total_brl()
     total = float(brl) * brl_to_uyu
     
     return round(total, 2)

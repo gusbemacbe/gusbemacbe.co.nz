@@ -61,3 +61,6 @@ python manage.py dumpdata --exclude contenttypes > data.json
 python manage.py dumpdata > data.json
 heroku run python manage.py migrate
 heroku run python manage.py loaddata data.json
+
+heroku pg:backups:capture
+heroku pg:backups:download
