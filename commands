@@ -56,3 +56,5 @@ psql -U postgres -c "CREATE ROLE myuser ENCRYPTED PASSWORD 'mypass' LOGIN;"
 psql -U postgres -c "CREATE DATABASE mydb OWNER myuser;"
 
 cp db.sqlite3 backup/databases/$(date +%F-%H:%M)-db.sqlite3
+
+python3 manage.py dumpdata --exclude contenttypes > data.json
