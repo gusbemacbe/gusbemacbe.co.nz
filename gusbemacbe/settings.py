@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import dj_database_url
 import django_heroku
-import dotenv
 from decouple import Csv, config
 from dj_database_url import parse as dburl
 from pathlib import Path
@@ -111,11 +110,11 @@ WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
 #     }
 # }
 
-# default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
+default_dburl = 'sqlite:///' + str(BASE_DIR / 'db.sqlite3')
 
-# DATABASES = {
-#     'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
-# }
+DATABASES = {
+    'default': config('DATABASE_URL', default = default_dburl, cast = dburl),
+}
 
 # DATABASES = {
 #     'default': {
@@ -127,16 +126,6 @@ WSGI_APPLICATION = 'gusbemacbe.wsgi.application'
 #         'PORT': '5432',
 #     }
 # }
-
-# load environment variables from .env
-dotenv_file = os.path.join(BASE_DIR, ".env")
-
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
-    
-# load database from the DATABASE_URL environment variable
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age = 600)
 
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': 'backup/'}
