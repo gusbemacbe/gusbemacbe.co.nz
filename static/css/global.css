@@ -269,8 +269,6 @@ code
   z-index: 5;
 }
 
-
-
 .menu-link[aria-controls]::after
 {
   /* Lucas' original code */
