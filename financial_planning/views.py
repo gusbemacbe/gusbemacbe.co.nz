@@ -121,6 +121,16 @@ class financial_planning(Mixin, View):
       'nz_supermarket_total_cad': self.nz_supermarket_total_cad(),
       'nz_supermarket_total_usd': self.nz_supermarket_total_usd(),
       'nz_supermarket_total_uyu': self.nz_supermarket_total_uyu(),
+      'nz_total_nzd': self.nz_total_nzd(),
+      'nz_total_brl': self.nz_total_brl(),
+      'nz_total_cad': self.nz_total_cad(),
+      'nz_total_usd': self.nz_total_usd(),
+      'nz_total_uyu': self.nz_total_uyu(),
+      'nz_total_furnished_nzd': self.nz_total_furnished_nzd(),
+      'nz_total_furnished_brl': self.nz_total_furnished_brl(),
+      'nz_total_furnished_cad': self.nz_total_furnished_cad(),
+      'nz_total_furnished_usd': self.nz_total_furnished_usd(),
+      'nz_total_furnished_uyu': self.nz_total_furnished_uyu(),
     }
     return render(request, template, context)
 
@@ -328,7 +338,7 @@ class financial_planning(Mixin, View):
     return round(total, 2)
   # endregion
   
-# region [ rgba(0, 39, 118, 0.1) ]
+# region [ rgba(204, 119, 34, 0.1) ]
 ## New Zealand
 
   # Pre-Travel
@@ -530,3 +540,74 @@ class financial_planning(Mixin, View):
     total = float(nzd) * nzd_to_uyu
     
     return round(total, 2)
+  
+  # Totalisation – Non-furnished
+  def nz_total_nzd(self):
+    bills = self.nz_bill_total_nzd()
+    food = self.nz_food_total_nzd()
+    shopping = self.nz_shopping_total_nzd()
+    supermarket = self.nz_supermarket_total_nzd()
+    
+    total = bills + food + shopping + supermarket
+    
+    return round(total, 2)
+  
+  def nz_total_brl(self):
+    nzd = self.nz_total_nzd()
+    total = float(nzd) * nzd_to_brl
+    
+    return round(total, 2)
+  
+  def nz_total_cad(self):
+    nzd = self.nz_total_nzd()
+    total = float(nzd) * nzd_to_cad
+    
+    return round(total, 2)
+  
+  def nz_total_usd(self):
+    nzd = self.nz_total_nzd()
+    total = float(nzd) * nzd_to_usd
+    
+    return round(total, 2)
+  
+  def nz_total_uyu(self):
+    nzd = self.nz_total_nzd()
+    total = float(nzd) * nzd_to_uyu
+    
+    return round(total, 2)
+  
+  # Totalisation – Furnished
+  def nz_total_furnished_nzd(self):
+    bills = self.nz_bill_total_nzd()
+    food = self.nz_food_total_nzd()
+    shopping = self.nz_shopping_total_nzd()
+    
+    total = bills + food + shopping
+    
+    return round(total, 2)
+  
+  def nz_total_furnished_brl(self):
+    nzd = self.nz_total_furnished_nzd()
+    total = float(nzd) * nzd_to_brl
+    
+    return round(total, 2)
+  
+  def nz_total_furnished_cad(self):
+    nzd = self.nz_total_furnished_nzd()
+    total = float(nzd) * nzd_to_cad
+    
+    return round(total, 2)
+  
+  def nz_total_furnished_usd(self):
+    nzd = self.nz_total_furnished_nzd()
+    total = float(nzd) * nzd_to_usd
+    
+    return round(total, 2)
+  
+  def nz_total_furnished_uyu(self):
+    nzd = self.nz_total_furnished_nzd()
+    total = float(nzd) * nzd_to_uyu
+    
+    return round(total, 2)
+  
+  # endregion
