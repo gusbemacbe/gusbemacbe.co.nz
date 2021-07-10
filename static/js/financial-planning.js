@@ -1,21 +1,5 @@
 // Tables caption
 
-const office = document.querySelectorAll('.office');
-
-for (let i = 0; i < office.length; i++) 
-{
-  const caption = office[i].createCaption();
-  caption.textContent = "Escritório";
-}
-
-const pre_travel = document.querySelectorAll('.pre-travel');
-
-for (let i = 0; i < pre_travel.length; i++) 
-{
-  const caption = pre_travel[i].createCaption();
-  caption.textContent = "Pré-viagem";
-}
-
 const comparison = document.querySelectorAll('.comparison-1');
 
 for (let i = 0; i < comparison.length; i++) 

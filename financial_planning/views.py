@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views import View
 from forex_python.converter import CurrencyRates
 from pathlib import Path
-from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZPreTravel, NZShopping
+from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZOffice, NZPreTravel, NZShopping
 import json
 
 cc = CurrencyRates()
@@ -91,6 +91,18 @@ class financial_planning(Mixin, View):
       'nz_food_total_cad': self.nz_food_total_cad(),
       'nz_food_total_usd': self.nz_food_total_usd(),
       'nz_food_total_uyu': self.nz_food_total_uyu(),
+      'nz_food': self.nz_food(),
+      'nz_food_total_nzd': self.nz_food_total_nzd(),
+      'nz_food_total_brl': self.nz_food_total_brl(),
+      'nz_food_total_cad': self.nz_food_total_cad(),
+      'nz_food_total_usd': self.nz_food_total_usd(),
+      'nz_food_total_uyu': self.nz_food_total_uyu(),
+      'nz_office': self.nz_office(),
+      'nz_office_total_nzd': self.nz_office_total_nzd(),
+      'nz_office_total_brl': self.nz_office_total_brl(),
+      'nz_office_total_cad': self.nz_office_total_cad(),
+      'nz_office_total_usd': self.nz_office_total_usd(),
+      'nz_office_total_uyu': self.nz_office_total_uyu(),
       'nz_pre_travel': self.nz_pre_travel(),
       'nz_pre_travel_total_brl': self.nz_pre_travel_total_brl(),
       'nz_pre_travel_total_cad': self.nz_pre_travel_total_cad(),
@@ -413,7 +425,40 @@ class financial_planning(Mixin, View):
     total = float(nzd) * nzd_to_uyu
     
     return round(total, 2)
+
+  # Office
+  def nz_office(self):
+    object_list = NZOffice.objects.all().order_by('item')
+    
+    return object_list
   
+  def nz_office_total_nzd(self):
+    return round(NZOffice.objects.all().aggregate(Sum('price')).get('price__sum'), 2)
+  
+  def nz_office_total_brl(self):
+    nzd = self.nz_office_total_nzd()
+    total = float(nzd) * nzd_to_brl
+    
+    return round(total, 2)
+  
+  def nz_office_total_cad(self):
+    nzd = self.nz_office_total_nzd()
+    total = float(nzd) * nzd_to_cad
+    
+    return round(total, 2)
+  
+  def nz_office_total_usd(self):
+    nzd = self.nz_office_total_nzd()
+    total = float(nzd) * nzd_to_usd
+    
+    return round(total, 2)
+  
+  def nz_office_total_uyu(self):
+    nzd = self.nz_office_total_nzd()
+    total = float(nzd) * nzd_to_uyu
+    
+    return round(total, 2)
+   
   # Shopping
   def nz_shopping(self):
     object_list = NZShopping.objects.all().order_by('item')
