@@ -524,7 +524,41 @@
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ nz_supermarket | safe }} {% endcomment %}
+
+              <table class="supermarket">
+                <caption>Supermercado</caption>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price (NZD)</th>
+                    <th>BRL</th>
+                    <th>CAD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for object in nz_supermarket %}
+                    <tr>
+                      <td>{{ object.item }}</td>
+                      <td>{{ object.price }}</td>
+                      <td>{{ object.brl_price }}</td>
+                      <td>{{ object.cad_price }}</td>
+                      <td>{{ object.usd_price }}</td>
+                      <td>{{ object.uyu_price }}</td>
+                    </tr>
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td>{{ nz_supermarket_total_nzd }}</td>
+                    <td>{{ nz_supermarket_total_brl }}</td>
+                    <td>{{ nz_supermarket_total_cad }}</td>
+                    <td>{{ nz_supermarket_total_usd }}</td>
+                    <td>{{ nz_supermarket_total_uyu }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
 

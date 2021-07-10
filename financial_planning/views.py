@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views import View
 from forex_python.converter import CurrencyRates
 from pathlib import Path
-from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZOffice, NZPreTravel, NZShopping
+from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZOffice, NZPreTravel, NZShopping, NZSupermarket
 import json
 
 cc = CurrencyRates()
@@ -115,6 +115,12 @@ class financial_planning(Mixin, View):
       'nz_shopping_total_cad': self.nz_shopping_total_cad(),
       'nz_shopping_total_usd': self.nz_shopping_total_usd(),
       'nz_shopping_total_uyu': self.nz_shopping_total_uyu(),
+      'nz_supermarket': self.nz_supermarket(),
+      'nz_supermarket_total_nzd': self.nz_supermarket_total_nzd(),
+      'nz_supermarket_total_brl': self.nz_supermarket_total_brl(),
+      'nz_supermarket_total_cad': self.nz_supermarket_total_cad(),
+      'nz_supermarket_total_usd': self.nz_supermarket_total_usd(),
+      'nz_supermarket_total_uyu': self.nz_supermarket_total_uyu(),
     }
     return render(request, template, context)
 
@@ -491,4 +497,36 @@ class financial_planning(Mixin, View):
     total = float(nzd) * nzd_to_uyu
     
     return round(total, 2)
+   
+  # Supermarket
+  def nz_supermarket(self):
+    object_list = NZSupermarket.objects.all().order_by('item')
+    
+    return object_list
   
+  def nz_supermarket_total_nzd(self):
+    return round(NZSupermarket.objects.all().aggregate(Sum('price')).get('price__sum'), 2)
+  
+  def nz_supermarket_total_brl(self):
+    nzd = self.nz_supermarket_total_nzd()
+    total = float(nzd) * nzd_to_brl
+    
+    return round(total, 2)
+  
+  def nz_supermarket_total_cad(self):
+    nzd = self.nz_supermarket_total_nzd()
+    total = float(nzd) * nzd_to_cad
+    
+    return round(total, 2)
+  
+  def nz_supermarket_total_usd(self):
+    nzd = self.nz_supermarket_total_nzd()
+    total = float(nzd) * nzd_to_usd
+    
+    return round(total, 2)
+  
+  def nz_supermarket_total_uyu(self):
+    nzd = self.nz_supermarket_total_nzd()
+    total = float(nzd) * nzd_to_uyu
+    
+    return round(total, 2)
