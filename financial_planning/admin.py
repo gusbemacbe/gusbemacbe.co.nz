@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZPreTravel
+from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZPreTravel, NZShopping
 
 # region [ rgba(0, 39, 118, 0.1) ]
 ## Brazil
@@ -36,4 +36,8 @@ class NZBillAdmin(admin.ModelAdmin):
     
 @admin.register(NZFood)
 class NZFoodAdmin(admin.ModelAdmin):
+    list_display = ('item', 'price', 'brl_price', 'cad_price', 'usd_price', 'uyu_price')
+    
+@admin.register(NZShopping)
+class NZShoppingAdmin(admin.ModelAdmin):
     list_display = ('item', 'price', 'brl_price', 'cad_price', 'usd_price', 'uyu_price')

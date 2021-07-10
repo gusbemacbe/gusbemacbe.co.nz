@@ -258,3 +258,31 @@ class NZFood(models.Model):
   
   def __str__(self):
       return self.item
+  
+class NZShopping(models.Model):
+    
+  item = models.CharField('item', max_length = 50)
+  price = models.DecimalField('price', max_digits = 10, decimal_places = 2)
+
+  @property
+  def brl_price(self):
+      return round(float(self.price) * nzd_to_brl, 2)
+
+  @property
+  def cad_price(self):
+      return round(float(self.price) * nzd_to_cad, 2)
+
+  @property
+  def usd_price(self):
+      return round(float(self.price) * nzd_to_usd, 2)
+
+  @property
+  def uyu_price(self):
+      return round(float(self.price) * nzd_to_uyu, 2)
+    
+  class Meta:
+      verbose_name = 'New Zealand\'s Shopping'
+      verbose_name_plural = 'New Zealand\'s Shopping'
+  
+  def __str__(self):
+      return self.item

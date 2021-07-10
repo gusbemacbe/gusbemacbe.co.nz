@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views import View
 from forex_python.converter import CurrencyRates
 from pathlib import Path
-from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZPreTravel
+from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZPreTravel, NZShopping
 import json
 
 cc = CurrencyRates()
@@ -97,6 +97,12 @@ class financial_planning(Mixin, View):
       'nz_pre_travel_total_nzd': self.nz_pre_travel_total_nzd(),
       'nz_pre_travel_total_usd': self.nz_pre_travel_total_usd(),
       'nz_pre_travel_total_uyu': self.nz_pre_travel_total_uyu(),
+      'nz_shopping': self.nz_shopping(),
+      'nz_shopping_total_nzd': self.nz_shopping_total_nzd(),
+      'nz_shopping_total_brl': self.nz_shopping_total_brl(),
+      'nz_shopping_total_cad': self.nz_shopping_total_cad(),
+      'nz_shopping_total_usd': self.nz_shopping_total_usd(),
+      'nz_shopping_total_uyu': self.nz_shopping_total_uyu(),
     }
     return render(request, template, context)
 
@@ -407,3 +413,37 @@ class financial_planning(Mixin, View):
     total = float(nzd) * nzd_to_uyu
     
     return round(total, 2)
+  
+  # Shopping
+  def nz_shopping(self):
+    object_list = NZShopping.objects.all().order_by('item')
+    
+    return object_list
+  
+  def nz_shopping_total_nzd(self):
+    return round(NZShopping.objects.all().aggregate(Sum('price')).get('price__sum'), 2)
+  
+  def nz_shopping_total_brl(self):
+    nzd = self.nz_shopping_total_nzd()
+    total = float(nzd) * nzd_to_brl
+    
+    return round(total, 2)
+  
+  def nz_shopping_total_cad(self):
+    nzd = self.nz_shopping_total_nzd()
+    total = float(nzd) * nzd_to_cad
+    
+    return round(total, 2)
+  
+  def nz_shopping_total_usd(self):
+    nzd = self.nz_shopping_total_nzd()
+    total = float(nzd) * nzd_to_usd
+    
+    return round(total, 2)
+  
+  def nz_shopping_total_uyu(self):
+    nzd = self.nz_shopping_total_nzd()
+    total = float(nzd) * nzd_to_uyu
+    
+    return round(total, 2)
+  
