@@ -3,28 +3,33 @@ from django.db.models.functions import Coalesce
 from django.shortcuts import get_object_or_404, render
 from django.views import View
 from forex_python.converter import CurrencyRates
-from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood
-import requests
+from pathlib import Path
+from .models import BrazilBill, BrazilFood, BrazilMedicaments, BrazilShopping, BrazilSupermarket, NZBill, NZFood, NZPreTravel
+import json
 
 cc = CurrencyRates()
 
-# brl = 'https://v6.exchangerate-api.com/v6/47d50b6538abaa595f633cee/latest/BRL'
+base_path = Path(__file__).parent
 
-# response = requests.get(brl)
-# uy = response.json()
-# uyu = uy['conversion_rates']['UYU']
+brlf = (base_path / "static/json/BRL.json").resolve()
+nzdf = (base_path / "static/json/NZD.json").resolve()
+uyuf = (base_path / "static/json/UYU.json").resolve()
+
+brl_data = json.load(open(brlf))
+nzd_data = json.load(open(nzdf))
+uyu_data = json.load(open(uyuf))
 
 # Convert the Brazil currency to CAD, NZD, USD and UYU
 brl_to_cad = cc.convert('BRL', 'CAD', 1)
 brl_to_nzd = cc.convert('BRL', 'NZD', 1)
 brl_to_usd = cc.convert('BRL', 'USD', 1)
-brl_to_uyu = 8.60
+brl_to_uyu = brl_data['conversion_rates']['UYU']
 
 # Convert New Zealander dollar to BRL, CAD, U and UYU
 nzd_to_brl = cc.convert('NZD', 'BRL', 1)
 nzd_to_cad = cc.convert('NZD', 'CAD', 1)
 nzd_to_usd = cc.convert('NZD', 'USD', 1)
-nzd_to_uyu = 30.52
+nzd_to_uyu = nzd_data['conversion_rates']['UYU']
 
 class Mixin(object):
   def get_data(self):
@@ -86,6 +91,12 @@ class financial_planning(Mixin, View):
       'nz_food_total_cad': self.nz_food_total_cad(),
       'nz_food_total_usd': self.nz_food_total_usd(),
       'nz_food_total_uyu': self.nz_food_total_uyu(),
+      'nz_pre_travel': self.nz_pre_travel(),
+      'nz_pre_travel_total_brl': self.nz_pre_travel_total_brl(),
+      'nz_pre_travel_total_cad': self.nz_pre_travel_total_cad(),
+      'nz_pre_travel_total_nzd': self.nz_pre_travel_total_nzd(),
+      'nz_pre_travel_total_usd': self.nz_pre_travel_total_usd(),
+      'nz_pre_travel_total_uyu': self.nz_pre_travel_total_uyu(),
     }
     return render(request, template, context)
 
@@ -295,6 +306,39 @@ class financial_planning(Mixin, View):
   
 # region [ rgba(0, 39, 118, 0.1) ]
 ## New Zealand
+
+  # Pre-Travel
+  def nz_pre_travel(self):
+    object_list = NZPreTravel.objects.all().order_by('item')
+    
+    return object_list
+  
+  def nz_pre_travel_total_brl(self):
+    return NZPreTravel.objects.all().aggregate(Sum('price')).get('price__sum')
+  
+  def nz_pre_travel_total_cad(self):
+    brl = self.nz_pre_travel_total_brl()
+    total = float(brl) * brl_to_cad
+    
+    return round(total, 2)
+  
+  def nz_pre_travel_total_nzd(self):
+    brl = self.nz_pre_travel_total_brl()
+    total = float(brl) * brl_to_nzd
+    
+    return round(total, 2)
+  
+  def nz_pre_travel_total_usd(self):
+    brl = self.nz_pre_travel_total_brl()
+    total = float(brl) * brl_to_usd
+    
+    return round(total, 2)
+  
+  def nz_pre_travel_total_uyu(self):
+    brl = self.nz_pre_travel_total_brl()
+    total = float(brl) * brl_to_uyu
+    
+    return round(total, 2)
   
   # Bills
   def nz_bill(self):

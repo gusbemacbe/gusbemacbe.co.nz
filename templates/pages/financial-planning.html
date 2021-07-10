@@ -390,7 +390,41 @@
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ nz_pre_travel | safe }} {% endcomment %}
+
+              <table class="pre-travel">
+                <caption>Pré-viagem</caption>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price (BRL)</th>
+                    <th>CAD</th>
+                    <th>NZD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for object in nz_pre_travel %}
+                    <tr>
+                      <td>{{ object.item }}</td>
+                      <td>{{ object.price }}</td>
+                      <td>{{ object.cad_price }}</td>
+                      <td>{{ object.nzd_price }}</td>
+                      <td>{{ object.usd_price }}</td>
+                      <td>{{ object.uyu_price }}</td>
+                    </tr>
+                  {% endfor %}
+                  <tr>
+                    <td>Total</td>
+                    <td>{{ nz_pre_travel_total_brl }}</td>
+                    <td>{{ nz_pre_travel_total_cad }}</td>
+                    <td>{{ nz_pre_travel_total_nzd }}</td>
+                    <td>{{ nz_pre_travel_total_usd }}</td>
+                    <td>{{ nz_pre_travel_total_uyu }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
             </div>
           </div>
 
