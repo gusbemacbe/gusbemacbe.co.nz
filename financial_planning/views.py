@@ -31,6 +31,49 @@ nzd_to_cad = cc.convert('NZD', 'CAD', 1)
 nzd_to_usd = cc.convert('NZD', 'USD', 1)
 nzd_to_uyu = nzd_data['conversion_rates']['UYU']
 
+# Average and trainee salary in New Zealand
+nz_adult_hour = 20
+nz_trainee_hour = 16
+
+def week(hour):
+  week = hour * 40
+  return week
+
+def month(hour):
+  month = week(hour) * 4
+  return month
+
+def year(hour):
+  year = month(hour) * 12
+  return year
+
+def formatter(num):
+    magnitude = 0
+    while abs(num) >= 1000:
+        magnitude += 1
+        num /= 1000.0
+    # add more suffixes if you need them
+    return '%.2f%s' % (num, ['', ' mil', ' milhões', ' bilhões', ' trilhões', 'quatrilhões', 'quintilhões', 'sextilhões', 'septilhões', 'octilhões', 'nonilhões', 'decilhões', ][magnitude])
+
+# Mininum, average and maximum salary of a developer in New Zealand
+nz_minimum_developer_hour = 19.89
+nz_average_developer_hour = 21.50
+nz_maximum_developer_hour = 23.46
+
+# Rent
+nz_minimum_week_rent = 300
+nz_maximum_week_rent = 400
+
+nz_minimum_month_rent = nz_minimum_week_rent * 5
+nz_maximum_month_rent = nz_maximum_week_rent * 5
+
+# Rent in Ponsorby, Auckland
+nz_minimum_week_rent_ponsorby = 440
+nz_maximum_week_rent_ponsorby = 550
+
+nz_minimum_month_rent_ponsorby = nz_minimum_week_rent_ponsorby * 5
+nz_maximum_month_rent_ponsorby = nz_maximum_week_rent_ponsorby * 5
+
 class Mixin(object):
   def get_data(self):
     id = self.kwargs.get('id')
@@ -131,6 +174,28 @@ class financial_planning(Mixin, View):
       'nz_total_furnished_cad': self.nz_total_furnished_cad(),
       'nz_total_furnished_usd': self.nz_total_furnished_usd(),
       'nz_total_furnished_uyu': self.nz_total_furnished_uyu(),
+      'nzd_to_brl': nzd_to_brl,
+      'nzd_to_cad': nzd_to_cad,
+      'nzd_to_usd': nzd_to_usd,
+      'nzd_to_uyu': nzd_to_uyu,
+      'nz_adult_hour': nz_adult_hour,
+      'nz_trainee_hour': nz_trainee_hour,
+      'nz_minimum_developer_hour': nz_minimum_developer_hour,
+      'nz_average_developer_hour': nz_average_developer_hour,
+      'nz_maximum_developer_hour': nz_maximum_developer_hour,
+      'nz_monthly_totalisation_nzd': self.nz_monthly_totalisation_nzd(),
+      'nz_monthly_totalisation_brl': self.nz_monthly_totalisation_brl(),
+      'nz_monthly_totalisation_cad': self.nz_monthly_totalisation_cad(),
+      'nz_monthly_totalisation_usd': self.nz_monthly_totalisation_usd(),
+      'nz_monthly_totalisation_uyu': self.nz_monthly_totalisation_uyu(),
+      'nz_minimum_week_rent': nz_minimum_week_rent,
+      'nz_maximum_week_rent': nz_maximum_week_rent,
+      'nz_minimum_month_rent': nz_minimum_month_rent,
+      'nz_maximum_month_rent': nz_maximum_month_rent,
+      'nz_minimum_week_rent_ponsorby': nz_minimum_week_rent_ponsorby,
+      'nz_maximum_week_rent_ponsorby': nz_maximum_week_rent_ponsorby,
+      'nz_minimum_month_rent_ponsorby': nz_minimum_month_rent_ponsorby,
+      'nz_maximum_month_rent_ponsorby': nz_minimum_month_rent_ponsorby,
     }
     return render(request, template, context)
 
@@ -545,10 +610,11 @@ class financial_planning(Mixin, View):
   def nz_total_nzd(self):
     bills = self.nz_bill_total_nzd()
     food = self.nz_food_total_nzd()
+    office = self.nz_office_total_nzd()
     shopping = self.nz_shopping_total_nzd()
     supermarket = self.nz_supermarket_total_nzd()
     
-    total = bills + food + shopping + supermarket
+    total = bills + food + office + shopping + supermarket
     
     return round(total, 2)
   
@@ -580,9 +646,9 @@ class financial_planning(Mixin, View):
   def nz_total_furnished_nzd(self):
     bills = self.nz_bill_total_nzd()
     food = self.nz_food_total_nzd()
-    shopping = self.nz_shopping_total_nzd()
+    supermarket = self.nz_supermarket_total_nzd()
     
-    total = bills + food + shopping
+    total = bills + food + supermarket
     
     return round(total, 2)
   
@@ -606,6 +672,39 @@ class financial_planning(Mixin, View):
   
   def nz_total_furnished_uyu(self):
     nzd = self.nz_total_furnished_nzd()
+    total = float(nzd) * nzd_to_uyu
+    
+    return round(total, 2)
+  
+  # Monhtly Totalisation
+  def nz_monthly_totalisation_nzd(self):
+    bills = self.nz_bill_total_nzd()
+    food = self.nz_food_total_nzd()
+    
+    total = bills + food
+     
+    return round(total, 2)
+  
+  def nz_monthly_totalisation_brl(self):
+    nzd = self.nz_monthly_totalisation_nzd()
+    total = float(nzd) * nzd_to_brl
+    
+    return round(total, 2)
+  
+  def nz_monthly_totalisation_cad(self):
+    nzd = self.nz_monthly_totalisation_nzd()
+    total = float(nzd) * nzd_to_cad
+    
+    return round(total, 2)
+  
+  def nz_monthly_totalisation_usd(self):
+    nzd = self.nz_monthly_totalisation_nzd()
+    total = float(nzd) * nzd_to_usd
+    
+    return round(total, 2)
+  
+  def nz_monthly_totalisation_uyu(self):
+    nzd = self.nz_monthly_totalisation_nzd()
     total = float(nzd) * nzd_to_uyu
     
     return round(total, 2)

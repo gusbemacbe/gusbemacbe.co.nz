@@ -58,8 +58,10 @@ INSTALLED_APPS = [
     # third-party apps
     # 'chartjs',
     'dbbackup',
+    'django.contrib.humanize',
     'django_rq',
     'django_extensions',
+    'mathfilters',
     'smuggler',
     'sslserver',
 ]

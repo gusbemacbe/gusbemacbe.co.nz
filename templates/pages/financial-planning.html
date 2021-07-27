@@ -1,7 +1,9 @@
 {% extends '../base.html' %}
 
 {% block content %}
+{% load humanize %}
 {% load static %}
+{% load mathfilters %}
 
 <section class="border-before-footer">
   <div class="container">
@@ -341,11 +343,95 @@
           </div>
 
           <div class="context-text" id="minimum-wage">
-            <p>Primeiramente, segundo o portal do <a href="https://www.employment.govt.nz/hours-and-wages/pay/minimum-wage/minimum-wage-rates/"> Ministério de Negócios, Inovação e Emprego neozelandês</a>, como em [[ date ]], um estagiário ganha [[ trainee ]] dólares neozelandeses por hora, e um adulto ganha [[ adult ]] dólares neozelandeses por hora. Por semana, [[ trainee_week ]] e [[adult_week ]] dólares neozelandes. Por mês, [[ trainee_month ]] e [[adult_month ]] dólares neozelandeses. Por ano, [[ trainee_year ]] e [[ adult_year ]] dólares neozelandeses.</p>
+            <p>Primeiramente, segundo o portal do <a href="https://www.employment.govt.nz/hours-and-wages/pay/minimum-wage/minimum-wage-rates/"> Ministério de Negócios, Inovação e Emprego neozelandês</a>, como em [[ date ]], veja a tabela:</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+
+              <table class="nz-general-salary">
+                <caption>Salários na Nova Zelândia</caption>
+                <thead>
+                  <tr>
+                    <th>Tipo de salário mínimo</th>
+                    <th>Por hora</th>
+                    <th>8 horas por dia</th>
+                    <th>40 horas por semana</th>
+                    <th>Mês</th>
+                    <th>Por ano</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Adulto</td>
+                    <td>{{ nz_adult_hour }}</td>
+                    <td>{{ nz_adult_hour | mul:8 }}</td>
+                    <td>{{ nz_adult_hour | mul:40 }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:12 | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Estagiário</td>
+                    <td>{{ nz_trainee_hour }}</td>
+                    <td>{{ nz_trainee_hour | mul:8 }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:12 | intcomma }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
           </div>
 
           <div class="context-text" id="salary-of-a-developer">
-            <p>O salário minímo anual de um desenvolvedor pleno é 50 mil dólares neozelandeses, o médio é 65 mil e o máximo é 92 mil. Já mensalmente, no minímo, receberá [[ minimum_monthly_salary ]] dólares neozelandeses, no médio [[ average_monthly_salary ]] e no máximo, [[ maximium_monthly_salary ]].</p>
+            <p>Agora veja a tabela do salário do desenvolvedor pleno sênior:</p>
+          </div>
+
+          <div class="razor-vertical-edge">
+            <div class="table" style="overflow-x: auto;">
+
+              <table class="nz-salary-developer">
+                <caption>Salário de desenvolvedor pleno sênior na Nova Zelândia</caption>
+                <thead>
+                  <tr>
+                    <th>Saláro</th>
+                    <th>Por hora</th>
+                    <th>8 horas por dia</th>
+                    <th>40 horas por semana</th>
+                    <th>25 dias</th>
+                    <th>Por ano</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Minímo</td>
+                    <td>{{ nz_minimum_developer_hour }}</td>
+                    <td>{{ nz_minimum_developer_hour | mul:08 | floatformat:"0" }}</td>
+                    <td>{{ nz_minimum_developer_hour | mul:40 | floatformat:"0" }}</td>
+                    <td>{{ nz_minimum_developer_hour | mul:08 | mul:25 | floatformat:"0" }}</td>
+                    <td>{{ nz_minimum_developer_hour | mul:08 | mul:25 | mul:12 | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Médio</td>
+                    <td>{{ nz_average_developer_hour }}</td>
+                    <td>{{ nz_average_developer_hour | mul:08 | floatformat:"0" }}</td>
+                    <td>{{ nz_average_developer_hour | mul:40 | floatformat:"0" }}</td>
+                    <td>{{ nz_average_developer_hour | mul:08 | mul:25 | floatformat:"0" }}</td>
+                    <td>{{ nz_average_developer_hour | mul:08 | mul:25 | mul:12 | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Máximo</td>
+                    <td>{{ nz_maximum_developer_hour }}</td>
+                    <td>{{ nz_maximum_developer_hour | mul:08 | floatformat:"0" }}</td>
+                    <td>{{ nz_maximum_developer_hour | mul:40 | floatformat:"0" }}</td>
+                    <td>{{ nz_maximum_developer_hour | mul:08 | mul:25 | floatformat:"0" }}</td>
+                    <td>{{ nz_maximum_developer_hour | mul:08 | mul:25 | mul:12 | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
           </div>
 
           <div class="advantages-and-disadvantages">
@@ -734,18 +820,212 @@
           <h2>Comparação de totalização mensal e salário minímo</h2>
 
           <div class="context-text">
-            <p>Incluirei apenas as tabelas de contas, comida e aluguel. Compararei o preço total mensal de totalização com um salário minímo mensal geral decretado pelas autoridades neozelandesas, e com um salário médio mensal de um desenvolvedor, e veja quanto sobra:</p>
+            <p>Incluirei apenas as tabelas de contas, comida e aluguel. Não incluirei as tabelas de compras e supermercado (exceto a comida e alguns produtos de higiene e limpeza) por não serem mensais. Compararei o preço total mensal de totalização com um salário minímo mensal geral decretado pelas autoridades neozelandesas, e com um salário médio mensal de um desenvolvedor, e veja quanto sobra.</p>
+          </div>
+
+          <div class="context-text">
+            <p>O aluguel de um apartamento mobiliado ou não é semanal. O preço semanal de ambos os apartamentos mobiliado e não mobiliado é entre 300 e 400 dólares neozelandeses. Agora mensalmente {{ nz_minimum_month_rent }} e {{ nz_maximum_month_rent }} dólares neozelandeses.</p>
+          </div>
+
+          <div class="context-text">
+            <p>Se eu quiser viver no bairro de Ponsorby, um subúrbio no centro da cidade de Auckland ou na Karangahape Road (se houver um aluguel disponível), o preço semanal é entre 440 e 550 dólares neozelandeses.</p>
           </div>
 
           <div class="razor-vertical-edge">
             <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ nz_comparison_minimum_wage | safe }} {% endcomment %}
-            </div>
-          </div>
+              
+              <table class="nz-adult-month-minimum">
+                <caption>Salário de um adulto <br><small>Aluguel geral minímo</small></caption>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Price (NZD)</th>
+                    <th>BRL</th>
+                    <th>CAD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Totalização mensal</td>
+                    <td>{{ nz_monthly_totalisation_nzd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Aluguel</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | intcomma }}</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | mul:nzd_to_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | mul:nzd_to_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | mul:nzd_to_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | mul:nzd_to_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Salário</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | intcomma }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:nzd_to_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:nzd_to_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:nzd_to_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:nzd_to_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Sobro</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | mul:nzd_to_brl | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | mul:nzd_to_cad | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | mul:nzd_to_usd | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | mul:nzd_to_uyu | floatformat:"0" | intcomma }} </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="nz-adult-month-maximum">
+                <caption>Salário de um adulto <br><small>Aluguel geral máximo</small></caption>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Price (NZD)</th>
+                    <th>BRL</th>
+                    <th>CAD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Totalização mensal</td>
+                    <td>{{ nz_monthly_totalisation_nzd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Aluguel</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | intcomma }}</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | mul:nzd_to_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | mul:nzd_to_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | mul:nzd_to_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | mul:nzd_to_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Salário</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | intcomma }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:nzd_to_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:nzd_to_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:nzd_to_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | mul:nzd_to_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Sobro</td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | mul:nzd_to_brl | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | mul:nzd_to_cad | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | mul:nzd_to_usd | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_adult_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | mul:nzd_to_uyu | floatformat:"0" | intcomma }} </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="nz-trainee-month-minimum">
+                <caption>Salário de um estagiário <br><small>Aluguel geral minímo</small></caption>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Price (NZD)</th>
+                    <th>BRL</th>
+                    <th>CAD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Totalização mensal</td>
+                    <td>{{ nz_monthly_totalisation_nzd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Aluguel</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | intcomma }}</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | mul:nzd_to_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | mul:nzd_to_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | mul:nzd_to_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_minimum_week_rent | mul:5 | mul:nzd_to_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Salário</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | intcomma }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:nzd_to_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:nzd_to_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:nzd_to_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:nzd_to_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Sobro</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | mul:nzd_to_brl | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | mul:nzd_to_cad | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | mul:nzd_to_usd | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_minimum_month_rent | mul:nzd_to_uyu | floatformat:"0" | intcomma }} </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="nz-trainee-month-maximum">
+                <caption>Salário de um estagiário <br><small>Aluguel geral máximo</small></caption>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Price (NZD)</th>
+                    <th>BRL</th>
+                    <th>CAD</th>
+                    <th>USD</th>
+                    <th>UYU</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Totalização mensal</td>
+                    <td>{{ nz_monthly_totalisation_nzd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_monthly_totalisation_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Aluguel</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | intcomma }}</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | mul:nzd_to_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | mul:nzd_to_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | mul:nzd_to_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_maximum_week_rent | mul:5 | mul:nzd_to_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Salário</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | intcomma }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:nzd_to_brl | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:nzd_to_cad | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:nzd_to_usd | floatformat:"0" | intcomma }}</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | mul:nzd_to_uyu | floatformat:"0" | intcomma }}</td>
+                  </tr>
+                  <tr>
+                    <td>Sobro</td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | mul:nzd_to_brl | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | mul:nzd_to_cad | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | mul:nzd_to_usd | floatformat:"0" | intcomma }} </td>
+                    <td>{{ nz_trainee_hour | mul:40 | mul:5 | sub:nz_monthly_totalisation_nzd | sub:nz_maximum_month_rent | mul:nzd_to_uyu | floatformat:"0" | intcomma }} </td>
+                  </tr>
+                </tbody>
+              </table>
 
-          <div class="razor-vertical-edge">
-            <div class="table" style="overflow-x: auto;">
-              {% comment %} {{ nz_comparison_minimum_wage_developer | safe }} {% endcomment %}
             </div>
           </div>
 

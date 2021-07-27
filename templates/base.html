@@ -3,23 +3,23 @@
 <head>
 
   {% load static %}
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/colours.css' %}">
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/colours.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
 
   {% if request.path == '/' %}
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
   {% elif request.path == '/aparecida-covid-19-tracker/' %}
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/covid-19.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/covid-19.css' %}">
   {% elif request.path == '/expense/' %}
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/expense.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/expense.css' %}">
   {% elif request.path == '/financial-planning/' %}
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/financial-planning.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/financial-planning.css' %}">
   {% elif request.path == '/portfolio/' %}
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/flickity.css' %}">
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/flickity.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/portfolio.css' %}">
   {% elif request.path == '/projects/' %}
-    <link media="projection, screen, tv" rel="stylesheet" type="text/css" href="{% static 'css/projects.css' %}">
+    <link media="all" rel="stylesheet" type="text/css" href="{% static 'css/projects.css' %}">
   {% else %}
     {% comment %} nothing to comment {% endcomment %}
   {% endif %}
@@ -42,7 +42,7 @@
     {% endblock %}
 
     {% include "footer.html" %}
-      <script type="text/javascript" src="{% static 'js/global.js' %}"></script>
+      <script src="{% static 'js/global.js' %}"></script>
     {% if request.path == '/portfolio/' %}
       <script type="text/javascript" src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
       <script type="text/javascript" src="{% static 'js/flickity.pkgd.min.js' %}"></script>
